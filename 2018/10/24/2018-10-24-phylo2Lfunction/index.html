@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="Liang Xu">
 <meta property="og:description" content="I guess this function is specially useful to our group in which we play with L table.  L table is an alternative way to a phylo class for phylogenetic information storage. The function L2phylo has bee">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-24T09:43:26.636Z">
+<meta property="og:updated_time" content="2018-10-24T09:56:13.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="phylo2L function">
 <meta name="twitter:description" content="I guess this function is specially useful to our group in which we play with L table.  L table is an alternative way to a phylo class for phylogenetic information storage. The function L2phylo has bee">
@@ -387,7 +387,7 @@
                 
               
 
-              <time title="Created: 2018-10-24 11:27:43 / Modified: 11:43:26" itemprop="dateCreated datePublished" datetime="2018-10-24T11:27:43+02:00">2018-10-24</time>
+              <time title="Created: 2018-10-24 11:27:43 / Modified: 11:56:13" itemprop="dateCreated datePublished" datetime="2018-10-24T11:27:43+02:00">2018-10-24</time>
             
 
             
@@ -485,11 +485,13 @@
 <p>L table is an alternative way to a phylo class for phylogenetic information storage. The function <code>L2phylo</code> has been implemented in the <a href="https://cran.r-project.org/web/packages/DDD/index.html" target="_blank" rel="noopener">DDD package</a> that converts an L table to a phylo class. This function <code>phylo2L</code> does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you.</p>
 <a id="more"></a>
 <p><code>phylo2L</code> function can be found <a href="https://github.com/xl0418/Code/blob/99133e6e5744be7382c038edc5701cd494d8e76c/Pro2/R_p2/phylo2L.R" target="_blank" rel="noopener">here</a> if you want to improve the function. I have verified it by examining if </p>
-<pre><code>L=phylo2L(L2phylo(L))
-</code></pre><p>Notice that <code>phylo2L</code> doesn’t have the argument <code>dropextinct</code> as what <code>L2phylo</code> has. Because to my perspective L table should be consistent with the given phylo class. But if you have a full tree on hand and want to prune it, you can do it like this</p>
-<pre><code>prune_phylo = L2phylo(phylo2L(full tree), dropextinct = TRUE)
+<pre><code class="R">L=phylo2L(L2phylo(L))
+</code></pre>
+<p>Notice that <code>phylo2L</code> doesn’t have the argument <code>dropextinct</code> as what <code>L2phylo</code> has. Because to my perspective L table should be consistent with the given phylo class. But if you have a full tree on hand and want to prune it, you can do it like this</p>
+<pre><code class="R">prune_phylo = L2phylo(phylo2L(full tree), dropextinct = <span class="literal">TRUE</span>)
 prune_L = phylo2L(prune_phylo)
-</code></pre><p>Or you can use <a href="https://github.com/xl0418/Code/blob/f4dfd4acc15af6855572fb4659f396cea14bb83b/Pro2/R_p2/pruneL.R" target="_blank" rel="noopener"><code>pruneL</code></a> function that I have developed to prune an L table. More details on <code>pruneL</code> function can be found in this <a href="https://xl0418.github.io/2018/10/24/2018-10-24-pruneLfunction/">post</a>.</p>
+</code></pre>
+<p>Or you can use <a href="https://github.com/xl0418/Code/blob/f4dfd4acc15af6855572fb4659f396cea14bb83b/Pro2/R_p2/pruneL.R" target="_blank" rel="noopener"><code>pruneL</code></a> function that I have developed to prune an L table. More details on <code>pruneL</code> function can be found in this <a href="https://xl0418.github.io/2018/10/24/2018-10-24-pruneLfunction/">post</a>.</p>
 
       
     </div>
