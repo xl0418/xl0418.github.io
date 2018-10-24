@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[pruneL function]]></title>
     <url>%2F2018%2F10%2F24%2F2018-10-24-pruneLfunction%2F</url>
-    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. But less useful than phylo2L function :-) Following last post, this function pruneL prune an L table by removing the extinct lineages. pruneL function can be found here if you want to improve the function. There is a huge room for improvement. This version is only the first draft of the function. And I guess I should remove the argument dropextinct. It doesn’t make any sense. What do you think?]]></content>
+    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. But less useful than phylo2L function :-) Following last post, this function pruneL prunes an L table by removing the extinct lineages. pruneL function can be found here if you want to improve the function. There is a huge room for improvement. This version is only the first draft of the function. And I guess I should remove the argument dropextinct. It doesn’t make any sense. What do you think?]]></content>
       <categories>
         <category>Research</category>
       </categories>
