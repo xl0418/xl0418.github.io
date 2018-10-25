@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://xl0418.github.io/2018/10/22/2018-10-22-IntrotoPro1/Trees_S2.jpg">
 <meta property="og:image" content="http://xl0418.github.io/2018/10/22/2018-10-22-IntrotoPro1/Powertable.jpg">
 <meta property="og:image" content="http://xl0418.github.io/2018/10/22/2018-10-22-IntrotoPro1/Est_S2VS.jpg">
-<meta property="og:updated_time" content="2018-10-23T10:59:24.662Z">
+<meta property="og:updated_time" content="2018-10-25T10:26:51.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PhD Project 1-Detecting local diversity-dependence in diversification">
 <meta name="twitter:description" content="Welcome to Liang&amp;apos;s blog! This is my first PhD project since 2015 joining Etienne&amp;apos;s lab. You will find a brief introduction to this project. The code for the model can be found on my GitHub.">
@@ -408,7 +408,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-23 12:59:24" itemprop="dateModified" datetime="2018-10-23T12:59:24+02:00">2018-10-23</time>
+                <time title="Modified: 2018-10-25 12:26:51" itemprop="dateModified" datetime="2018-10-25T12:26:51+02:00">2018-10-25</time>
               
             
           </span>
@@ -498,7 +498,7 @@
 
       
         <p>Welcome to <a href="https://xl0418.github.io/">Liang&apos;s blog</a>! This is my first PhD project since 2015 joining <a href="https://www.rug.nl/staff/r.s.etienne/" target="_blank" rel="noopener">Etienne&apos;s lab</a>. You will find a brief introduction to this project. The code for the model can be found on my <a href="https://github.com/xl0418/code" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>This my first formal research project starting from December of 2015 to February 2018 when the paper gets published. It seems to take quite a long time. Because I spent some time to switch from mathematics to evolutionary science and writing paper costs time as well. Anyway, to commemorate the first paper. </p>
+<p>This my first formal research project starting from December of 2015 to February 2018 when the paper gets published. It seems to take quite a long time. Because I spent some time to switch from mathematics to evolutionary science and writing paper costs time as well. Anyway, to commemorate the first paper. </p>
 <a id="more"></a>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Whether there are ecological limits to species diversification is a hotly debated topic. Molecular phylogenies show slowdowns in lineage accumulation, suggesting that speciation rates decline with increasing diversity. A maximum likelihood method to detect diversity-dependent diversification from phylogenetic branching times exists, but it assumes that diversity-dependence is a global phenomenon and therefore ignores that the underlying species interactions are mostly local, and not all species in the phylogeny co-occur locally. Here, we explore whether this maximum likelihood method based on the non-spatial diversity-dependence model can detect local diversity-dependence, by applying it to phylogenies, simulated with a spatial stochastic model of local-diversity-dependent speciation, extinction and dispersal between two local communities. We find that type I errors (falsely detecting diversity-dependence) are low, and the power to detect diversity-dependence is high when dispersal rates are not too low. Interestingly, when dispersal is high the power to detect diversity-dependence is even higher than in the non-spatial model. Moreover, estimates of intrinsic speciation rate, extinction rate and ecological limit strongly depend on dispersal rate. We conclude that the non-spatial diversity-dependent approach can be used to detect diversity-dependence in clades of species that live in not too disconnected areas, but parameter estimates must be interpreted cautiously.</p>
 <h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>We have developed a spatial diversity-dependent diversification model to explore if the global version of the diversity-dependence approach could detect the diversity-dependent signal on the spatial scenario. </p>
@@ -758,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">2.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">3.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generating-trees"><span class="nav-number">4.</span> <span class="nav-text">Generating trees</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applying-the-bootstrapping-analysis"><span class="nav-number">5.</span> <span class="nav-text">Applying the bootstrapping analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parameter-inference"><span class="nav-number">6.</span> <span class="nav-text">Parameter inference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">7.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generating-trees"><span class="nav-number">3.</span> <span class="nav-text">Generating trees</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applying-the-bootstrapping-analysis"><span class="nav-number">4.</span> <span class="nav-text">Applying the bootstrapping analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parameter-inference"><span class="nav-number">5.</span> <span class="nav-text">Parameter inference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
