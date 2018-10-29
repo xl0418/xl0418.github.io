@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://xl0418.github.io/2018/10/29/2018-10-29-sed/rawdata.png">
 <meta property="og:image" content="http://xl0418.github.io/2018/10/29/2018-10-29-sed/ds.png">
 <meta property="og:image" content="http://xl0418.github.io/2018/10/29/2018-10-29-sed/d.png">
-<meta property="og:updated_time" content="2018-10-29T10:05:55.799Z">
+<meta property="og:updated_time" content="2018-10-29T10:41:50.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Extracting information via sed">
 <meta name="twitter:description" content="In the third project, a bunch of mega data are generated for analysis. However, the simulated data is too big to load in memory. Thus, I need to extract some information without opening the file. Afte">
@@ -391,7 +391,7 @@
                 
               
 
-              <time title="Created: 2018-10-29 10:22:14 / Modified: 11:05:55" itemprop="dateCreated datePublished" datetime="2018-10-29T10:22:14+01:00">2018-10-29</time>
+              <time title="Created: 2018-10-29 10:22:14 / Modified: 11:41:50" itemprop="dateCreated datePublished" datetime="2018-10-29T10:22:14+01:00">2018-10-29</time>
             
 
             
@@ -451,7 +451,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.1k</span>
+                <span title="Symbols count in article">3.8k</span>
               
 
               
@@ -465,7 +465,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -494,14 +494,17 @@
 <p>As you see, there are in total 25 data files I need to deal with. For each data file, <code>sed</code> finds the line starting with “\(D\left\{length(D)+1\right\} = [\)” till “\(];\)” from the file testji.m and writes/prints (\(p\)) all the matched lines to the file Dsji.Rdata. </p>
 <p><img src="/2018/10/29/2018-10-29-sed/ds.png" alt="All D matrix are extracted."></p>
 <h2 id="Replacing-the-last-D-matrix"><a href="#Replacing-the-last-D-matrix" class="headerlink" title="Replacing the last D matrix"></a>Replacing the last D matrix</h2><p>Then, I want to extract the last  \(\boldsymbol{D}\) matrix. How can I do that? Use the following code:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">A=$(grep -c <span class="string">'D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">' = \['</span> Ds<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata)</span><br><span class="line">B=$[<span class="variable">$A</span>-1]</span><br><span class="line">sed <span class="string">'/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/&#123;G;s/\nX\&#123;'</span><span class="variable">$B</span><span class="string">'\&#125;//;tend;x;s/^/X/;x;P;d&#125;;p;d;:end;s/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/D/;:a;n;ba'</span> Ds<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata&gt;Dt<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br><span class="line">sed -n <span class="string">'/D = \[\r/,/\];/p'</span> Dt<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata &gt; D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br><span class="line"></span><br><span class="line">C=$(cat D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata |wc -l)</span><br><span class="line">C=$[<span class="variable">$C</span>-2]</span><br><span class="line">D=$[<span class="variable">$C</span>+1]</span><br><span class="line"></span><br><span class="line">sed -i -e <span class="string">'s/D = \[/D = structure(c(/'</span> -e <span class="string">'s/\];/),.Dim=c('</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">','</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">'))/'</span> -e <span class="string">'s/;//g'</span> -e <span class="string">'2,$&#123;s/ /,/g&#125;'</span> -e <span class="string">'2,$&#123;s/,,/ /g&#125;'</span> -e <span class="string">'3,'</span>$(<span class="built_in">echo</span> <span class="variable">$D</span>)<span class="string">'&#123;s/^/,/g&#125;'</span> D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$j</span><span class="variable">$i</span><span class="string">' done'</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">A=$(grep -c <span class="string">'D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">' = \['</span> Ds<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata)</span><br><span class="line">B=$[<span class="variable">$A</span>-1]</span><br><span class="line">sed <span class="string">'/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/&#123;G;s/\nX\&#123;'</span><span class="variable">$B</span><span class="string">'\&#125;//;tend;x;s/^/X/;x;P;d&#125;;p;d;:end;s/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/D/;:a;n;ba'</span> Ds<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata&gt;Dt<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br><span class="line">sed -n <span class="string">'/D = \[\r/,/\];/p'</span> Dt<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata &gt; D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br><span class="line"></span><br><span class="line">C=$(cat D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata |wc -l)</span><br><span class="line">C=$[<span class="variable">$C</span>-2]</span><br><span class="line">D=$[<span class="variable">$C</span>+1]</span><br><span class="line"></span><br><span class="line">sed -i -e <span class="string">'s/D = \[/D = structure(c(/'</span> -e <span class="string">'s/\];/),.Dim=c('</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">','</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">'))/'</span> -e <span class="string">'s/;/ /g'</span> -e <span class="string">'2,$&#123;s/ /,/g&#125;'</span> -e <span class="string">'2,$&#123;s/,,/ /g&#125;'</span> -e <span class="string">'3,'</span>$(<span class="built_in">echo</span> <span class="variable">$D</span>)<span class="string">'&#123;s/^/,/g&#125;'</span> D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$j</span><span class="variable">$i</span><span class="string">' done'</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 <p>The command <code>grep</code> returns the number of the replicates of the line “\(D\left\{length(D)+1\right\} = [\)”. Then <code>sed</code> replaces the head of the last matrix with \(D\) and extracts this matrix out and writes into file Dij.Rdata. As I want to work in R with these results, I reformat the structure of the results to fit the matrix format in R which is something like:</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D = structure(c(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),.Dim=c(<span class="number">2</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
 <p>At last, I can directly <code>source</code> the file in R and read the matrix. </p>
 <p><img src="/2018/10/29/2018-10-29-sed/d.png" alt="The last D matrix is captured."></p>
-<h2 id="Details-in-sed"><a href="#Details-in-sed" class="headerlink" title="Details in sed"></a>Details in sed</h2><p>The first <code>sed</code> in the sencond script is the key part in this function. </p>
+<h2 id="Details-in-sed"><a href="#Details-in-sed" class="headerlink" title="Details in sed"></a>Details in sed</h2><p>The first <code>sed</code> in the second script is the key part in this function. </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">'/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/&#123;G;s/\nX\&#123;'</span><span class="variable">$B</span><span class="string">'\&#125;//;tend;x;s/^/X/;x;P;d&#125;;p;d;:end;s/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/D/;:a;n;ba'</span> Ds<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata&gt;Dt<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br></pre></td></tr></table></figure>
 <p>I kind of forget what every letter in this command means. What it does is to firstly replace \(A-1\) previous matrix with some character and count to \(A\) and then replace the \(A\)th head by \(D\). If you know more, please comment after the post. Thanks!</p>
+<p>The third <code>sed</code> reformats the matrix to fit in R. <code>-e</code> executes several commands in one line. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e <span class="string">'s/D = \[/D = structure(c(/'</span> -e <span class="string">'s/\];/),.Dim=c('</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">','</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">'))/'</span> -e <span class="string">'s/;/ /g'</span> -e <span class="string">'2,$&#123;s/ /,/g&#125;'</span> -e <span class="string">'2,$&#123;s/,,/ /g&#125;'</span> -e <span class="string">'3,'</span>$(<span class="built_in">echo</span> <span class="variable">$D</span>)<span class="string">'&#123;s/^/,/g&#125;'</span> D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br></pre></td></tr></table></figure>
+<p>The first segment replaces “\(D = [ \)” with “\(D = structure(c( \)” while the second replaces the tail “];” with “(,.Dim=c(row,col)”. Then all the signs “;” are substituted by space and the single space is substituted by “,” from the second line to the end. Following the replacement of “,,” by space from the second line and add “,” at the beginning of the line from the third line on. Finally, a standard matrix form is rebuilt.   </p>
 
       
     </div>
@@ -801,7 +804,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">18k</span>
+    <span title="Symbols count total">19k</span>
   
 
   
@@ -810,7 +813,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">13 mins.</span>
+    <span title="Reading time total">14 mins.</span>
   
 </div>
 
