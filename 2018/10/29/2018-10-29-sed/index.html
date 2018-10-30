@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://xl0418.github.io/2018/10/29/2018-10-29-sed/rawdata.png">
 <meta property="og:image" content="http://xl0418.github.io/2018/10/29/2018-10-29-sed/ds.png">
 <meta property="og:image" content="http://xl0418.github.io/2018/10/29/2018-10-29-sed/d.png">
-<meta property="og:updated_time" content="2018-10-30T15:55:42.371Z">
+<meta property="og:updated_time" content="2018-10-30T15:56:05.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Extracting information via sed">
 <meta name="twitter:description" content="In the third project, a bunch of mega data are generated for analysis. However, the simulated data is too big to load in memory. Thus, I need to extract some information without opening the file. Afte">
@@ -408,7 +408,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-30 16:55:42" itemprop="dateModified" datetime="2018-10-30T16:55:42+01:00">2018-10-30</time>
+                <time title="Modified: 2018-10-30 16:56:05" itemprop="dateModified" datetime="2018-10-30T16:56:05+01:00">2018-10-30</time>
               
             
           </span>
@@ -517,7 +517,7 @@
 <p>The third <code>sed</code> reformats the matrix to fit in R. <code>-e</code> executes several commands in one line. </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e <span class="string">'s/D = \[/D = structure(c(/'</span> -e <span class="string">'s/\];/),.Dim=c('</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">','</span>$(<span class="built_in">echo</span> <span class="variable">$C</span>)<span class="string">'))/'</span> -e <span class="string">'s/;/ /g'</span> -e <span class="string">'2,$&#123;s/ /,/g&#125;'</span> -e <span class="string">'2,$&#123;s/,,/ /g&#125;'</span> -e <span class="string">'3,'</span>$(<span class="built_in">echo</span> <span class="variable">$D</span>)<span class="string">'&#123;s/^/,/g&#125;'</span> D<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br></pre></td></tr></table></figure>
 <p>The first segment replaces “\(D = [ \)” with “\(D = structure(c( \)” while the second replaces the tail “];” with “(,.Dim=c(row,col)”. Then all the signs “;” are substituted by space and the single space is substituted by “,” from the second line to the end. Following the replacement of “,,” by space from the second line and add “,” at the beginning of the line from the third line on. Finally, a standard matrix form is rebuilt.  </p>
-<p>BTW, a good tutorial guild can be found <a href="http://www.grymoire.com/Unix/Sed.html" target="_blank" rel="noopener">here</a>. Have fun! </p>
+<p>BTW, a good tutorial can be found <a href="http://www.grymoire.com/Unix/Sed.html" target="_blank" rel="noopener">here</a>. Have fun! </p>
 
       
     </div>
