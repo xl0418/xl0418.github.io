@@ -106,20 +106,20 @@
 
 
 
-  <meta name="description" content="Finally, I realized drawing the evolution of SMC in R instead of in Python. Here, two illustrations are given.">
+  <meta name="description" content="Finally, I have done visualizing the evolution of SMC in R instead of in Python. Here, two illustrations are given.">
 <meta name="keywords" content="R,ggplot,SMC,Data visualization">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Draw the evolution of SMC">
 <meta property="og:url" content="http://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Finally, I realized drawing the evolution of SMC in R instead of in Python. Here, two illustrations are given.">
+<meta property="og:description" content="Finally, I have done visualizing the evolution of SMC in R instead of in Python. Here, two illustrations are given.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/Rplot1.png">
 <meta property="og:image" content="http://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/Rplot2.png">
-<meta property="og:updated_time" content="2018-11-30T14:35:20.019Z">
+<meta property="og:updated_time" content="2018-12-05T16:11:05.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Draw the evolution of SMC">
-<meta name="twitter:description" content="Finally, I realized drawing the evolution of SMC in R instead of in Python. Here, two illustrations are given.">
+<meta name="twitter:description" content="Finally, I have done visualizing the evolution of SMC in R instead of in Python. Here, two illustrations are given.">
 <meta name="twitter:image" content="http://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/Rplot1.png">
 
 
@@ -390,12 +390,24 @@
                 
               
 
-              <time title="Created: 2018-11-30 15:35:19 / Modified: 15:35:20" itemprop="dateCreated datePublished" datetime="2018-11-30T15:35:19+01:00">2018-11-30</time>
+              <time title="Created: 2018-11-30 15:35:19" itemprop="dateCreated datePublished" datetime="2018-11-30T15:35:19+01:00">2018-11-30</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-05 17:11:05" itemprop="dateModified" datetime="2018-12-05T17:11:05+01:00">2018-12-05</time>
               
             
           </span>
@@ -484,7 +496,7 @@
       
 
       
-        <p>Finally, I realized drawing the evolution of SMC in R instead of in Python. Here, two illustrations are given. </p>
+        <p>Finally, I have done visualizing the evolution of SMC in R instead of in Python. Here, two illustrations are given. </p>
 <a id="more"></a>
 <h2 id="Generating-Data"><a href="#Generating-Data" class="headerlink" title="Generating Data"></a>Generating Data</h2><p>The data I used in the examples is generated under SMC applying on our trait-population coevolution model, a likelihood-free method for searching the true parameters when an analytic formulation of the model is not achievable. The data is consisting of 30 iterations samples. Each iteration contains 10K sampling. The algorithm starts by sampling from a uniform distribution in range (0,1). After each iteration, it computes the fitness of the samples and highly weights the samples with high fitness. Finally, it converges to the true value.  </p>
 <h2 id="Mountain-plot"><a href="#Mountain-plot" class="headerlink" title="Mountain plot"></a>Mountain plot</h2><p>Mountain plot is recently highly evaluated theme for comparing the distribution of data across groups. The idea is stem from <a href="https://twitter.com/hnrklndbrg/status/883675698300420098" target="_blank" rel="noopener">Henrik’s plot</a></p>
