@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[ggradar2: plot a radar chart for your data]]></title>
+    <title><![CDATA[ggradar2: deploy a radar for your data]]></title>
     <url>%2F2018%2F12%2F05%2F2018-12-05-ggradar2%2F</url>
     <content type="text"><![CDATA[ggradar2 is now available. A large amount of features have been added to make your radar chart powerful. See ggradar2 on my Github Introductionggradar2 is a gg-function to draw a radar plot for data analysis. It is stem from ggradar but has been extended with more cool features. Install ggradar2Run the code 1devtools::install_github("xl0418/ggradar2",dependencies=TRUE) Use ggradar2Load data.12345678910library(ggradar2)data(mtcars)% Extract the group names. Otherwise, the first column will be chosen as the group names.group = row.names(mtcars)df = cbind(group,mtcars)% The radar chart is not a nice presentation if you want to compare too many groups. Thus here % we only focus on 4 groups.dftest = head(df,4)% To better distinguish two different styles, 6 groups are selected for illustration.dftest = dftest[,1:7] Default styleBy default 1ggradar2(dftest) returns No fill with round gridIf you don’t want to fill the polygon, run 1ggradar2(dftest,polygonfill = FALSE) Web typeA new web type ‘lux’ has been added by webtype. mini type 1ggradar2(dftest,webtype = 'mini') luxurious type 1ggradar2(dftest,webtype = 'lux') Gird line trendUse grid.line.trend = &#39;increase&#39; to plot an outward-increasing grid lines. 123ggradar2(dftest,style = 'straight',webtype = 'lux', group.line.width = 0.5,grid.line.trend = 'increase',gridline.min.linetype = 'solid', gridline.max.linetype = 'solid',gridline.min.colour = 'black',gridline.max.colour='black') Full scoreUse fullscore = c(...) to set the full score to each variable. 12fullscore &lt;- c(100,10,300,150,10,10)a &lt;- ggradar2(dftest,fullscore = fullscore) Sharp gridA new style has been added. Call out the straight line style by running 1ggradar2(dftest,style = 'straight') Sharp grid without fillGet rid of the fill 1ggradar2(dftest,style = 'straight',polygonfill = FALSE) Removing the legend12ggradar2(dftest,style = 'straight',polygonfill = FALSE,plot.legend = FALSE) Multiple plots by subgroups1234567# Extract 3 brands of cars out of the data framefacettest &lt;- df[c(1,2,4,5,8:14),]# Set the subgroup namesfacet1 &lt;- mapply(rep,c('Mazda','Hornet','Merc'),c(2,2,7))facet1 &lt;- Reduce(c,facet1)facettest &lt;- cbind(facettest,facet1)ggradar2(facettest,multiplots = '1D') Notice that the column name for the subgroups should be ‘facet1’. Otherwise, ggradar2 could not recognize it.]]></content>
       <categories>
@@ -10,8 +10,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>Data visualization</tag>
         <tag>ggradar2</tag>
+        <tag>Data visualization</tag>
       </tags>
   </entry>
   <entry>
@@ -24,8 +24,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>SMC</tag>
         <tag>Data visualization</tag>
+        <tag>SMC</tag>
       </tags>
   </entry>
   <entry>
