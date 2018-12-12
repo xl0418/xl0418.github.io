@@ -107,7 +107,7 @@
 
 
   <meta name="description" content="ggradar2 is  now available. A large amount of features have been added to make your radar chart powerful. See ggradar2 on my Github">
-<meta name="keywords" content="R,ggplot,Data visualization,ggradar2">
+<meta name="keywords" content="R,ggplot,ggradar2,Data visualization">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ggradar2: deploy a radar to your data ">
 <meta property="og:url" content="http://xl0418.github.io/2018/12/05/2018-12-05-ggradar2/index.html">
@@ -124,7 +124,7 @@
 <meta property="og:image" content="http://xl0418.github.io/2018/12/05/2018-12-05-ggradar2/straightnofill.png">
 <meta property="og:image" content="http://xl0418.github.io/2018/12/05/2018-12-05-ggradar2/nolegend.png">
 <meta property="og:image" content="http://xl0418.github.io/2018/12/05/2018-12-05-ggradar2/multipleplotsbig.png">
-<meta property="og:updated_time" content="2018-12-10T13:17:01.764Z">
+<meta property="og:updated_time" content="2018-12-12T08:17:35.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ggradar2: deploy a radar to your data ">
 <meta name="twitter:description" content="ggradar2 is  now available. A large amount of features have been added to make your radar chart powerful. See ggradar2 on my Github">
@@ -415,7 +415,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-10 14:17:01" itemprop="dateModified" datetime="2018-12-10T14:17:01+01:00">2018-12-10</time>
+                <time title="Modified: 2018-12-12 09:17:35" itemprop="dateModified" datetime="2018-12-12T09:17:35+01:00">2018-12-12</time>
               
             
           </span>
@@ -538,7 +538,7 @@
 <p><img src="/2018/12/05/2018-12-05-ggradar2/straightnofill.png" alt="default"></p>
 <h3 id="Removing-the-legend"><a href="#Removing-the-legend" class="headerlink" title="Removing the legend"></a>Removing the legend</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ggradar2(dftest,style = <span class="string">'sharp'</span>,</span><br><span class="line">polygonfill = <span class="literal">FALSE</span>,plot.legend = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/12/05/2018-12-05-ggradar2/nolegend.png" alt="default"></p>
-<h3 id="Multiple-plots-by-subgroups"><a href="#Multiple-plots-by-subgroups" class="headerlink" title="Multiple plots by subgroups"></a>Multiple plots by subgroups</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extract 3 brands of cars out of the data frame</span></span><br><span class="line">facettest &lt;- df[c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>:<span class="number">14</span>),]</span><br><span class="line"><span class="comment"># Set the subgroup names</span></span><br><span class="line">facet1 &lt;- mapply(rep,c(<span class="string">'Mazda'</span>,<span class="string">'Hornet'</span>,<span class="string">'Merc'</span>),c(<span class="number">2</span>,<span class="number">2</span>,<span class="number">7</span>))</span><br><span class="line">facet1 &lt;- Reduce(c,facet1)</span><br><span class="line">facettest &lt;- cbind(facettest,facet1)</span><br><span class="line">ggradar2(facettest,multiplots = <span class="string">'1D'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Multiple-plots-by-subgroups"><a href="#Multiple-plots-by-subgroups" class="headerlink" title="Multiple plots by subgroups"></a>Multiple plots by subgroups</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extract 3 brands of cars out of the data frame</span></span><br><span class="line">facettest &lt;- df[c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>:<span class="number">14</span>),]</span><br><span class="line"><span class="comment"># Set the subgroup names</span></span><br><span class="line">facet1 &lt;- mapply(rep,c(<span class="string">'Mazda'</span>,<span class="string">'Hornet'</span>,<span class="string">'Merc'</span>),c(<span class="number">2</span>,<span class="number">2</span>,<span class="number">7</span>))</span><br><span class="line">facet1 &lt;- Reduce(c,facet1)</span><br><span class="line">facettest &lt;- cbind(facettest,facet1)</span><br><span class="line">ggradar2(facettest,multiplots = <span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure>
 <p>Notice that the column name for the subgroups should be ‘facet1’. Otherwise, ggradar2 could not recognize it.</p>
 <p><img src="/2018/12/05/2018-12-05-ggradar2/multipleplotsbig.png" alt="default"></p>
 
@@ -574,9 +574,9 @@
           
             <a href="/tags/ggplot/" rel="tag"><i class="fa fa-tag"></i> ggplot</a>
           
-            <a href="/tags/Data-visualization/" rel="tag"><i class="fa fa-tag"></i> Data visualization</a>
-          
             <a href="/tags/ggradar2/" rel="tag"><i class="fa fa-tag"></i> ggradar2</a>
+          
+            <a href="/tags/Data-visualization/" rel="tag"><i class="fa fa-tag"></i> Data visualization</a>
           
         </div>
       
