@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PyCUDA series 1: Build GPU programming environment]]></title>
+    <url>%2F2019%2F01%2F04%2F2019-01-04-PyCUDA%20series%201%20Build%20GPU%20programming%20environment%2F</url>
+    <content type="text"><![CDATA[As my research always involves a huge amount of computation, parallel technique is a super fancy way to save my time. But the resource of cluster at my university is limited. I recently received a warning that CIT has detected multiple-account usage under my IP. To avoid the risk of being fired, I have to figure out another way to parallelize my job instead of parallelizing accounts. Right on time, GPU programming came out as an ideal option. I hope the GPU resource of my university is not full loaded yet. Due to some incompatibilities of CUDA and Visual Studio 2017, I spent half a day to figure out the solutions and finally succeeded building up GPU programming environment on Windows 10 with Pycuda installed in Python. Here, I post the procedure of the build and some solutions to the incompatibilities. PrerequisiteFor now, I am working on Windows 10 with Python 3.7.0. The CUDA version that is compatibly built up for me is CUDA 10.0. I used Pycharm 2018.3 as the Python IDE. Probably I will try to build on OS 10 soon in the future. Simple procedure Install Python 3.7 and PyCharm 2018.3. Install Visual Studio 2017 as CUDA needs C++ compile. Open the Visual Studio installer under the folder Visual Studio 2017. Select: Modify under Visual Studio 2017 -&gt; Installation details. Install options: select only the Windows 10 SDK. Install CUDA 10.0 and follow the steps here to set up CUDA environment. Tips To make sure that CUDA is successfully installed, check nvcc -v at your terminal. The step to build samples in Nvidia’s guide is not necessary. I couldn’t build the samples due to some incompatibilities of vs c++ but still have it work on Python. Problem shooting CUDA install failed I only came across this issue on my desktop at office that has an old monitor. Then, I resolved it by customizing the installation with uncheck of Visual Studio integration. No idea why but it works. Also check answer here nvcc fatal : Cannot find compiler ‘cl.exe’ in PATH Check here. In principle, you should add cl.exe to the environment variables.]]></content>
+      <categories>
+        <category>Research</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>CUDA</tag>
+        <tag>GPU programming</tag>
+        <tag>Parallel computation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ggradar2: Help document]]></title>
     <url>%2F2018%2F12%2F07%2F2018-12-07-ggradar2helpdocument%2F</url>
     <content type="text"><![CDATA[In this blog, the details of the arguments used in ggradar2 are provided. ggradar2: argumentsplot.data :The input data should be in the data.frame format with columns named. The values in the data are supposed to be numeric. If you want to apply scales like ‘high’, ‘middle’, ‘low’. Please evaluate them first and put them as gridline.label . Notice that ‘group’ column is suggested to included in your data. ggradar2 now can smartly detect if ‘group’ is correctly provided. If not, you will be asked if the first column is allowed to defined as the group column. 1WARNING: &apos;group&apos; column is not detected. The first column will be chosen as the group name. Yes/no? (y/n) If you want to plot multiple plots against some subgroups, please specify it in the column data$facet1. base.size: The size of radar chart. The default value is 20. webtype: &quot;mini&quot; set a web type with 3 grid lines while &quot;lux&quot; set a type with 5 grid lines. Default setting is &quot;mini&quot;. axis.labels: The label of each column in your data is plotted around the radar. axis.label.offset: The offset of axis labels. axis.label.size: The size of axis labels. axis.line.colour: The color of axis labels. grid.min, grid.max: Rescale your values in this range. centre.y: The radius of inner circle. label.centre.y: TRUE prints the central value. FALSE turns it off. grid.line.width: The width of grid lines. grid.line.trend: &quot;classic&quot; sets equal width of the grid lines. &quot;increase&quot; sets an outward-increasing width of the grid lines. &quot;decrease&quot; sets an outward-decreasing width of the grid lines. gridline.min.linetype, gridline.mid.linetype, gridline.max.linetype: Set the grid line type for the inner, middle and outer circles. The default setting is &quot;longdash&quot;. gridline.min.colour, gridline.mid.colour, gridline.max.colour: Set the colors for the inner, middle and outer circles. The default settings are &quot;grey&quot;, &quot;#007A87&quot;, &quot;grey&quot;. grid.label.size: Set the size of grid labels. gridline.label.offset: The offset of grid labels. gridline.label: The default setting is the percentage. Replace it with your labels. group.line.width: The width of group lines. group.point.size: The size of the point in each axis for group lines. group.colours: Set colors for the group lines. polygonfill: Turn on/off the polygon fill. polygonfill.transparency: The transparency of polygon fills. group.fill.colours: The colors of polygon fills. background.circle.colour: The background color for the radar. background.circle.transparency: The transparency of the background. radarshape: &quot;round&quot; gives you a round radar. &quot;sharp&quot; gives you a sharp radar. multiplots: Turn on/off multi-plotting function. If on, data$facet1 column should be included in your data. TRUE/FALSE fullscore: Set full scores to your values. stripbackground: Turn on/off the background for the panels of multiple plots. The followings are basic settings. 1234legend.title="",plot.legend=TRUE,plot.title="",legend.text.size=14,]]></content>
@@ -10,8 +24,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>ggradar2</tag>
         <tag>Data visualization</tag>
+        <tag>ggradar2</tag>
         <tag>help document</tag>
       </tags>
   </entry>
@@ -25,8 +39,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>ggradar2</tag>
         <tag>Data visualization</tag>
+        <tag>ggradar2</tag>
       </tags>
   </entry>
   <entry>
@@ -39,8 +53,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>Data visualization</tag>
         <tag>SMC</tag>
+        <tag>Data visualization</tag>
       </tags>
   </entry>
   <entry>
