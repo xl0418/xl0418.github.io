@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Sed again: run on Ubuntu to avoid weird behavior]]></title>
     <url>%2F2019%2F01%2F10%2F2019-01-10sed2%2F</url>
-    <content type="text"><![CDATA[As my 2nd project is close to an end, it is right the time to go back to the phylogenetic Janzen-Connell model. Simulations and plotting functions have been done during the gap time squeezed from the 2nd project. The last thing is to analyze the data, in which I bumped into a weird bug of sed. The data fileIn this project, I have generated in total 108 data file in .m (Matlab) format. Each file contain distance matrix, abundance vector, event table and turnover ticks that I want to extract and analyze exclusively. Extract the matrixThe procedure is simple. I modified the previous experimental bash scripts a bit to fit the file names of data. Then execute them sequentially on Windows prompt. Run extractallDs.sh and extractallRs.sh to extract all D matrix and R matrix from the raw files into LRsij.Rdata,MRsij.Rdata,HRsij.Rdata,LDsij.Rdata,MDsij.Rdata,HDsij.Rdata. Run Dlast.sh to extract the last D and R matrix into LDij.Rdata,LRij.Rdata,MDij.Rdata,MRij.Rdata,HDij.Rdata,HRij.Rdata. Do the same thing to extract event table and turnover ticks by running loopextractEve_Turn.sh like But I obtained nothing in the files. Bug shootingSame simulation code generates the same data structure. But why couldn’t the same bash script extract information as before? At that moment, I kind of had a feeling that it must be that the script cannot recognize the newline sign. like the following, if the computer cannot match \r that should be the code for the newline under windows and DOS, the script extracts nothing. 123456789#!/bin/bashfor j in &#123;0..4&#125;;dofor i in &#123;0..4&#125;;do sed -n '/D'&#123;'length(D)+1'&#125;' = \[\r/,/\];/p' test"$j$i".m &gt; Ds"$j$i".Rdataecho $j$i' done'donedone But after I changed it to \n that is the right code for linux file, it didn’t work neither. Even after changing the file code via unix2dos, none of the means worked. \(\boldsymbol{At last}\), after several hours of googling, thinking, patting the computer, I tried out the solution. The scripts need to be executed under linux system. I launched them on Ubuntu, the newline sign was recognized. But it is still a mystery to me that why on a windows prompt none of \r and \n can be recognized. If you know it, pls reply this post. Thanks!]]></content>
+    <content type="text"><![CDATA[As my 2nd project is close to an end, it is right the time to go back to the phylogenetic Janzen-Connell model. Simulations and plotting functions have been done during the gap time squeezed from the 2nd project. The last thing is to analyze the data, in which I bumped into a weird behavior of sed. The data fileIn this project, I have generated in total 108 data file in .m (Matlab) format. Each file contain several distance matrix, abundance vectors, an event table and turnover ticks that I want to extract and analyze exclusively. Extract the matrixThe procedure is simple. I modified the previous experimental bash scripts a bit to fit the file names of data. Then execute them sequentially on Windows prompt. Run extractallDs.sh and extractallRs.sh to extract all D matrix and R matrix from the raw files into LRsij.Rdata,MRsij.Rdata,HRsij.Rdata,LDsij.Rdata,MDsij.Rdata,HDsij.Rdata. Run Dlast.sh to extract the last D and R matrix into LDij.Rdata,LRij.Rdata,MDij.Rdata,MRij.Rdata,HDij.Rdata,HRij.Rdata. Do the same thing to extract event table and turnover ticks by running loopextractEve_Turn.sh like But I obtained nothing in the files. Bug shootingSame simulation code generates the same data structure. But why couldn’t the same bash script extract information as before? At that moment, I kind of had a feeling that it must be that the script cannot recognize the newline sign. like the following, if the computer cannot match \r, which is the code for the newline under windows and DOS, the script extracts nothing. 123456789#!/bin/bashfor j in &#123;0..4&#125;;dofor i in &#123;0..4&#125;;do sed -n '/D'&#123;'length(D)+1'&#125;' = \[\r/,/\];/p' test"$j$i".m &gt; Ds"$j$i".Rdataecho $j$i' done'donedone But after I changed it to \n that is the right code for a linux file, it didn’t work neither. Even after changing the file code via unix2dos, none of the means worked. \(\boldsymbol{Finally}\), after several hours of googling, thinking, patting the computer, I tried out the solution. The scripts need to be executed under the linux system. I launched them on Ubuntu again, the newline sign was recognized. But it is still a mystery to me that why on a windows prompt none of \r and \n can be recognized. If you know it, pls reply this post. Thanks!]]></content>
       <categories>
         <category>Research</category>
       </categories>
@@ -38,8 +38,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>Data visualization</tag>
         <tag>ggradar2</tag>
+        <tag>Data visualization</tag>
         <tag>help document</tag>
       </tags>
   </entry>
@@ -53,8 +53,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>Data visualization</tag>
         <tag>ggradar2</tag>
+        <tag>Data visualization</tag>
       </tags>
   </entry>
   <entry>
@@ -67,8 +67,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>SMC</tag>
         <tag>Data visualization</tag>
+        <tag>SMC</tag>
       </tags>
   </entry>
   <entry>
