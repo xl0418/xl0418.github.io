@@ -116,7 +116,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xl0418.github.io/2019/01/14/2019-01-14-PyCUDAseries2/gridblockthread.png">
 <meta property="og:image" content="http://xl0418.github.io/2019/01/14/2019-01-14-PyCUDAseries2/speedtest.png">
-<meta property="og:updated_time" content="2019-01-14T13:57:28.090Z">
+<meta property="og:updated_time" content="2019-01-14T13:58:39.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyCUDA series 2: a simple matrix algebra and speed test">
 <meta name="twitter:description" content="In this post, you will find a simple matrix algebra done by gpu parallelization and a straightforward result of the speed contest between cpu and gpu.">
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="Created: 2019-01-14 10:54:33 / Modified: 14:57:28" itemprop="dateCreated datePublished" datetime="2019-01-14T10:54:33+01:00">2019-01-14</time>
+              <time title="Created: 2019-01-14 10:54:33 / Modified: 14:58:39" itemprop="dateCreated datePublished" datetime="2019-01-14T10:54:33+01:00">2019-01-14</time>
             
 
             
@@ -506,7 +506,7 @@
 <h1 id="Speed-comparison-between-CPU-and-GPU"><a href="#Speed-comparison-between-CPU-and-GPU" class="headerlink" title="Speed comparison between CPU and GPU"></a>Speed comparison between CPU and GPU</h1><p>At last, to show the power of GPU even on such simple matrix algebra, I run calculation for different dimensions and loop each calculation 100 times to enlarge the time consumption.</p>
 <p><img src="/2019/01/14/2019-01-14-PyCUDAseries2/speedtest.png" alt="default"></p>
 <p>As the figure shows, the time consumption for 100 times calculations starts to significantly split up when the dimension of matrix is over 2000. The time consumption on CPU grows almost exponentially along the dimension while on gpu it only grows little. With the increase of dimension, you save a huge amount of your time and your life.</p>
-<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><p>This is a quite simplified introduction to a parallelism example. There are a bank of posts explaining parallelism better and more exhaustive than this one. However, my goal here is to use a simple example and a short length of words to have you get an idea of how it works instead of scaring you away from this field. Once you fall into the trap of “it looks as simple as the author said”, I believe you will learn more by yourself :-)</p>
+<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><p>This is a quite simplified introduction to a parallelism example. There is a bank of posts explaining parallelism better and more exhaustive than this one. However, my goal here is to use a simple example and a short length of words to have you get an idea of how it works instead of scaring you away from this field. Once you fall into the trap of “it looks as simple as the author said”, I believe you will learn more by yourself :-)</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[CUDA Programming] by Shane Cook is a good start book for learning both the hardware and the language. </p>
 <p>This <a href="https://andreask.cs.illinois.edu/PyCuda" target="_blank" rel="noopener">PyCUDA website</a> provides some examples on Python.</p>
 <h1 id="Full-code"><a href="#Full-code" class="headerlink" title="Full code"></a>Full code</h1><p>It contains the example code and the speed test. Clone it <a href="https://github.com/xl0418/GPU_Python/blob/master/gpu_cpu_speedtest.py" target="_blank" rel="noopener">here</a></p>
