@@ -106,25 +106,25 @@
 
 
 
-  <meta name="description" content="Welcome to Liang&amp;apos;s blog! This site is my first blog for sharing my work experience plus a little bit life.  CategoriesResearchThis category mainly contains my PhD projects so far. More details ca">
-<meta name="keywords" content="info">
+  <meta name="description" content="A simple practice on matrix multiplication is shown in this post. The matrix product function can use multiple blocks to calculate multiplications of two matrix.">
+<meta name="keywords" content="Python,CUDA,GPU programming,Parallel computation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://xl0418.github.io/2018/10/22/hello-world/index.html">
+<meta property="og:title" content="PyCUDA series 3: matrix multiplication using multiple blocks">
+<meta property="og:url" content="http://xl0418.github.io/2019/01/21/2019-01-21-PyCUDAseries3/index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Welcome to Liang&amp;apos;s blog! This site is my first blog for sharing my work experience plus a little bit life.  CategoriesResearchThis category mainly contains my PhD projects so far. More details ca">
+<meta property="og:description" content="A simple practice on matrix multiplication is shown in this post. The matrix product function can use multiple blocks to calculate multiplications of two matrix.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-23T12:56:17.659Z">
+<meta property="og:updated_time" content="2019-02-01T10:43:08.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Liang&amp;apos;s blog! This site is my first blog for sharing my work experience plus a little bit life.  CategoriesResearchThis category mainly contains my PhD projects so far. More details ca">
+<meta name="twitter:title" content="PyCUDA series 3: matrix multiplication using multiple blocks">
+<meta name="twitter:description" content="A simple practice on matrix multiplication is shown in this post. The matrix product function can use multiple blocks to calculate multiplications of two matrix.">
 
 
 
 
 
 
-  <link rel="canonical" href="http://xl0418.github.io/2018/10/22/hello-world/">
+  <link rel="canonical" href="http://xl0418.github.io/2019/01/21/2019-01-21-PyCUDAseries3/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>Hello World | Liang Xu</title>
+  <title>PyCUDA series 3: matrix multiplication using multiple blocks | Liang Xu</title>
   
 
 
@@ -345,7 +345,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xl0418.github.io/2018/10/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://xl0418.github.io/2019/01/21/2019-01-21-PyCUDAseries3/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liang Xu">
@@ -362,7 +362,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">PyCUDA series 3: matrix multiplication using multiple blocks
               
             
           </h1>
@@ -387,7 +387,7 @@
                 
               
 
-              <time title="Created: 2018-10-22 14:53:09" itemprop="dateCreated datePublished" datetime="2018-10-22T14:53:09+02:00">2018-10-22</time>
+              <time title="Created: 2019-01-21 16:57:05" itemprop="dateCreated datePublished" datetime="2019-01-21T16:57:05+01:00">2019-01-21</time>
             
 
             
@@ -404,7 +404,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-23 14:56:17" itemprop="dateModified" datetime="2018-10-23T14:56:17+02:00">2018-10-23</time>
+                <time title="Modified: 2019-02-01 11:43:08" itemprop="dateModified" datetime="2019-02-01T11:43:08+01:00">2019-02-01</time>
               
             
           </span>
@@ -421,7 +421,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/BB-life/" itemprop="url" rel="index"><span itemprop="name">BB life</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a></span>
 
                 
                 
@@ -436,8 +436,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/22/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/22/hello-world/" itemprop="commentCount"></span>
+                <a href="/2019/01/21/2019-01-21-PyCUDAseries3/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/21/2019-01-21-PyCUDAseries3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -459,7 +459,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">522</span>
+                <span title="Symbols count in article">1.7k</span>
               
 
               
@@ -493,12 +493,13 @@
       
 
       
-        <p>Welcome to <a href="https://xl0418.github.io/">Liang&apos;s blog</a>! This site is my first blog for sharing my work experience plus a little bit life. </p>
-<h2 id="Categories"><a href="#Categories" class="headerlink" title="Categories"></a>Categories</h2><h3 id="Research"><a href="#Research" class="headerlink" title="Research"></a>Research</h3><p>This category mainly contains my PhD projects so far. More details can be found on my <a href="https://www.researchgate.net/profile/Liang_Xu50" target="_blank" rel="noopener">Research Gate</a>. </p>
-<h3 id="BB-life"><a href="#BB-life" class="headerlink" title="BB life"></a>BB life</h3><p>Some interesting stuff about life. <strong>BB</strong>, in Chinese, means <strong>talk about</strong>, <strong>chat</strong>. </p>
-<h3 id="Work"><a href="#Work" class="headerlink" title="Work"></a>Work</h3><p>Not on work yet, although 3 years ago I was a lecturer in China. </p>
-<h3 id="Blogging"><a href="#Blogging" class="headerlink" title="Blogging"></a>Blogging</h3><p>Interesting technologies about blogging. </p>
-<p>At last, enjoy the blog. Hope you can find something useful. Or at least have fun :-)</p>
+        <p>A simple practice on matrix multiplication is shown in this post. The matrix product function can use multiple blocks to calculate multiplications of two matrix. </p>
+<a id="more"></a>
+<h1 id="A-simple-matrix-multiplication"><a href="#A-simple-matrix-multiplication" class="headerlink" title="A simple matrix multiplication"></a>A simple matrix multiplication</h1><p>The most important part is the kernel function, which is given below</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">kernel_code_template = <span class="string">"""</span></span><br><span class="line"><span class="string">__global__ void matrixmulti(float *a, float *b, float *c)</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 2D Thread ID </span></span><br><span class="line"><span class="string">    int tx = blockDim.x*blockIdx.x + threadIdx.x; // Compute column index</span></span><br><span class="line"><span class="string">    int ty = blockDim.y*blockIdx.y + threadIdx.y; // Compute row index</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // Each thread loads one row of M and one column of N, </span></span><br><span class="line"><span class="string">    //   to produce one element of P.</span></span><br><span class="line"><span class="string">    if((ty &lt;%(MATRIX_SIZE)s) &amp;&amp; (tx &lt; %(MATRIX_SIZE)s))</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">    // Pvalue is used to store the element of the matrix</span></span><br><span class="line"><span class="string">    // that is computed by the thread</span></span><br><span class="line"><span class="string">    float Pvalue = 0;</span></span><br><span class="line"><span class="string">    for(int k=0; k&lt;%(MATRIX_SIZE)s;++k)</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">    float Aelement = a[ty*%(MATRIX_SIZE)s +k];</span></span><br><span class="line"><span class="string">    float Belement = b[k*%(MATRIX_SIZE)s +tx];</span></span><br><span class="line"><span class="string">    Pvalue += Aelement * Belement;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    c[ty * %(MATRIX_SIZE)s + tx] = Pvalue;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p>Note that the evaluation of C should be put in the conditional loop to guarentee that over-requested threads would not be invoked. </p>
+<h1 id="An-odd-bug"><a href="#An-odd-bug" class="headerlink" title="An odd bug"></a>An odd bug</h1><p>The code works well when the matrix size is less than 320*320 and requesting block size to be 32*32. But when the matrix size exceeds 320, like 321, the matrix product produced by GPU is not equal to the result by CPU. The difference between them is very tiny, like the scale of 1e-5. So far, I don’t quite understand where this bug comes from. Probabily it is due to the limit of the number of blocks in one grid? </p>
+<h1 id="Full-code"><a href="#Full-code" class="headerlink" title="Full code"></a>Full code</h1><p>It contains the example code and the speed test. Clone it <a href="https://github.com/xl0418/GPU_Python/blob/master/gpu_matrixmultiplication.py" target="_blank" rel="noopener">here</a></p>
 
       
     </div>
@@ -528,7 +529,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/info/" rel="tag"><i class="fa fa-tag"></i> info</a>
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/CUDA/" rel="tag"><i class="fa fa-tag"></i> CUDA</a>
+          
+            <a href="/tags/GPU-programming/" rel="tag"><i class="fa fa-tag"></i> GPU programming</a>
+          
+            <a href="/tags/Parallel-computation/" rel="tag"><i class="fa fa-tag"></i> Parallel computation</a>
           
         </div>
       
@@ -541,15 +548,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/14/2019-01-14-PyCUDAseries2/" rel="next" title="PyCUDA series 2: a simple matrix algebra and speed test">
+                <i class="fa fa-chevron-left"></i> PyCUDA series 2: a simple matrix algebra and speed test
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/22/2018-10-22-IntrotoPro1/" rel="prev" title="PhD Project 1-Detecting local diversity-dependence in diversification">
-                PhD Project 1-Detecting local diversity-dependence in diversification <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -778,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Categories"><span class="nav-number">1.</span> <span class="nav-text">Categories</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Research"><span class="nav-number">1.1.</span> <span class="nav-text">Research</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BB-life"><span class="nav-number">1.2.</span> <span class="nav-text">BB life</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Work"><span class="nav-number">1.3.</span> <span class="nav-text">Work</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blogging"><span class="nav-number">1.4.</span> <span class="nav-text">Blogging</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-simple-matrix-multiplication"><span class="nav-number">1.</span> <span class="nav-text">A simple matrix multiplication</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#An-odd-bug"><span class="nav-number">2.</span> <span class="nav-text">An odd bug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Full-code"><span class="nav-number">3.</span> <span class="nav-text">Full code</span></a></li></ol></div>
             
 
           </div>
