@@ -387,12 +387,24 @@
                 
               
 
-              <time title="Created: 2019-02-08 13:06:06 / Modified: 14:30:31" itemprop="dateCreated datePublished" datetime="2019-02-08T13:06:06+01:00">2019-02-08</time>
+              <time title="Created: 2019-02-08 13:06:06" itemprop="dateCreated datePublished" datetime="2019-02-08T13:06:06+01:00">2019-02-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-10 00:46:02" itemprop="dateModified" datetime="2019-02-10T00:46:02+01:00">2019-02-10</time>
               
             
           </span>
@@ -483,7 +495,8 @@
       
         
           <p>There are tons of documents out there to explain how neural network works in different angles. So I guess people don’t mind me adding one more from my perspective. Hopefully, someone may get inspired from this post.</p>
-<p>In short, the neural network is a kind of system that transforms the input data into its corresponding output (or labels), strictly speaking, for a supervised learning. This system is consisting of three types of layers, i.e. the input layer, the hidden layer and the output layer. Normally, the hidden layer may have multiple layers according to one’s design. Among layers, the data from the upper layer are transformed to the data in the lower layer via a linear combination with an initialized weight matrix. After that, a nonlinear transformation that is generally called the activation function is applied to the data that would be converted to a form for the next round until reaching the output layer. Without loss of generality, here I consider a simplest neural network which only possesses fully connected layers, meaning that every neuron in each layer connects all neurons of the upper and lower layers. The mathematical logic behind is analogous to other structures of neural network.</p>
+<p>In short, the neural network is a kind of system that transforms the input data into its corresponding output (or labels), strictly speaking, for a supervised learning. This system is consisting of three types of layers, i.e. the input layer, the hidden layer and the output layer. Normally, the hidden layer may have multiple layers according to one’s design. Among layers, the data from the upper layer are transformed to the data in the lower layer via a linear combination with an initialized weight matrix. After that, a nonlinear transformation that is generally called the activation function is applied to the data that would be converted to a form for the next round until reaching the output layer. To assure the neural network feedback the correct output, people need to train the neural network by adjusting the weight matrix. They are usually adjusted via minimizing the error between the output from the final layer and the known output from the data used for training. </p>
+<p>Without loss of generality, here I consider a simplest neural network which only possesses fully connected layers, meaning that every neuron in each layer connects all neurons of the upper and lower layers. The mathematical logic behind is analogous to other structures of neural network. Firstly, I used a series of graphs to illustrate how the data flows to the final layer and introduce the notations used in the derivation. Then, a general formulation is present subsequently.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/08/2019-02-08-Machinelearningseries2/#more" rel="contents">
@@ -2635,7 +2648,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">60k</span>
+    <span title="Symbols count total">61k</span>
   
 
   
