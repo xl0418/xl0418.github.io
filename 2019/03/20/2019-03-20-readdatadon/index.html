@@ -116,7 +116,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xl0418.github.io/2019/03/20/2019-03-20-readdatadon/d.png">
 <meta property="og:image" content="http://xl0418.github.io/2019/03/20/2019-03-20-readdatadon/rewrittendata.png">
-<meta property="og:updated_time" content="2019-03-20T11:01:50.534Z">
+<meta property="og:updated_time" content="2019-03-20T11:05:29.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bash &amp; R: read data, don&#39;t source!">
 <meta name="twitter:description" content="Recently, I was focusing on my 3rd PhD project with mathematical modeling. It was about the extension to the neutral theory. I am not gonna reveal it now but will bring back in the future.  So I was a">
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="Created: 2019-03-20 09:14:18 / Modified: 12:01:50" itemprop="dateCreated datePublished" datetime="2019-03-20T09:14:18+01:00">2019-03-20</time>
+              <time title="Created: 2019-03-20 09:14:18 / Modified: 12:05:29" itemprop="dateCreated datePublished" datetime="2019-03-20T09:14:18+01:00">2019-03-20</time>
             
 
             
@@ -509,7 +509,7 @@
 <p>Notice that the first line is left blank. It is supposed to put the headers for columns. Then we can directly read it in R by using </p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = read.csv(data,header = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
 <p>Super fast and it’s done. </p>
-<p>Finally, to extract the matrix from the raw data, you can just follow what I did before <a href="">here</a>. And replace the 6-15th lines with </p>
+<p>Finally, to extract the matrix from the raw data, you can just follow what I did before (<a href="https://xl0418.github.io/2018/10/29/2018-10-29-sed/">here</a>)). And replace the 6-15th lines with </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A=$(grep -c <span class="string">'D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">' = \['</span> HDs<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata)</span><br><span class="line">B=$[<span class="variable">$A</span>-1]</span><br><span class="line">sed <span class="string">'/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/&#123;G;s/\nX\&#123;'</span><span class="variable">$B</span><span class="string">'\&#125;//;tend;x;s/^/X/;x;P;d&#125;;p;d;:end;s/D'</span>&#123;<span class="string">'length(D)+1'</span>&#125;<span class="string">'/D/;:a;n;ba'</span> HDs<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata&gt;HDt<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata</span><br><span class="line">sed -n <span class="string">'/D = \[/,/\];/p'</span> HDt<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.Rdata&gt;HD<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.csv</span><br><span class="line">sed -i -e <span class="string">'s/D = \[//'</span> -e <span class="string">'s/\];//'</span> -e <span class="string">'s/ /,/g'</span> -e <span class="string">'s/,;//g'</span> HD<span class="string">"<span class="variable">$j</span><span class="variable">$i</span>"</span>.csv</span><br></pre></td></tr></table></figure>
 <p>where I just replace the space by the comma and delete the first and last line of the raw matrix. The <code>;</code> at the end of each line is also removed.</p>
 <p>Enjoy!</p>
