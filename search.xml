@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Approximate Bayesian Computation: standard version and its variant ABC-SMC]]></title>
+    <url>%2F2019%2F06%2F21%2F2019-06-21-ABCalgorithm%2F</url>
+    <content type="text"><![CDATA[In the last few months of my PhD project, it is unimaginable that how busy it could be. You need to focus on the current work to finish them, analyzing data, writing paper, structuring the final thesis etc. whilst think about the future, going to industry or staying in academia. To me, I enjoy the process of researching, learning new techs, tackling with challenges. This is the essential need that I want. The outer environment is to support decorating the need to make the environment attractive. So it feels like clothes to human, no matter what kind of clothes they are their essential function is to cover the body that human wants, keeping warm and comfortable. But undoubtedly if available human is chasing after the most fancy clothes that meet human’s additional requirements besides the basic need. Think through this, when I know clearly what I want, what kind of job I want to do is clear, meeting my basic need and seeking the most luxury that I fit. The words above are more like a conclusion that I came up with in the last few months and an excuse/explanation of no posting. Here, I would like to record some evolutionary algorithms that I used in the projects I have done and the animations of them. I still have no time to go into the details and cannot post at a normal frequency for a while (at least before my graduation). But I promise I will concretize them in the future. The standard Approximate Bayesian ComputationWith the development of computer science, people start to be able to solve more problems that are high computationally demanding. In 2013, Toni et al. overviewed the standard ABC algorithm and developed a sequential Monte Carlo variant to accelerate the convergence of parameters. This series of ABC-like methods is usually called “likelihood-free” method, or more precisely “analytic likelihood-free method”. The basic idea is that it exploits the computational power of computer to generate large amount of data under the focal model and pick up the parameters that produce the data that is most analogous to the reality. Thus, people claim that the obtained parameters are the most likely parameters to reassemble the truth. In my project of studying trait-population model, I modified this method a bit and successfully recovered the model parameters from simulation experiments. Later on, I applied our model to baleen whales and found the baleen whales are undergoing a weak environmental adaptation and a relatively strong competition (paper submitted soon). Here, I would like to show you an animation of how ABC algorithm works. The &lt;video&gt; tag is not supported by your browser. In the video, three Monte Carlo chains are deployed. They are independent of each other, exploring the parameter space from different initial conditions. Normally, it is hard to judge when the chain converges. So, you need to run a long time to check. One alternative way is to calculate the autocorrelation of the chain. You can google that if you want to know more details. ABC-SMC for parameter estimation and model selectionApproximate Bayesian Computation-Sequential Monte Carlo algorithm is an parallelized extension to the standard ABC algorithm. The basic idea is to do many sample simulations at one generation. Then, the best fit parameters are chosen to gain higher weight to be sampled in the next generation. With the generation proceeds, the best fit parameters converge to the “true values”. To do model selection, the models are simply treated as one parameter but at a sequential level advanced to the other parameters. That means you need to chose models first and then sample parameters to complete the sampling process. The following figure shows how the samples converges to the true value for parameter estimation. It started with a uniform prior information of &alpha;. The following figure shows how model selection works under ABC-SMC algorithm. The details are coming in the future.]]></content>
+      <categories>
+        <category>Research</category>
+        <category>Algorithm</category>
+        <category>ABC</category>
+      </categories>
+      <tags>
+        <tag>data analysis</tag>
+        <tag>ABC</tag>
+        <tag>Animation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Bash & R: Dealing with big data; read it! don't source it!]]></title>
     <url>%2F2019%2F03%2F20%2F2019-03-20-readdatadon%2F</url>
     <content type="text"><![CDATA[Recently, I was focusing on my 3rd PhD project with mathematical modeling. It was about the extension to the neutral theory. I am not gonna reveal it now but will bring back in the future. So I was away from the blog for a while and have to put machine learning series aside, although the derivation of the recurrent neural network is done. It is coming soon as well. Finally, the mathematical model has been done. I have some time to talk something that I’ve been doing except the modeling when waiting for the simulation results. In this post, I am gonna record a silly issue about loading data in R after extracting the a subset of a big data by Bash. The right matrix format to load in RIf you have tracked my posts, you may remember that I used a bash script to extract a matrix out of a big and complex structured m file (see here). But I mistakenly modified the matrix to fit the matrix format in R. What’s wrong with this format? It is a function to call instead of a data to load. Thus if the data in the structure() is very big, like 10000x10000, it is very time-consuming to run the function in R. But our aim is to read the matrix of this size or even larger. It is not supposed to be problematic for R. After a while of brainstorm, I kind of thought it might be due to the matrix format and the way I load the data in R. The command source() actually calls the function written in the sourced file. Thus, to create a matrix by using structure() it is easy to exceed the memory size. The solution is that we could use read.csv() to load the data into R, which is much faster and more efficient for large data sets. To achieve that, we need rewrite the raw data in a csv format. The following is how it looks like in the notepad Notice that the first line is left blank. It is supposed to put the headers for columns. Then we can directly read it in R by using 1x = read.csv(data,header = FALSE) Super fast and it’s done. Finally, to extract the matrix from the raw data, you can just follow what I did before (here)). And replace the 6-15th lines with 12345A=$(grep -c 'D'&#123;'length(D)+1'&#125;' = \[' HDs"$j$i".Rdata)B=$[$A-1]sed '/D'&#123;'length(D)+1'&#125;'/&#123;G;s/\nX\&#123;'$B'\&#125;//;tend;x;s/^/X/;x;P;d&#125;;p;d;:end;s/D'&#123;'length(D)+1'&#125;'/D/;:a;n;ba' HDs"$j$i".Rdata&gt;HDt"$j$i".Rdatased -n '/D = \[/,/\];/p' HDt"$j$i".Rdata&gt;HD"$j$i".csvsed -i -e 's/D = \[//' -e 's/\];//' -e 's/ /,/g' -e 's/,;//g' HD"$j$i".csv where I just replace the space by the comma and delete the first and last line of the raw matrix. The ; at the end of each line is also removed. Enjoy!]]></content>
@@ -218,10 +233,10 @@
         <category>Numerical method</category>
       </categories>
       <tags>
-        <tag>math</tag>
         <tag>regression</tag>
         <tag>least square method</tag>
         <tag>partial least square</tag>
+        <tag>math</tag>
         <tag>machine learning</tag>
       </tags>
   </entry>
@@ -235,9 +250,9 @@
       </categories>
       <tags>
         <tag>mathematical modeling</tag>
+        <tag>math</tag>
         <tag>the Fokker-Planck equation</tag>
         <tag>stochastic differential equation</tag>
-        <tag>math</tag>
       </tags>
   </entry>
   <entry>
