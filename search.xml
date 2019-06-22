@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[An animation to show how traits of species evolve with their abundance]]></title>
+    <url>%2F2019%2F06%2F21%2F2019-06-21-TPmodel%2F</url>
+    <content type="text"><![CDATA[Do you like comics? I am a comics fan, majorly favoring Japanese comics and some Chinese comics with the rise of Chinese comics industry in recent years. Why do I mention this? I mean to say drawings are usually the most straight way to express abstract ideas. This is why I want to show an animation of our model to explain such complex mechanism instead of using tons of papers filled with equations. An animation of trait-population coevolution for a single attractionWe have constructed a mathematical model to describe how traits of species interplay with their abundance under environmental adaptation and competition along a phylogenetic tree. For simplicity, we assume one attraction in the community that pull traits evolve toward one single optimum trait that better utilize natural resource. In this model, population dynamics weight the species’ competitive power, i.e. the species with large population size gains more competitive power. We would like to see what kind of trait pattern under such mechanism. The animation below shows how it works along a given phylogenetic tree. The &lt;video&gt; tag is not supported by your browser. The video is consisting of two models showing different magnitude of attraction towards the optimum for 5 species. The area of red dots denote the population size of that species.\(x\) axis denotes the evolutionary time while \(y\) denotes the trait values. The optimum trait is assumed as 0 without loss of generality. The highlighted by green lineage is the destined species giving birth and going extinct. More details are coming after the paper submission. An animation of trait-population coevolution for multiple attractionsIn the following video, 15 species are evolving under 5 attractions. You can see how they compete with each other and explore the new niches. The &lt;video&gt; tag is not supported by your browser. Have fun!]]></content>
+      <categories>
+        <category>Research</category>
+        <category>Phd projects</category>
+        <category>trait-population model</category>
+      </categories>
+      <tags>
+        <tag>evolution</tag>
+        <tag>Animation</tag>
+        <tag>ecology</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Approximate Bayesian Computation: standard version and its variant ABC-SMC]]></title>
     <url>%2F2019%2F06%2F21%2F2019-06-21-ABCalgorithm%2F</url>
     <content type="text"><![CDATA[In the last few months of my PhD project, it is unimaginable that how busy it could be. You need to focus on the current work to finish them, analyzing data, writing paper, structuring the final thesis etc. whilst think about the future, going to industry or staying in academia. To me, I enjoy the process of researching, learning new techs, tackling with challenges. This is the essential need that I want. The outer environment is to support decorating the need to make the environment attractive. So it feels like clothes to human, no matter what kind of clothes they are their essential function is to cover the body that human wants, keeping warm and comfortable. But undoubtedly if available human is chasing after the most fancy clothes that meet human’s additional requirements besides the basic need. Think through this, when I know clearly what I want, what kind of job I want to do is clear, meeting my basic need and seeking the most luxury that I fit. The words above are more like a conclusion that I came up with in the last few months and an excuse/explanation of no posting. Here, I would like to record some evolutionary algorithms that I used in the projects I have done and the animations of them. I still have no time to go into the details and cannot post at a normal frequency for a while (at least before my graduation). But I promise I will concretize them in the future. The standard Approximate Bayesian ComputationWith the development of computer science, people start to be able to solve more problems that are high computationally demanding. In 2013, Toni et al. overviewed the standard ABC algorithm and developed a sequential Monte Carlo variant to accelerate the convergence of parameters. This series of ABC-like methods is usually called “likelihood-free” method, or more precisely “analytic likelihood-free method”. The basic idea is that it exploits the computational power of computer to generate large amount of data under the focal model and pick up the parameters that produce the data that is most analogous to the reality. Thus, people claim that the obtained parameters are the most likely parameters to reassemble the truth. In my project of studying trait-population model, I modified this method a bit and successfully recovered the model parameters from simulation experiments. Later on, I applied our model to baleen whales and found the baleen whales are undergoing a weak environmental adaptation and a relatively strong competition (paper submitted soon). Here, I would like to show you an animation of how ABC algorithm works. The &lt;video&gt; tag is not supported by your browser. In the video, three Monte Carlo chains are deployed. They are independent of each other, exploring the parameter space from different initial conditions. Normally, it is hard to judge when the chain converges. So, you need to run a long time to check. One alternative way is to calculate the autocorrelation of the chain. You can google that if you want to know more details. ABC-SMC for parameter estimation and model selectionApproximate Bayesian Computation-Sequential Monte Carlo algorithm is an parallelized extension to the standard ABC algorithm. The basic idea is to do many sample simulations at one generation. Then, the best fit parameters are chosen to gain higher weight to be sampled in the next generation. With the generation proceeds, the best fit parameters converge to the “true values”. To do model selection, the models are simply treated as one parameter but at a sequential level advanced to the other parameters. That means you need to chose models first and then sample parameters to complete the sampling process. The following figure shows how the samples converges to the true value for parameter estimation. It started with a uniform prior information of &alpha;. The following figure shows how model selection works under ABC-SMC algorithm. The details are coming in the future.]]></content>
@@ -233,10 +248,10 @@
         <category>Numerical method</category>
       </categories>
       <tags>
+        <tag>math</tag>
         <tag>regression</tag>
         <tag>least square method</tag>
         <tag>partial least square</tag>
-        <tag>math</tag>
         <tag>machine learning</tag>
       </tags>
   </entry>
@@ -250,9 +265,9 @@
       </categories>
       <tags>
         <tag>mathematical modeling</tag>
-        <tag>math</tag>
         <tag>the Fokker-Planck equation</tag>
         <tag>stochastic differential equation</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
