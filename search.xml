@@ -40,8 +40,8 @@
         <category>sed</category>
       </categories>
       <tags>
-        <tag>bash</tag>
         <tag>R</tag>
+        <tag>bash</tag>
         <tag>data analysis</tag>
       </tags>
   </entry>
@@ -155,8 +155,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>ggradar2</tag>
         <tag>Data visualization</tag>
+        <tag>ggradar2</tag>
         <tag>help document</tag>
       </tags>
   </entry>
@@ -173,8 +173,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>ggradar2</tag>
         <tag>Data visualization</tag>
+        <tag>ggradar2</tag>
       </tags>
   </entry>
   <entry>
@@ -189,8 +189,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>Data visualization</tag>
         <tag>SMC</tag>
+        <tag>Data visualization</tag>
       </tags>
   </entry>
   <entry>
