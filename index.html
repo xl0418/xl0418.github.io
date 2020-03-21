@@ -341,6 +341,241 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xl0418.github.io/2019/02/08/2019-02-08-Machinelearningseries2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/08/2019-02-08-Machinelearningseries2/" itemprop="url">
+                  Machine learning on biology S2: how does a neural network work mathematically?
+                </a>
+              
+            
+          </h1>
+          
+
+        <div class="post-meta">
+		    
+			  <i class="fa fa-thumb-tack"></i>
+			  <font color="7D26CD">TOP</font>
+			  <span class="post-meta-divider">|</span>
+			
+            <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-08 13:06:06" itemprop="dateCreated datePublished" datetime="2019-02-08T13:06:06+01:00">2019-02-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-21 19:53:25" itemprop="dateModified" datetime="2020-03-21T19:53:25+01:00">2020-03-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Research/Machine-learning/" itemprop="url" rel="index"><span itemprop="name">Machine learning</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Research/Machine-learning/Deep-learning/" itemprop="url" rel="index"><span itemprop="name">Deep learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/08/2019-02-08-Machinelearningseries2/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/08/2019-02-08-Machinelearningseries2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">15k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">11 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>There are tons of documents out there to explain how neural network works in different angles. So I guess people don’t mind me adding one more from my perspective. Hopefully, someone may get inspired from this post.</p>
+<p>In short, the neural network is a kind of system that transforms the input data into its corresponding output (or labels), strictly speaking, for a supervised learning. This system is consisting of three types of layers, i.e. the input layer, the hidden layer and the output layer. Normally, the hidden layer may have multiple layers according to one’s design. Among layers, the data from the upper layer are transformed to the data in the lower layer via a linear combination with an initialized weight matrix. After that, a nonlinear transformation that is generally called the activation function is applied to the data that would be converted to a form for the next round until reaching the output layer. To assure the neural network feedback the correct output, people need to train the neural network by adjusting the weight matrix. They are usually adjusted via minimizing the error between the output from the final layer and the known output from the data used for training. </p>
+<p>Without loss of generality, here I consider a simplest neural network which only possesses fully connected layers, meaning that every neuron in each layer connects all neurons of the upper and lower layers. The mathematical logic behind is analogous to other structures of neural network. Firstly, I used a series of graphs to illustrate how the data flows to the final layer and introduce the notations used in the derivation. Then, a general formulation is present subsequently.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/08/2019-02-08-Machinelearningseries2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+	<div>
+	  
+	</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xl0418.github.io/2020/03/18/2020-03-18-generalABC/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -366,10 +601,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -582,10 +818,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -810,10 +1047,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -1038,10 +1276,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -1255,10 +1494,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -1446,236 +1686,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xl0418.github.io/2019/02/08/2019-02-08-Machinelearningseries2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liang Xu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Liang Xu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/08/2019-02-08-Machinelearningseries2/" itemprop="url">
-                  Machine learning on biology S2: how does a neural network work mathematically?
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-02-08 13:06:06" itemprop="dateCreated datePublished" datetime="2019-02-08T13:06:06+01:00">2019-02-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-02-12 14:20:14" itemprop="dateModified" datetime="2019-02-12T14:20:14+01:00">2019-02-12</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Research/Machine-learning/" itemprop="url" rel="index"><span itemprop="name">Machine learning</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Research/Machine-learning/Deep-learning/" itemprop="url" rel="index"><span itemprop="name">Deep learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/08/2019-02-08-Machinelearningseries2/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/08/2019-02-08-Machinelearningseries2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">15k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">11 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>There are tons of documents out there to explain how neural network works in different angles. So I guess people don’t mind me adding one more from my perspective. Hopefully, someone may get inspired from this post.</p>
-<p>In short, the neural network is a kind of system that transforms the input data into its corresponding output (or labels), strictly speaking, for a supervised learning. This system is consisting of three types of layers, i.e. the input layer, the hidden layer and the output layer. Normally, the hidden layer may have multiple layers according to one’s design. Among layers, the data from the upper layer are transformed to the data in the lower layer via a linear combination with an initialized weight matrix. After that, a nonlinear transformation that is generally called the activation function is applied to the data that would be converted to a form for the next round until reaching the output layer. To assure the neural network feedback the correct output, people need to train the neural network by adjusting the weight matrix. They are usually adjusted via minimizing the error between the output from the final layer and the known output from the data used for training. </p>
-<p>Without loss of generality, here I consider a simplest neural network which only possesses fully connected layers, meaning that every neuron in each layer connects all neurons of the upper and lower layers. The mathematical logic behind is analogous to other structures of neural network. Firstly, I used a series of graphs to illustrate how the data flows to the final layer and introduce the notations used in the derivation. Then, a general formulation is present subsequently.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/08/2019-02-08-Machinelearningseries2/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-	<div>
-	  
-	</div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xl0418.github.io/2019/02/01/2019-02-01-Machinelearningseries1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1701,10 +1711,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -1929,10 +1940,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -2157,10 +2169,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
@@ -2385,10 +2398,11 @@
               
             
           </h1>
-        
+          
 
         <div class="post-meta">
-          <span class="post-time">
+		    
+            <span class="post-time">
 
             
             
