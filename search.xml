@@ -55,9 +55,9 @@
         <category>ABC</category>
       </categories>
       <tags>
-        <tag>Animation</tag>
         <tag>data analysis</tag>
         <tag>ABC</tag>
+        <tag>Animation</tag>
       </tags>
   </entry>
   <entry>
@@ -185,8 +185,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>ggradar2</tag>
         <tag>Data visualization</tag>
+        <tag>ggradar2</tag>
         <tag>help document</tag>
       </tags>
   </entry>
@@ -203,8 +203,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>ggradar2</tag>
         <tag>Data visualization</tag>
+        <tag>ggradar2</tag>
       </tags>
   </entry>
   <entry>
@@ -219,8 +219,8 @@
       <tags>
         <tag>R</tag>
         <tag>ggplot</tag>
-        <tag>Data visualization</tag>
         <tag>SMC</tag>
+        <tag>Data visualization</tag>
       </tags>
   </entry>
   <entry>
