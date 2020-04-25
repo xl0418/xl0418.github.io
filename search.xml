@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Data visualization: develop a Shiny app to track COVID-19 spread.]]></title>
+    <url>%2F2020%2F04%2F25%2F2020-04-25-datavisulization_shinyapp%2F</url>
+    <content type="text"><![CDATA[The outbreak of the COVID-19 virus has given me a heavy punch. I have been isolated at home for almost two months with one trip to the nearest trash bin every week. What is even worse is that I cannot get any reply from job hunting. Being so stressed, I decided to develop a Shiny app to track the COVID-19 spread. Hope this may give me a sign of recovery of the world by examining daily data. More information can be found here. A differential equation model is still under construction. Coming soon. Enjoy!]]></content>
+      <categories>
+        <category>Research</category>
+        <category>Modeling</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>simulation</tag>
+        <tag>coronavirus</tag>
+        <tag>pandemic</tag>
+        <tag>data visualization</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[The government should take a fast reaction to prevent COVID-19 development]]></title>
     <url>%2F2020%2F04%2F02%2F2020-04-02-government%26pandemic%2F</url>
     <content type="text"><![CDATA[The outbreak of the COVID-19 virus has given the world a heavy punch in 2020. The growth infection over 30 countries in the world has seen the overwhelming power of the exponential spread of COVID-19 at the early stage. The White House Office of Science and Technology Policy (OSTP) pulled together a coalition research groups and companies (including Kaggle) to prepare the COVID-19 Open Research Dataset (CORD-19) to attempt to address key open scientific questions on COVID-19. Those questions are drawn from National Academies of Sciences, Engineering, and Medicine’s (NASEM) and the World Health Organization (WHO). Flooded by the daily news of how serious the pandemic becomes, I am wondering whether and to what extent the government can stop the pandemic. Specifically, if the government takes a fast response to restrict social activities, will the pandemic be stopped at an early stage? Thus, I took part in one of the competition and built an individual-based virus spread model in which I considered how the speed of the government reaction affects pandemic development. It is an one-week competition that finished in this morning. I create this post by attaching my work here. Enjoy!]]></content>
