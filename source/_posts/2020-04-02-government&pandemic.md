@@ -1,0 +1,9 @@
+---
+title: "The government should take a fast reaction to prevent COVID-19 development"
+categories: [Research,Modeling]
+tags: [Python, simulation, coronavirus, pandemic, government measure]
+
+---
+
+The outbreak of the COVID-19 virus has given the world a heavy punch in 2020. The growth infection over 30 countries in the world has seen the overwhelming power of the exponential spread of COVID-19 at the early stage. The White House Office of Science and Technology Policy (OSTP) pulled together a coalition research groups and companies (including Kaggle) to prepare the [COVID-19 Open Research Dataset (CORD-19)](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge) to attempt to address [key open scientific questions on COVID-19](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/tasks). Those questions are drawn from [National Academies of Sciences, Engineering, and Medicine’s (NASEM)](https://www.nationalacademies.org/event/03-11-2020/standing-committee-on-emerging-infectious-diseases-and-21st-century-health-threats-virtual-meeting-1) and the [World Health Organization (WHO)](https://www.who.int/blueprint/priority-diseases/key-action/Global_Research_Forum_FINAL_VERSION_for_web_14_feb_2020.pdf?ua=1). Flooded by the daily news of how serious the pandemic becomes, I am wondering whether and to what extent the government can stop the pandemic. Specifically, if the government takes a fast response to restrict social activities, will the pandemic be stopped at an early stage? Thus, I took part in one of the competition and built an individual-based virus spread model in which I considered how the speed of the government reaction affects pandemic development. It is an one-week competition that finished in this morning. I create this post by attaching my work [**here**](https://xl0418.github.io/Kaggle_corona/). Enjoy!
+
