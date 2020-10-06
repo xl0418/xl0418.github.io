@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Goodbye Groningen! Hellow Oxford!]]></title>
-    <url>%2F2020%2F10%2F05%2F2020-10-05-update%2F</url>
-    <content type="text"><![CDATA[It’s been a while that I haven’t updated my work and life. On 5th of June, I finally defended my thesis and obtained PhD degree. My thesis can be found HERE. Thank my supervisor Prof. Rampal S Etienne and co-supervisor Dr. Sander van Doorn for their guidance in the last 5 years. Thank my colleagues for their help on my work, thesis and the defense and the time we share together. Obtaining the degree was not the end of my acdemic life but a milestone and a new start for the next stage. Since March 2020 and even earlier, I have been looking for jobs, preferably postdoc positions. However, I don’t know whether it is due to the pandemic or not, instead of offers I got many rejections. It was a tough time period for me. Without boarding on a contract, I have no income but have a family to raise. Luckly, my wife found a job, which seems to some extent to solve our finacial crisis. This allows me to focus on searching for opportunities. Eventually, I found some positions that have a good match for my background. I contacted the group leaders and job posters and tried to highlight myself to gain an interview chance. I got some nice replies but finally they rejected me. The worse part of these rejections is that I don’t even know why I got rejected and where I could improve myself. I started to have doubt on myself. Fortunately, I had one last chance in my first batch of applications. I encountered one job poster on LinkedIn in July when I was roaming on LinkedIn. Prof. Lindsay Turnbull‘s group at University of Oxford is looking for a postdoc to do simulation modeling on community plant assembly. This is exactly compatible with what I am doing on my third project, the best fit one of all the jobs I have ever applied. So, I saw a fair chance in the research. Immediately, I made the application and sent an email to Prof. Lindsay Turnbull. Very soon, I got reply from Lindsay and we had several back and forth communications. One month later, I got an interview invitation and we had a nice chat on my work and the plan of the work of this position. After one week, a formal offer is sent to me. Year 2020 is awful. However, we should never lose hope. By this post of an update of my recent situation and experience, I would like to encourage people who have currently been in trouble. Trace the rainbow in the rain.]]></content>
-      <categories>
-        <category>BB life</category>
-      </categories>
-      <tags>
-        <tag>Postdoc</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Data visualization: develop a Shiny app to track COVID-19 spread.]]></title>
     <url>%2F2020%2F10%2F05%2F2020-04-25-Covid_19%2F</url>
     <content type="text"><![CDATA[The outbreak of the COVID-19 virus has given me a heavy punch. I have been isolated at home for almost two months with one trip to the nearest trash bin every week. What is even worse is that I cannot get any reply from job hunting. Being so stressed, I decided to develop a Shiny app to track the COVID-19 spread. Hope this may give me a sign of recovery of the world by examining daily data. More information can be found here. A differential equation model is still under construction. Coming soon. Enjoy!]]></content>
@@ -36,6 +25,17 @@
       </categories>
       <tags>
         <tag>info</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Goodbye Groningen! Hellow Oxford!]]></title>
+    <url>%2F2020%2F10%2F05%2F2020-10-05-update%2F</url>
+    <content type="text"><![CDATA[It’s been a while that I haven’t updated my work and life. On 5th of June, I finally defended my thesis and obtained PhD degree. My thesis can be found HERE. Thank my supervisor Prof. Rampal S Etienne and co-supervisor Dr. Sander van Doorn for their guidance in the last 5 years. Thank my colleagues for their help on my work, thesis and the defense and the time we share together. Obtaining the degree was not the end of my acdemic life but a milestone and a new start for the next stage. Since March 2020 and even earlier, I have been looking for jobs, preferably postdoc positions. However, I don’t know whether it is due to the pandemic or not, instead of offers I got many rejections. It was a tough time period for me. Without boarding on a contract, I have no income but have a family to raise. Luckly, my wife found a job, which seems to some extent to solve our finacial crisis. This allows me to focus on searching for opportunities. Eventually, I found some positions that have a good match for my background. I contacted the group leaders and job posters and tried to highlight myself to gain an interview chance. I got some nice replies but finally they rejected me. The worse part of these rejections is that I don’t even know why I got rejected and where I could improve myself. I started to have doubt on myself. Fortunately, I had one last chance in my first batch of applications. I encountered one job poster on LinkedIn in July when I was roaming on LinkedIn. Prof. Lindsay Turnbull‘s group at University of Oxford is looking for a postdoc to do simulation modeling on community plant assembly. This is exactly compatible with what I am doing on my third project, the best fit one of all the jobs I have ever applied. So, I saw a fair chance in the research. Immediately, I made the application and sent an email to Prof. Lindsay Turnbull. Very soon, I got reply from Lindsay and we had several back and forth communications. One month later, I got an interview invitation and we had a nice chat on my work and the plan of the work of this position. After one week, a formal offer is sent to me. Year 2020 is awful. However, we should never lose hope. By this post of an update of my recent situation and experience, I would like to encourage people who have currently been in trouble. Trace the rainbow in the rain.]]></content>
+      <categories>
+        <category>BB life</category>
+      </categories>
+      <tags>
+        <tag>Postdoc</tag>
       </tags>
   </entry>
   <entry>
@@ -324,6 +324,24 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[pruneL function]]></title>
+    <url>%2F2020%2F10%2F05%2F2018-10-24-pruneLfunction%2F</url>
+    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. But might be less useful than phylo2L function :-) Following last post, this function pruneL prunes an L table by removing the extinct lineages. pruneL function can be found here if you want to improve the function. There is a huge room for improvement. This version is only the first draft of the function. And I guess I should remove the argument dropextinct. It doesn’t make any sense. What do you think?]]></content>
+      <categories>
+        <category>Research</category>
+        <category>R</category>
+        <category>phylogeny function</category>
+      </categories>
+      <tags>
+        <tag>phylogeny</tag>
+        <tag>phylo class</tag>
+        <tag>L table</tag>
+        <tag>DDD package</tag>
+        <tag>pruneL</tag>
+        <tag>phylo2L</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Partial least square regression]]></title>
     <url>%2F2020%2F10%2F05%2F2018-10-25-PLSR%2F</url>
     <content type="text"><![CDATA[I found the following interpretation to partial least square regression is much better than mine. So I cited it as below: “Partial least squares regression (PLS regression) is a statistical method that bears some relation to principal components regression; instead of finding hyperplanes of maximum variance between the response and independent variables, it finds a linear regression model by projecting the predicted variables and the observable variables to a new space. Because both the X and Y data are projected to new spaces, the PLS family of methods are known as bilinear factor models. Partial least squares Discriminant Analysis (PLS-DA) is a variant used when the Y is categorical.” —from Wikipedia PLS algorithmFor record purpose, I am deriving the PLS algorithm in this post. Consider a linear regression problem in a vector format as in Eq.[eq:1] given an observed data, which is denoted by a vector \(\boldsymbol{x}^{T}=(x_{1},x_{2},\cdots,x_{n})\) $$\begin{align}y &amp;=b_{1}x_{1}+\cdots+b_{n}x_{n}+e \\ &amp;=\boldsymbol{x}^{T}\boldsymbol{b}+e \tag{1}\end{align}$$ We are aiming to work out the unknown regression coefficients vector \(\boldsymbol{b}\) for future prediction of \(y\) once we have the observed data \(\boldsymbol{x}\). To keep the prediction as accurate as possible, we will want to make the residual error e as small as possible. This is simply the whole idea of the linear regression method. So one solution is to use training samples, that is given m observations \(\boldsymbol{y}^{T}=(y_{1},\cdots,y_{m}),X=[x_{ij}],i=1,\cdots,m,j=1,\cdots,n \)to solve \(\boldsymbol{b}\) out in terms of keeping the residual error sufficiently small $$\begin{pmatrix}y_{1}\\y_{2}\\\vdots\\y_{m}\end{pmatrix}=\begin{pmatrix}x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1n}\\x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2n}\\\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\x_{m1} &amp; x_{m2} &amp; \cdots &amp; x_{mn}\end{pmatrix}\begin{pmatrix}b_{1}\\b_{2}\\\vdots\\b_{n}\end{pmatrix}+\begin{pmatrix}e_{1}\\e_{2}\\\vdots\\e_{m}\end{pmatrix}\tag{2}$$ For comparability among different data, all the observations are assumed to be centered and normalized in advance. Now the problem is translated to an optimization problem, that is to find a least square solution for the regression coefficients such that the sum of the square errors of the residuals is minimized. For simplicity, I would like to use the matrix form for Eq.[2] $$Y=X\boldsymbol{b}+\boldsymbol{e}. \tag{3}$$ We want to find out \(\boldsymbol{b}\) such that $$min\{\boldsymbol{e}^{T}\boldsymbol{e}\}.$$ The least square solution for \(\boldsymbol{b}\) is given by $$\boldsymbol{b}=(X^{T}X)^{-1}X^{T}Y. \tag{4}$$ The derivation is simply as follows: $$F_{\boldsymbol{b}}=\frac{1}{2}(X\boldsymbol{b}-Y)^{T}(X\boldsymbol{b}-Y) \tag{5}$$ So the derivative of F_{\boldsymbol{b}} yields $$\begin{align}\nabla_{\boldsymbol{b}}F_{\boldsymbol{b}}&amp;=\frac{1}{2}\nabla_{\boldsymbol{b}}(X\boldsymbol{b}-Y)^{T}(X\boldsymbol{b}-Y)\\ &amp;=\frac{1}{2}\nabla_{\boldsymbol{b}}(\boldsymbol{b}^{T}X^{T}-Y^{T})(X\boldsymbol{b}-Y)\\ &amp;=\frac{1}{2}\nabla_{\boldsymbol{b}}(\boldsymbol{b}^{T}X^{T}X\boldsymbol{b}-\boldsymbol{b}^{T}X^{T}Y-Y^{T}X\boldsymbol{b}+Y^{T}Y)\\ &amp;=\frac{1}{2}\nabla_{\boldsymbol{b}}tr(\boldsymbol{b}^{T}X^{T}X\boldsymbol{b}-\boldsymbol{b}^{T}X^{T}Y-Y^{T}X\boldsymbol{b}+Y^{T}Y)\\ &amp;=\frac{1}{2}\nabla_{\boldsymbol{b}}\left(tr(\boldsymbol{b}^{T}X^{T}X\boldsymbol{b})-2tr(Y^{T}X\boldsymbol{b})+tr(Y^{T}Y)\right)\\ &amp;=X^{T}X\boldsymbol{b}-X^{T}Y.\end{align}$$ By setting the derivative to be 0, solution Eq.[4] is obtained.However, this least square solution may have problem when the training sample is not enough, that is m&lt;n. In that case, the matrix \(X^{T}X\) doesn’t have full rank which means it is nonsingular. To solve this problem, we can project each measurement \(\boldsymbol{x_{i}}=(x_{i1},\cdots,x_{in})\) into a lower-dimensional subspace spanned by data \(T=XW\). We can think of this as forming a smaller set of features, each being the linear combination of the original set of features. These new features are also called “latent” variables. Therefore, the linear regression can be written as a linear regression system on the new latent variables $$\begin{align}Y &amp;=TQ^{T}+F \tag{6} \\X &amp;=TP^{T}+E \tag{7}\end{align}$$ where \(P,Q\) are the coefficient matrices and E,F are matrices of errors. As in partial least squares regression (PLSR), the weight matrix \(W\) reflects the covariance structure between the predictor and response variables. Hence, maximizing the covariance of the latent variables and the response variables \(Cov(T,Y)\) gives us the weight matrix \(W\). Once obtaining \(W\) and then constructing \(T\), \(Q^{T}\) is solved by the least squares solution Eq.[6]: $$Q^{T}=(T^{T}T)^{-1}T^{T}Y.$$ Plug Eq.[eq:latent] into the regression equation Eq.[6], we obtain the solution of the matrix \(\boldsymbol{b}\) of the coefficient in the model Eq.[3] $$\boldsymbol{b}=W(T^{T}T)^{-1}T^{T}Y.$$ So this is the whole idea of PLS. A commonly used algorithm to compute PLSR is the nonlinear iterative partial least square (NIPALS) method. The steps are summarized as follows: NIPALS Normalize \(m\) training samples by $$\begin{align}x_{ij} &amp;=\left(x_{ij}-\bar{x} _{\cdot\ j}\right)/ \sigma _{x_{\cdot\ j}} \\y_{i} &amp;=\left(y_{i}-\bar{y}\right)/ \sigma _{y}\ \text{for }i=1,\cdots,m,j=1,\cdots,n\end{align}$$ Compute the scores Compute the dominant eigenvector of \(X_{0}^{T}Y_{0}Y_{0}^{T}X_{0}\) and assign it to \(w_{1}\) (the step of maximizing the covariance). Normalize \(w_{1}\). The scores \(t_{1}\) of \(X_{0}\) yields $$t_{1}=X_{0}w_{1}.$$ Do the same to \(Y_{0}\) and obtain a normalized vector \(c_{1}\). The scores \(v_{1}\) of \(Y_{0}\) yields $$v_{1}=Y_{0}c_{1}.$$ Compute the loadings Based on the regression equations $$\begin{align}X &amp;=t_{1}p_{1}^{T}+E \\Y &amp;=t_{1}q_{1}^{T}+F,\end{align}$$ the least square method gives us $$\begin{align}p_{1} &amp;=\frac{X^{T}t_{1}}{t_{1}t_{1}^{T}} \\q_{1} &amp;=\frac{Y^{T}t_{1}}{t_{1}t_{1}^{T}}.\end{align}$$ Check if \(F\) is sufficiently small. Otherwise, set \(E\) as \(X_{1}\), \(F\) as \(Y_{1}\). Repeat step 2-3. Finally, we obtain $$\begin{align}X &amp;=t_{1}p_{1}^{T}+t_{2}p_{2}^{T}+\cdots+t_{n}p_{n}^{T}+E \\Y &amp;=t_{1}q_{1}^{T}+t_{2}q_{2}^{T}+\cdots+t_{n}q_{n}^{T}+F\end{align}$$ which in a matrix format is as follows: $$\begin{align}X &amp;=TP^{T}+E \\Y &amp;=TQ^{T}+F \\ &amp;=XWQ^{T}+F \\ &amp;:=XB+F.\end{align}$$ So, when we have a new data \(x_{new}\), to define the PLS components in our ABC-MCMC algorithm, we only need to compute $$t_{1}=x_{new}^{T}p_{1},t_{2}=x_{new}^{T}p_{2},\cdots,t_{n}=x_{new}^{T}p_{n}$$]]></content>
@@ -340,11 +358,10 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[pruneL function]]></title>
-    <url>%2F2020%2F10%2F05%2F2018-10-24-pruneLfunction%2F</url>
-    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. But might be less useful than phylo2L function :-) Following last post, this function pruneL prunes an L table by removing the extinct lineages. pruneL function can be found here if you want to improve the function. There is a huge room for improvement. This version is only the first draft of the function. And I guess I should remove the argument dropextinct. It doesn’t make any sense. What do you think?]]></content>
+    <title><![CDATA[phylo2L function]]></title>
+    <url>%2F2020%2F10%2F05%2F2018-10-24-phylo2Lfunction%2F</url>
+    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. L table is an alternative way to a phylo class for phylogenetic information storage. The function L2phylo has been implemented in the DDD package that converts an L table to a phylo class. This function phylo2L does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you. phylo2L function can be found here if you want to improve the function. I have verified it by examining if L=phylo2L(L2phylo(L)) Notice that phylo2L doesn’t have the argument dropextinct as what L2phylo has. Because to my perspective L table should be consistent with the given phylo class. But if you have a full tree on hand and want to prune it, you can do it like this prune_phylo = L2phylo(phylo2L(full tree), dropextinct = TRUE) prune_L = phylo2L(prune_phylo) Or you can use pruneL function that I have developed to prune an L table. More details on pruneL function can be found in this post.]]></content>
       <categories>
-        <category>Research</category>
         <category>R</category>
         <category>phylogeny function</category>
       </categories>
@@ -366,27 +383,10 @@
         <category>Stochastic differential equations</category>
       </categories>
       <tags>
-        <tag>mathematical modeling</tag>
         <tag>the Fokker-Planck equation</tag>
         <tag>stochastic differential equation</tag>
+        <tag>mathematical modeling</tag>
         <tag>math</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[phylo2L function]]></title>
-    <url>%2F2020%2F10%2F05%2F2018-10-24-phylo2Lfunction%2F</url>
-    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. L table is an alternative way to a phylo class for phylogenetic information storage. The function L2phylo has been implemented in the DDD package that converts an L table to a phylo class. This function phylo2L does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you. phylo2L function can be found here if you want to improve the function. I have verified it by examining if L=phylo2L(L2phylo(L)) Notice that phylo2L doesn’t have the argument dropextinct as what L2phylo has. Because to my perspective L table should be consistent with the given phylo class. But if you have a full tree on hand and want to prune it, you can do it like this prune_phylo = L2phylo(phylo2L(full tree), dropextinct = TRUE) prune_L = phylo2L(prune_phylo) Or you can use pruneL function that I have developed to prune an L table. More details on pruneL function can be found in this post.]]></content>
-      <categories>
-        <category>R</category>
-        <category>phylogeny function</category>
-      </categories>
-      <tags>
-        <tag>phylogeny</tag>
-        <tag>phylo class</tag>
-        <tag>L table</tag>
-        <tag>DDD package</tag>
-        <tag>pruneL</tag>
-        <tag>phylo2L</tag>
       </tags>
   </entry>
   <entry>
@@ -410,8 +410,8 @@
         <category>Phd projects</category>
       </categories>
       <tags>
-        <tag>evolution</tag>
         <tag>mathematical modeling</tag>
+        <tag>evolution</tag>
         <tag>diversity-dependence</tag>
       </tags>
   </entry>
