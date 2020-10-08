@@ -12,17 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2020%2F10%2F05%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Liang&apos;s blog! This site is my first blog for sharing my work experience plus a little bit life. CategoriesResearchThis category mainly contains my PhD projects so far. More details can be found on my Research Gate. BB lifeSome interesting stuff about life. BB, in Chinese, means talk about, chat. WorkNot on work yet, although 3 years ago I was a lecturer in China. BloggingInteresting technologies about blogging. At last, enjoy the blog. Hope you can find something useful. Or at least have fun :-)]]></content>
-      <categories>
-        <category>BB life</category>
-      </categories>
-      <tags>
-        <tag>info</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Data visualization: develop a Shiny app to track COVID-19 spread.]]></title>
     <url>%2F2020%2F04%2F25%2F2020-04-25-Covid_19%2F</url>
     <content type="text"><![CDATA[The outbreak of the COVID-19 virus has given me a heavy punch. I have been isolated at home for almost two months with one trip to the nearest trash bin every week. What is even worse is that I cannot get any reply from job hunting. Being so stressed, I decided to develop a Shiny app to track the COVID-19 spread. Hope this may give me a sign of recovery of the world by examining daily data. More information can be found here. A differential equation model is still under construction. Coming soon. Enjoy!]]></content>
@@ -124,8 +113,8 @@
         <category>sed</category>
       </categories>
       <tags>
-        <tag>bash</tag>
         <tag>R</tag>
+        <tag>bash</tag>
         <tag>data analysis</tag>
       </tags>
   </entry>
@@ -344,6 +333,25 @@
     <url>%2F2018%2F10%2F24%2F2018-10-24-phylo2Lfunction%2F</url>
     <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. L table is an alternative way to a phylo class for phylogenetic information storage. The function L2phylo has been implemented in the DDD package that converts an L table to a phylo class. This function phylo2L does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you. phylo2L function can be found here if you want to improve the function. I have verified it by examining if L=phylo2L(L2phylo(L)) Notice that phylo2L doesn’t have the argument dropextinct as what L2phylo has. Because to my perspective L table should be consistent with the given phylo class. But if you have a full tree on hand and want to prune it, you can do it like this prune_phylo = L2phylo(phylo2L(full tree), dropextinct = TRUE) prune_L = phylo2L(prune_phylo) Or you can use pruneL function that I have developed to prune an L table. More details on pruneL function can be found in this post.]]></content>
       <categories>
+        <category>Research</category>
+        <category>R</category>
+        <category>phylogeny function</category>
+      </categories>
+      <tags>
+        <tag>phylogeny</tag>
+        <tag>phylo class</tag>
+        <tag>L table</tag>
+        <tag>DDD package</tag>
+        <tag>pruneL</tag>
+        <tag>phylo2L</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pruneL function]]></title>
+    <url>%2F2018%2F10%2F24%2F2018-10-24-pruneLfunction%2F</url>
+    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. But might be less useful than phylo2L function :-) Following last post, this function pruneL prunes an L table by removing the extinct lineages. pruneL function can be found here if you want to improve the function. There is a huge room for improvement. This version is only the first draft of the function. And I guess I should remove the argument dropextinct. It doesn’t make any sense. What do you think?]]></content>
+      <categories>
+        <category>Research</category>
         <category>R</category>
         <category>phylogeny function</category>
       </categories>
@@ -372,24 +380,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[pruneL function]]></title>
-    <url>%2F2018%2F10%2F24%2F2018-10-24-pruneLfunction%2F</url>
-    <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. But might be less useful than phylo2L function :-) Following last post, this function pruneL prunes an L table by removing the extinct lineages. pruneL function can be found here if you want to improve the function. There is a huge room for improvement. This version is only the first draft of the function. And I guess I should remove the argument dropextinct. It doesn’t make any sense. What do you think?]]></content>
-      <categories>
-        <category>Research</category>
-        <category>R</category>
-        <category>phylogeny function</category>
-      </categories>
-      <tags>
-        <tag>phylogeny</tag>
-        <tag>phylo class</tag>
-        <tag>L table</tag>
-        <tag>DDD package</tag>
-        <tag>pruneL</tag>
-        <tag>phylo2L</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Blogging tech]]></title>
     <url>%2F2018%2F10%2F23%2F2018-10-23-Blogging%20tech%2F</url>
     <content type="text"><![CDATA[I am using hexo for blogging. The blog website is built on my personal Github Page. The theme of the blog is next which is a powerful tool to customize the blog. Here I would like to share/archive some useful tech for future use. Optimizing the themeTwo posts are recommended here on zhihu and CSDN. They almost contain all the custom adjustments for the theme. Of course, the official website next is a good choice as well.Advance tech to make your blog prettier is on this website. Huge amount of tips and tricks are shown. MaterialsTo look for some materials like pictures, icons, you can find a lot form easyicon and fontawesome for free.]]></content>
@@ -413,6 +403,17 @@
         <tag>evolution</tag>
         <tag>mathematical modeling</tag>
         <tag>diversity-dependence</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F10%2F20%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Liang&apos;s blog! This site is my first blog for sharing my work experience plus a little bit life. CategoriesResearchThis category mainly contains my PhD projects so far. More details can be found on my Research Gate. BB lifeSome interesting stuff about life. BB, in Chinese, means talk about, chat. WorkNot on work yet, although 3 years ago I was a lecturer in China. BloggingInteresting technologies about blogging. At last, enjoy the blog. Hope you can find something useful. Or at least have fun :-)]]></content>
+      <categories>
+        <category>BB life</category>
+      </categories>
+      <tags>
+        <tag>info</tag>
       </tags>
   </entry>
 </search>
