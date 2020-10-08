@@ -329,6 +329,21 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Deriving the Fokker-Planck equation from a stochastic differential equation]]></title>
+    <url>%2F2018%2F10%2F24%2F2018-10-24-derivingFPequ%2F</url>
+    <content type="text"><![CDATA[Writing a periodic progress report is a good way to record the process that you gain knowledge. Reviewing my progress reports in the last 3 years, it recovers my memory about the knowledge and technologies that I almost forgot as I rarely use them. From this post on, I would like to give them a review and share on the blog. Hope it can help people who are interest in and one can help me if I am wrong at somewhere. DerivationHere I briefly present the derivation for the Fokker-Planck equation from a stochastic differential equation. Given the stochastic process $$dx=a(x,t)dt+b(x,t)dW_{t}$$ where \(W_{t}\) is a Wiener process. By Ito lemma, for any twice-differentiable scalar function \(f(x)\) we have $$df(x)=\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right)dt+b(x,t)f’(x)dW_{t}$$ The expectation of \(f(x,t)\) yields $$E(f(x))=\int f(x)p(x,t)dx$$ and take the derivative $$\frac{dE(f(x))}{dt}=\frac{d\int f(x)p(x,t)dx}{dt}=\int f(x)\frac{\partial p(x,t)}{\partial t}dx \tag{1}$$ Also, we could plug Eq.[1] in the expectation of \(f(x)\) and take the derivative yields $$\frac{dE(f(x))}{dt}=\frac{E(df(x))}{dt}=E\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right) \tag{2}$$ From that Eq.[1] and Eq.[2] are identical, we have $$\begin{align}\int f(x)\frac{\partial p(x,t)}{\partial t}dx &amp;=\int\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right)p(x,t)dx \\ &amp; =\int a(x,t)f’(x)p(x,t)dx+\frac{1}{2}\int b^{2}(x,t)f’’(x)p(x,t)dx \\ &amp; =-\int f(x)\frac{\partial a(x,t)p(x,t)}{\partial x}dx+\frac{1}{2}\int f(x)\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}dx \\ &amp; =\int f(x)\left(-\frac{\partial a(x,t)p(x,t)}{\partial x}+\frac{1}{2}\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}\right)dx\end{align}$$ As \(f(x)\) is arbitrary, we obtain the Fokker-Planck equation in one dimension $$\frac{\partial p(x,t)}{\partial t}=-\frac{\partial a(x,t)p(x,t)}{\partial x}+\frac{1}{2}\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}$$]]></content>
+      <categories>
+        <category>Research</category>
+        <category>Stochastic differential equations</category>
+      </categories>
+      <tags>
+        <tag>the Fokker-Planck equation</tag>
+        <tag>stochastic differential equation</tag>
+        <tag>mathematical modeling</tag>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[phylo2L function]]></title>
     <url>%2F2018%2F10%2F24%2F2018-10-24-phylo2Lfunction%2F</url>
     <content type="text"><![CDATA[I guess this function is specially useful to our group in which we play with L table. L table is an alternative way to a phylo class for phylogenetic information storage. The function L2phylo has been implemented in the DDD package that converts an L table to a phylo class. This function phylo2L does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you. phylo2L function can be found here if you want to improve the function. I have verified it by examining if L=phylo2L(L2phylo(L)) Notice that phylo2L doesn’t have the argument dropextinct as what L2phylo has. Because to my perspective L table should be consistent with the given phylo class. But if you have a full tree on hand and want to prune it, you can do it like this prune_phylo = L2phylo(phylo2L(full tree), dropextinct = TRUE) prune_L = phylo2L(prune_phylo) Or you can use pruneL function that I have developed to prune an L table. More details on pruneL function can be found in this post.]]></content>
@@ -365,21 +380,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Deriving the Fokker-Planck equation from a stochastic differential equation]]></title>
-    <url>%2F2018%2F10%2F24%2F2018-10-24-derivingFPequ%2F</url>
-    <content type="text"><![CDATA[Writing a periodic progress report is a good way to record the process that you gain knowledge. Reviewing my progress reports in the last 3 years, it recovers my memory about the knowledge and technologies that I almost forgot as I rarely use them. From this post on, I would like to give them a review and share on the blog. Hope it can help people who are interest in and one can help me if I am wrong at somewhere. DerivationHere I briefly present the derivation for the Fokker-Planck equation from a stochastic differential equation. Given the stochastic process $$dx=a(x,t)dt+b(x,t)dW_{t}$$ where \(W_{t}\) is a Wiener process. By Ito lemma, for any twice-differentiable scalar function \(f(x)\) we have $$df(x)=\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right)dt+b(x,t)f’(x)dW_{t}$$ The expectation of \(f(x,t)\) yields $$E(f(x))=\int f(x)p(x,t)dx$$ and take the derivative $$\frac{dE(f(x))}{dt}=\frac{d\int f(x)p(x,t)dx}{dt}=\int f(x)\frac{\partial p(x,t)}{\partial t}dx \tag{1}$$ Also, we could plug Eq.[1] in the expectation of \(f(x)\) and take the derivative yields $$\frac{dE(f(x))}{dt}=\frac{E(df(x))}{dt}=E\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right) \tag{2}$$ From that Eq.[1] and Eq.[2] are identical, we have $$\begin{align}\int f(x)\frac{\partial p(x,t)}{\partial t}dx &amp;=\int\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right)p(x,t)dx \\ &amp; =\int a(x,t)f’(x)p(x,t)dx+\frac{1}{2}\int b^{2}(x,t)f’’(x)p(x,t)dx \\ &amp; =-\int f(x)\frac{\partial a(x,t)p(x,t)}{\partial x}dx+\frac{1}{2}\int f(x)\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}dx \\ &amp; =\int f(x)\left(-\frac{\partial a(x,t)p(x,t)}{\partial x}+\frac{1}{2}\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}\right)dx\end{align}$$ As \(f(x)\) is arbitrary, we obtain the Fokker-Planck equation in one dimension $$\frac{\partial p(x,t)}{\partial t}=-\frac{\partial a(x,t)p(x,t)}{\partial x}+\frac{1}{2}\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}$$]]></content>
-      <categories>
-        <category>Research</category>
-        <category>Stochastic differential equations</category>
-      </categories>
-      <tags>
-        <tag>mathematical modeling</tag>
-        <tag>the Fokker-Planck equation</tag>
-        <tag>stochastic differential equation</tag>
-        <tag>math</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Blogging tech]]></title>
     <url>%2F2018%2F10%2F23%2F2018-10-23-Blogging%20tech%2F</url>
     <content type="text"><![CDATA[I am using hexo for blogging. The blog website is built on my personal Github Page. The theme of the blog is next which is a powerful tool to customize the blog. Here I would like to share/archive some useful tech for future use. Optimizing the themeTwo posts are recommended here on zhihu and CSDN. They almost contain all the custom adjustments for the theme. Of course, the official website next is a good choice as well.Advance tech to make your blog prettier is on this website. Huge amount of tips and tricks are shown. MaterialsTo look for some materials like pictures, icons, you can find a lot form easyicon and fontawesome for free.]]></content>
@@ -400,8 +400,8 @@
         <category>Phd projects</category>
       </categories>
       <tags>
-        <tag>evolution</tag>
         <tag>mathematical modeling</tag>
+        <tag>evolution</tag>
         <tag>diversity-dependence</tag>
       </tags>
   </entry>
