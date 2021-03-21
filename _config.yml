@@ -80,7 +80,8 @@ theme: next-reloaded
 deploy:
   type: git
   repository: https://github.com/xl0418/xl0418.github.io.git
-
+  branch: master
+  
 # word count  
 symbols_count_time:
   symbols: true
