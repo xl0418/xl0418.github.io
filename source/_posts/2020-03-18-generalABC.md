@@ -1,8 +1,8 @@
 ---
 title: "A user-friendly approximate Bayesian computation package in Python with an application on the coronavirus outbreak in the Netherlands"
-top: 1
 categories: [Research,Algorithm, ABC]
 tags: [Python, ABC, algorithm]
+date: 2020-03-18
 
 ---
 

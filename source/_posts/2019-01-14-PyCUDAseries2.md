@@ -2,6 +2,8 @@
 title: "PyCUDA series 2: a simple matrix algebra and speed test"
 categories: [Research,GPU programming,pyCUDA]
 tags: [Python, CUDA, GPU programming, Parallel computation]
+date: 2019-01-14
+
 ---
 
 In this post, you will find a simple matrix algebra done by gpu parallelization and a straightforward result of the speed contest between cpu and gpu.

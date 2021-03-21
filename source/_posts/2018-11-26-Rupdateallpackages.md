@@ -2,6 +2,8 @@
 title: R update all packages
 categories: [Research, R]
 tags: [R,update, packages]
+date: 2018-11-26
+
 ---
 
 A convenient way to update all the packages.

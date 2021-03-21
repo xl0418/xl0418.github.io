@@ -1,8 +1,9 @@
 ---
 title: "Machine learning on biology S2: how does a neural network work mathematically?"
-top: 4
 categories: [Research,Machine learning,Deep learning]
 tags: [Python, Machine learning, neural networks, Backward propagation, gradient descent]
+date: 2019-02-08
+
 ---
 
 There are tons of documents out there to explain how neural network works in different angles. So I guess people don't mind me adding one more from my perspective. Hopefully, someone may get inspired from this post.

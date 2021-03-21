@@ -2,6 +2,8 @@
 title: PhD Project 1-Detecting local diversity-dependence in diversification
 categories: [Research,Phd projects]
 tags: [evolution,mathematical modeling,diversity-dependence]
+date: 2018-10-22
+
 ---
 
 Welcome to [Liang&apos;s blog](https://xl0418.github.io/)! This is my first PhD project since 2015 joining [Etienne&apos;s lab](https://www.rug.nl/staff/r.s.etienne/). You will find a brief introduction to this project. The code for the model can be found on my [GitHub](https://github.com/xl0418/code).

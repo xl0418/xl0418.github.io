@@ -2,6 +2,8 @@
 title: "Bash & R: Dealing with big data; read it! don't source it!"
 categories: [Research,Bash,sed]
 tags: [data analysis, bash, R]
+date: 2019-03-20
+
 ---
 
 Recently, I was focusing on my 3rd PhD project with mathematical modeling. It was about the extension to the [neutral theory](https://www.nature.com/scitable/knowledge/library/neutral-theory-of-species-diversity-13259703). I am not gonna reveal it now but will bring back in the future.  So I was away from the blog for a while and have to put machine learning series aside, although the derivation of the recurrent neural network is done. It is coming soon as well. Finally, the mathematical model has been done. I have some time to talk something that I've been doing except the modeling when waiting for the simulation results. In this post, I am gonna record a silly issue about loading data in R after extracting the a subset of a big data by Bash.  

@@ -2,6 +2,8 @@
 title: pruneL function
 categories: [Research,R,phylogeny function]
 tags: [phylogeny,phylo class,L table,DDD package,pruneL,phylo2L]
+date: 2018-10-24
+
 ---
 
 I guess this function is specially useful to [our group](https://www.rug.nl/staff/r.s.etienne/) in which we play with L table. But might be less useful than `phylo2L` function :-)

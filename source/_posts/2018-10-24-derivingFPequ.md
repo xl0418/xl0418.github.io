@@ -1,8 +1,9 @@
 ---
 title: Deriving the Fokker-Planck equation from a stochastic differential equation
-top: 3
 categories: [Research, Stochastic differential equations]
 tags: [the Fokker-Planck equation,stochastic differential equation,mathematical modeling,math]
+date: 2018-10-24
+
 ---
 
 Writing a periodic progress report is a good way to record the process that you gain knowledge. Reviewing my progress reports in the last 3 years, it recovers my memory about the knowledge and technologies that I almost forgot as I rarely use them. From this post on, I would like to give them a review and share on the blog. Hope it can help people who are interest in and one can help me if I am wrong at somewhere. 

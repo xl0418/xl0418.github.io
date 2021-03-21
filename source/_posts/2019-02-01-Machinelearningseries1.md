@@ -2,6 +2,8 @@
 title: "Machine learning on biology S1: model classification via ML"
 categories: [Research,Machine learning,Deep learning]
 tags: [Python, Machine learning, neural networks, GPU programming]
+date: 2019-02-01
+
 ---
 
 On my 2nd Phd project, I have constructed a complex trait-population model to describe how species evolve and assemble in a community under natural selection. However, people may naturally ask if such complexity is really needed. What is the discrepancy between the model with and without population dynamics and variable trait variance? To answer this question, a model selection/classification should be performed on the data generated under those candidate models. As what we used in parameter inference, an [Approximate Bayesian Computation-Sequential Monte Carlo method](https://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/) is able to handle this work. However, a huge computational demanding is the bottle neck.  To avoid to waste time on fitting each empirical data set by ABC-SMC, a method that only uses the feature of data sets would be a better choice. This reminds me the existing and fast-developed took, i.e. machine learning. So, from this post on, I would like to share my experience of learning Machine Leaning, how to construct a neural network, how to derive backwards propagation algorithm for leaning parameters of a neural network and how to use tensorflow to simply use machine learning, or even deep learning (a multiple-layer neural network algorithm), to do model selection/classification on the topic I mentioned above. 

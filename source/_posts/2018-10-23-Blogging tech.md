@@ -2,6 +2,8 @@
 title: Blogging tech
 categories: [Blogging, Blogging tech]
 tags: [Tech]
+date: 2018-10-23
+
 ---
 
 I am using [hexo](https://hexo.io/zh-cn/index.html) for blogging. The blog website is built on my personal [Github Page](https://xl0418.github.io/). The theme of the blog is [next](https://theme-next.iissnan.com/) which is a powerful tool to customize the blog. Here I would like to share/archive some useful tech for future use. 

@@ -2,6 +2,8 @@
 title: "PyCUDA series 3: matrix multiplication using multiple blocks"
 categories: [Research,GPU programming,pyCUDA]
 tags: [Python, CUDA, GPU programming, Parallel computation]
+date: 2019-01-21
+
 ---
 
 A simple practice on matrix multiplication is shown in this post. The matrix product function can use multiple blocks to calculate multiplications of two matrix. 

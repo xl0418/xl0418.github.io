@@ -2,6 +2,7 @@
 title: "GUI your model - a way to sell theoretical models to empiricists "
 categories: [Research,Python, GUI]
 tags: [Python,GUI, models]
+date: 2020-03-09
 
 ---
 

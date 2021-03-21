@@ -2,6 +2,8 @@
 title: "PyCUDA series 1: Build GPU programming environment "
 categories: [Research,GPU programming,pyCUDA]
 tags: [Python, CUDA, GPU programming, Parallel computation]
+date: 2019-01-04
+
 ---
 
 As my research always involves a huge amount of computation, parallel technique is a super fancy way to save my time. But the resource of cluster at my university is limited. I recently received a warning that CIT has detected multiple-account usage under my IP. To avoid the risk of being fired, I have to figure out another way to parallelize my job instead of parallelizing accounts. Right on time, GPU programming came out as an ideal option. I hope the GPU resource of my university is not full loaded yet.

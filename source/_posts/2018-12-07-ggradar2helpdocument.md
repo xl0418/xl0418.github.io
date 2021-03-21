@@ -2,6 +2,8 @@
 title: "ggradar2: Help document "
 categories: [Research, Data visualization, R, ggradar2]
 tags: [R,ggplot, ggradar2, Data visualization,help document]
+date: 2018-12-07
+
 ---
 
 In this blog, the details of the arguments used in [ggradar2](https://github.com/xl0418/ggradar2) are provided.
