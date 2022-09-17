@@ -15,7 +15,7 @@
 
   
   
-  <meta name="keywords" content="bash,R,data analysis">
+  <meta name="keywords" content="R,bash,data analysis">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -50,13 +50,13 @@
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="../../../../index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
       
-        <li><a href="../../../../about">About</a></li>
+        <li><a href="/about">About</a></li>
       
-        <li><a href="../../../../categories">Categories</a></li>
+        <li><a href="/categories">Categories</a></li>
       
-        <li><a href="../../../../tags">Tags</a></li>
+        <li><a href="/tags">Tags</a></li>
       
     </ul>
   </nav>
@@ -91,11 +91,11 @@
 <span id="more"></span>
 
 <h1 id="The-right-matrix-format-to-load-in-R"><a href="#The-right-matrix-format-to-load-in-R" class="headerlink" title="The right matrix format to load in R"></a>The right matrix format to load in R</h1><p>If you have tracked my posts, you may remember that I used a bash script to extract a matrix out of a big and complex structured m file (see <a href="https://xl0418.github.io/2018/10/29/2018-10-29-sed/">here</a>). But I mistakenly modified the matrix to fit the matrix format in R.</p>
-<p><img src="2019-03-20-readdatadon/d.png" alt="fig"> </p>
+<p><img src="/2019-03-20-readdatadon/d.png" alt="fig"> </p>
 <p>What’s wrong with this format? It is a function to call instead of a data to load. Thus if the data in the <code>structure()</code> is very big, like 10000x10000, it is very time-consuming to run the function in R. But our aim is to read the matrix of this size or even larger. It is not supposed to be problematic for R. </p>
 <p>After a while of brainstorm, I kind of thought it might be due to the matrix format and the way I load the data in R. The command <code>source()</code> actually calls the function written in the sourced file.  Thus, to create a matrix by using <code>structure()</code> it is easy to exceed the memory size. </p>
 <p>The solution is that we could use <code>read.csv()</code> to load the data into R, which is much faster and more efficient for large data sets. To achieve that, we need rewrite the raw data in a csv format. The following is how it looks like in the notepad </p>
-<p><img src="2019-03-20-readdatadon/rewrittendata.png" alt="fig"> </p>
+<p><img src="/2019-03-20-readdatadon/rewrittendata.png" alt="fig"> </p>
 <p>Notice that the first line is left blank. It is supposed to put the headers for columns. Then we can directly read it in R by using </p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">=</span> read.csv<span class="punctuation">(</span>data<span class="punctuation">,</span>header <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
@@ -128,7 +128,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/bash/">bash</a><a href="/tags/R/">R</a><a href="/tags/data-analysis/">data analysis</a>
+        <a href="/tags/R/">R</a><a href="/tags/bash/">bash</a><a href="/tags/data-analysis/">data analysis</a>
     </span>
     
 

@@ -50,13 +50,13 @@
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="../../../../index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
       
-        <li><a href="../../../../about">About</a></li>
+        <li><a href="/about">About</a></li>
       
-        <li><a href="../../../../categories">Categories</a></li>
+        <li><a href="/categories">Categories</a></li>
       
-        <li><a href="../../../../tags">Tags</a></li>
+        <li><a href="/tags">Tags</a></li>
       
     </ul>
   </nav>
@@ -92,10 +92,10 @@
 
 <h2 id="Generating-Data"><a href="#Generating-Data" class="headerlink" title="Generating Data"></a>Generating Data</h2><p>The data I used in the examples is generated under SMC applying on our trait-population coevolution model, a likelihood-free method for searching the true parameters when an analytic formulation of the model is not achievable. The data is consisting of 30 iterations samples. Each iteration contains 10K sampling. The algorithm starts by sampling from a uniform distribution in range (0,1). After each iteration, it computes the fitness of the samples and highly weights the samples with high fitness. Finally, it converges to the true value.  </p>
 <h2 id="Mountain-plot"><a href="#Mountain-plot" class="headerlink" title="Mountain plot"></a>Mountain plot</h2><p>Mountain plot is recently highly evaluated theme for comparing the distribution of data across groups. The idea is stem from <a target="_blank" rel="noopener" href="https://twitter.com/hnrklndbrg/status/883675698300420098">Henrik’s plot</a></p>
-<p><img src="2018-11-30-SMCplots/Rplot1.png" alt="plot 1"></p>
+<p><img src="/2018-11-30-SMCplots/Rplot1.png" alt="plot 1"></p>
 <p>Forget to point out the true value is at 1.0, which is the peak of the distribution at 30th iteration. </p>
 <h2 id="Heatmap-plot"><a href="#Heatmap-plot" class="headerlink" title="Heatmap plot"></a>Heatmap plot</h2><p>Another nice presentation is realized by the heat map. The data was manipulated a bit. The density of the samples was converted to the frequency in tiny cells. Then it can be applied by the heat map plot.</p>
-<p><img src="2018-11-30-SMCplots/Rplot2.png" alt="plot 1"></p>
+<p><img src="/2018-11-30-SMCplots/Rplot2.png" alt="plot 1"></p>
 <p>Which one do you prefer?</p>
 
       

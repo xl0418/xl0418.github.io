@@ -50,13 +50,13 @@
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="../../../../index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
       
-        <li><a href="../../../../about">About</a></li>
+        <li><a href="/about">About</a></li>
       
-        <li><a href="../../../../categories">Categories</a></li>
+        <li><a href="/categories">Categories</a></li>
       
-        <li><a href="../../../../tags">Tags</a></li>
+        <li><a href="/tags">Tags</a></li>
       
     </ul>
   </nav>
@@ -91,7 +91,7 @@
 <span id="more"></span>
 
 <h2 id="The-data-file"><a href="#The-data-file" class="headerlink" title="The data file"></a>The data file</h2><p>In this project, I have generated in total 108 data file in <code>.m</code> (Matlab) format. Each file contain several distance matrix, abundance vectors, an event table and turnover ticks that I want to extract and analyze exclusively. </p>
-<p><img src="2019-01-10sed2/mfiles.png" alt="Raw data files."></p>
+<p><img src="/2019-01-10sed2/mfiles.png" alt="Raw data files."></p>
 <h2 id="Extract-the-matrix"><a href="#Extract-the-matrix" class="headerlink" title="Extract the matrix"></a>Extract the matrix</h2><p>The procedure is simple. I modified the previous experimental bash scripts a bit to fit the file names of data. Then execute them sequentially on Windows prompt.</p>
 <ol>
 <li>Run <code>extractallDs.sh</code> and <code>extractallRs.sh</code> to extract all D matrix and R matrix from the raw files into <code>LRsij.Rdata,MRsij.Rdata,HRsij.Rdata,LDsij.Rdata,MDsij.Rdata,HDsij.Rdata</code>.</li>
@@ -99,7 +99,7 @@
 <li>Do the same thing to extract event table and turnover ticks by running <code>loopextractEve_Turn.sh</code></li>
 </ol>
 <p>like </p>
-<p><img src="2019-01-10sed2/rdatafiles.png" alt="Raw data files."></p>
+<p><img src="/2019-01-10sed2/rdatafiles.png" alt="Raw data files."></p>
 <p>But I obtained nothing in the files. </p>
 <h2 id="Bug-shooting"><a href="#Bug-shooting" class="headerlink" title="Bug shooting"></a>Bug shooting</h2><p>Same simulation code generates the same data structure. But why couldn’t the same bash script extract information as before? At that moment, I kind of had a feeling that it must be that the script cannot recognize the newline sign. like the following, if the computer cannot match <code>\r</code>, which is the code for the newline under windows and DOS, the script extracts nothing. </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">sed -n <span class="string">&#x27;/D&#x27;</span>&#123;<span class="string">&#x27;length(D)+1&#x27;</span>&#125;<span class="string">&#x27; = \[\r/,/\];/p&#x27;</span> <span class="built_in">test</span><span class="string">&quot;$j<span class="variable">$i</span>&quot;</span>.m &gt; Ds<span class="string">&quot;$j<span class="variable">$i</span>&quot;</span>.Rdata</span><br><span class="line"><span class="built_in">echo</span> $j<span class="variable">$i</span><span class="string">&#x27; done&#x27;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>

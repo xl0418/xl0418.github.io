@@ -50,13 +50,13 @@
   <nav class="site-navigation">
     <ul>
       
-        <li><a href="../../../../index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
       
-        <li><a href="../../../../about">About</a></li>
+        <li><a href="/about">About</a></li>
       
-        <li><a href="../../../../categories">Categories</a></li>
+        <li><a href="/categories">Categories</a></li>
       
-        <li><a href="../../../../tags">Tags</a></li>
+        <li><a href="/tags">Tags</a></li>
       
     </ul>
   </nav>
@@ -100,43 +100,43 @@
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <p>returns </p>
-<p><img src="2018-12-05-ggradar2/roundfill.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/roundfill.png" alt="default"></p>
 <h3 id="No-fill-with-round-grid"><a href="#No-fill-with-round-grid" class="headerlink" title="No fill with round grid"></a>No fill with round grid</h3><p>If you don’t want to fill the polygon, run</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>polygonfill <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/roundnofill.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/roundnofill.png" alt="default"></p>
 <h3 id="Web-type"><a href="#Web-type" class="headerlink" title="Web type"></a>Web type</h3><p>A new web type ‘lux’ has been added by <code>webtype</code>.</p>
 <p>mini type</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>webtype <span class="operator">=</span> <span class="string">&#x27;mini&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/mini.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/mini.png" alt="default"></p>
 <p>luxurious type</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>webtype <span class="operator">=</span> <span class="string">&#x27;lux&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/lux.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/lux.png" alt="default"></p>
 <h3 id="Gird-line-trend"><a href="#Gird-line-trend" class="headerlink" title="Gird line trend"></a>Gird line trend</h3><p>Use <code>grid.line.trend = &#39;increase&#39;</code> to plot an outward-increasing grid lines.</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>style <span class="operator">=</span> <span class="string">&#x27;sharp&#x27;</span><span class="punctuation">,</span>webtype <span class="operator">=</span> <span class="string">&#x27;lux&#x27;</span><span class="punctuation">,</span></span><br><span class="line">              group.line.width <span class="operator">=</span> <span class="number">0.5</span><span class="punctuation">,</span>grid.line.trend <span class="operator">=</span> <span class="string">&#x27;increase&#x27;</span><span class="punctuation">,</span>gridline.min.linetype <span class="operator">=</span> <span class="string">&#x27;solid&#x27;</span><span class="punctuation">,</span></span><br><span class="line">              gridline.max.linetype <span class="operator">=</span> <span class="string">&#x27;solid&#x27;</span><span class="punctuation">,</span>gridline.min.colour <span class="operator">=</span> <span class="string">&#x27;black&#x27;</span><span class="punctuation">,</span>gridline.max.colour<span class="operator">=</span><span class="string">&#x27;black&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/trend.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/trend.png" alt="default"></p>
 <h3 id="Full-score"><a href="#Full-score" class="headerlink" title="Full score"></a>Full score</h3><p>Use <code>fullscore = c(...)</code> to set the full score to each variable.</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fullscore <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">100</span><span class="punctuation">,</span><span class="number">10</span><span class="punctuation">,</span><span class="number">300</span><span class="punctuation">,</span><span class="number">150</span><span class="punctuation">,</span><span class="number">10</span><span class="punctuation">,</span><span class="number">10</span><span class="punctuation">)</span></span><br><span class="line">a <span class="operator">&lt;-</span> ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>fullscore <span class="operator">=</span> fullscore<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/fullscore.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/fullscore.png" alt="default"></p>
 <h3 id="Sharp-grid"><a href="#Sharp-grid" class="headerlink" title="Sharp grid"></a>Sharp grid</h3><p>A new style has been added. Call out the straight line style by running </p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>style <span class="operator">=</span> <span class="string">&#x27;sharp&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/straightfill.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/straightfill.png" alt="default"></p>
 <h3 id="Sharp-grid-without-fill"><a href="#Sharp-grid-without-fill" class="headerlink" title="Sharp grid without fill"></a>Sharp grid without fill</h3><p>Get rid of the fill</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>style <span class="operator">=</span> <span class="string">&#x27;sharp&#x27;</span><span class="punctuation">,</span>polygonfill <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/straightnofill.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/straightnofill.png" alt="default"></p>
 <h3 id="Removing-the-legend"><a href="#Removing-the-legend" class="headerlink" title="Removing the legend"></a>Removing the legend</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ggradar2<span class="punctuation">(</span>dftest<span class="punctuation">,</span>style <span class="operator">=</span> <span class="string">&#x27;sharp&#x27;</span><span class="punctuation">,</span></span><br><span class="line">polygonfill <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span>plot.legend <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="2018-12-05-ggradar2/nolegend.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/nolegend.png" alt="default"></p>
 <h3 id="Multiple-plots-by-subgroups"><a href="#Multiple-plots-by-subgroups" class="headerlink" title="Multiple plots by subgroups"></a>Multiple plots by subgroups</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extract 3 brands of cars out of the data frame</span></span><br><span class="line">facettest <span class="operator">&lt;-</span> df<span class="punctuation">[</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">,</span><span class="number">5</span><span class="punctuation">,</span><span class="number">8</span><span class="operator">:</span><span class="number">14</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="punctuation">]</span></span><br><span class="line"><span class="comment"># Set the subgroup names</span></span><br><span class="line">facet1 <span class="operator">&lt;-</span> mapply<span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">,</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&#x27;Mazda&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;Hornet&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;Merc&#x27;</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">,</span><span class="number">7</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">facet1 <span class="operator">&lt;-</span> Reduce<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">,</span>facet1<span class="punctuation">)</span></span><br><span class="line">facettest <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>facettest<span class="punctuation">,</span>facet1<span class="punctuation">)</span></span><br><span class="line">ggradar2<span class="punctuation">(</span>facettest<span class="punctuation">,</span>multiplots <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <p>Notice that the column name for the subgroups should be ‘facet1’. Otherwise, ggradar2 could not recognize it.</p>
-<p><img src="2018-12-05-ggradar2/multipleplotsbig.png" alt="default"></p>
+<p><img src="/2018-12-05-ggradar2/multipleplotsbig.png" alt="default"></p>
 
       
     </div>
