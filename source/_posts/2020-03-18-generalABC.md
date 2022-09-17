@@ -12,7 +12,7 @@ Approximate Bayesian computation (ABC) is a kind of likelihood-free method that 
 
 # A brief introduction of the ABC
 
-Approximate Bayesian computation constitutes a family of computational methods with different algorithms that base on Bayesian statistics. An overview of this approach can be found [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002803). The following figure from Sunnaker et al. summarizes the idea accurately. <img src="2020-03-18-generalABC/abc_scheme.png" width="100%" height="100%">
+Approximate Bayesian computation constitutes a family of computational methods with different algorithms that base on Bayesian statistics. An overview of this approach can be found [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002803). The following figure from Sunnaker et al. summarizes the idea accurately. <img src="abc_scheme.png" width="100%" height="100%">
 
 Normally, one iteration that constitutes the above mentioned steps is not enough to get a convergent estimation. Hence, taking the posterior distribution of the estimates as the prior distribution in the next iteration to presume the algorithm learning is usually used. This is why ABC like approaches are computational demanding. However, parallel computation can ameliorate it a bit. 
 
@@ -22,7 +22,7 @@ In my toy package, users can prescribe the number of the iterations and the simu
 
 Since 27th February 2020 the first infected was reported in NL, the coronavirus pandemic has caused over 1700 infections so far.  
 
-<img src="2020-03-18-generalABC/data.png" width="70%" height="70%">
+<img src="data.png" width="70%" height="70%">
 
 As an illustration of how this general ABC approach works, I would like to estimate parameters of 2 models and make inference on the future growth of the infected cases. Note that this is only a toy example. Models are very simple and may have analytic solutions. But my purpose here is to show how this ABC package (ABCer) works for different models in a likelihood-free way. 
 
@@ -65,7 +65,7 @@ test_list1 = test_ABC1.ABC(prior_paras=[0.0, 1.0, 1.0, 2.0])
 
 The mean of the estimates for each iteration will be printed out. In this example, the values tend to stabilize with the proceeding of the algorithm, indicating convergence achieved. 
 
-<img src="2020-03-18-generalABC/setup_model1.gif" width="100%" height="100%">
+<img src="setup_model1.gif" width="100%" height="100%">
 
 Now, we can use the inferred parameters to make prediction of the infection.
 
@@ -91,17 +91,17 @@ plt.ylabel('Number of infected cases')
 
 The red cross denotes the estimate infection. Well, it seems that this model has a lower increase than the observation at the beginning stage but a higher increase than expected later on. This is probably due to the government didn't take any measures at the beginning so that the increase is big. But when it realized how serious the situation is the government started to take action so that the spread of the virus is limited. 
 
-<img src="2020-03-18-generalABC/Predict1.png" width="70%" height="70%">
+<img src="Predict1.png" width="70%" height="70%">
 
 # Another candidate model
 
 Now, we can test any models and estimate their parameters in the same way. Here I tried an additional simple model - a polynomial model - to see if we get a nicer regression.
 
- <img src="2020-03-18-generalABC/setup_model2.gif" width="100%" height="100%">
+ <img src="setup_model2.gif" width="100%" height="100%">
 
 The prediction fits the observed data better at the beginning phase. But in the latter phase the infection is underestimated. This means a polynomial model with up to second order cannot fit the data very well. 
 
-<img src="2020-03-18-generalABC/Predict2.png" width="70%" height="70%">
+<img src="Predict2.png" width="70%" height="70%">
 
 # Conclusion
 

@@ -22,7 +22,7 @@ I used in total around 1000K data sets that are randomly generated under 4 model
 
 The result is shown below:
 
-![fig](2019-02-01-Machinelearningseries1/modelselection1.png)   
+![fig](modelselection1.png)   
 
 Each chart contains four bars indicating the probability of each model (B: BM; O: OU; T: TP; A: Anti-OU). Color red denotes that the prediction of the network is wrong. Otherwise, the highest bar correctly implies the generating model. The results reveal that BM and OU model are confusing to the trained neural network. This makes sense that because of the normalization of traits the output of these two models show no significant discrepancy, i.e. almost all traits are evenly distributed in the trait space. Only the range of the traits would provide some information, i.e. BM model has wider range for the traits than OU model. But the normalization neglects it. The other two models, TP and Anti-OU are nicely distinguishable from the model pile. This indicates that the trait-population model do have significant pattern to express itself. Thus our complexity plays a role in describing trait patterns. 
 

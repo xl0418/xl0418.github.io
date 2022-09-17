@@ -14,7 +14,7 @@ Recently, I was focusing on my 3rd PhD project with mathematical modeling. It wa
 
 If you have tracked my posts, you may remember that I used a bash script to extract a matrix out of a big and complex structured m file (see [here](https://xl0418.github.io/2018/10/29/2018-10-29-sed/)). But I mistakenly modified the matrix to fit the matrix format in R.
 
-![fig](2019-03-20-readdatadon/d.png) 
+![fig](d.png) 
 
 What's wrong with this format? It is a function to call instead of a data to load. Thus if the data in the `structure()` is very big, like 10000x10000, it is very time-consuming to run the function in R. But our aim is to read the matrix of this size or even larger. It is not supposed to be problematic for R. 
 
@@ -22,7 +22,7 @@ After a while of brainstorm, I kind of thought it might be due to the matrix for
 
 The solution is that we could use `read.csv()` to load the data into R, which is much faster and more efficient for large data sets. To achieve that, we need rewrite the raw data in a csv format. The following is how it looks like in the notepad 
 
-![fig](2019-03-20-readdatadon/rewrittendata.png) 
+![fig](rewrittendata.png) 
 
 Notice that the first line is left blank. It is supposed to put the headers for columns. Then we can directly read it in R by using 
 

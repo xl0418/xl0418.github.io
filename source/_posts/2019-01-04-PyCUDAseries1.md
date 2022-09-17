@@ -24,13 +24,13 @@ For now, I am working on **Windows 10** with **Python 3.7.0**. The CUDA version 
 
 3.  Open the Visual Studio installer under the folder Visual Studio 2017. 
  
-![default](2019-01-04-PyCUDAseries1/vsinstaller.png)
+![default](vsinstaller.png)
 
 4. Select: **Modify** under Visual Studio 2017 -> **Installation details**.
 
 5. Install options: select only the **Windows 10 SDK**.
 
-![default](2019-01-04-PyCUDAseries1/win10SDK.png)
+![default](win10SDK.png)
 
 6.  Install [CUDA 10.0](https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal) and follow the steps [here](https://docs.nvidia.com/cuda/cuda-quick-start-guide/index.html#windows) to set up CUDA environment.
 

@@ -80,7 +80,7 @@ __global__ void com_t(int matrixsize,float *a, float *c)
 
 The most important part of parallelism on GPU is the kernel function which is coded for a single calculation path. The only difference among different calculation paths is the locality information of the entries of matrix `c` in the memory. Normally, we can envisage a memory on GPU as a cluster of grids of blocks of threads. But in fact, it is not this physical structure on the borad of the card. It involves streaming processors (SMs) dealing with wraps. However, here we better use the metaphor.
 
-![default](2019-01-14-PyCUDAseries2/gridblockthread.png)
+![default](gridblockthread.png)
 
 Each entry in matrix `c` corresponds to a specific combination of `gridIdx.x,gridIdx.y,blockIdx.x,blockIdx.y,threadIdx.x,threadIdx.y`. The value of the indexes also depend on how we allocate the size of grid, block. A regular way for a matrix algebra is to fit the struture to the matrix. For example, if we want to compute a 5X5 matrix, we can allocate the size of block as 5X5 which means we will use a matrix of 5X5 threads for compuatation. But a block contains at most 1024 threads for the current card (GTX 970). Thus for a square matrix we can allocate at most a size of 32X32 threads for one block. If we want to work on a larger matrix, we need more blocks or even more grids. This then causes one issue that some threads may not be used if the matrix size is not a multiplier of the block size. Therefore, we need to constrain our computation within the matrix by using `if((ty <matrixsize) && (tx < matrixsize))`. And make sure the evaluation of matrix `c` is put in the loop. Otherwise, the over requested threads (if the requested threads don't fit the matrix size) will be invoked and replace the inner results in `c`.
 
@@ -113,7 +113,7 @@ matrixmul(np.uint32(matrixsize),
 
 At last, to show the power of GPU even on such simple matrix algebra, I run calculation for different dimensions and loop each calculation 100 times to enlarge the time consumption.
 
-![default](2019-01-14-PyCUDAseries2/speedtest.png)
+![default](speedtest.png)
 
 As the figure shows, the time consumption for 100 times calculations starts to significantly split up when the dimension of matrix is over 2000. The time consumption on CPU grows almost exponentially along the dimension while on gpu it only grows a little. With the increase of dimension, you save a huge amount of your time and your life.
 

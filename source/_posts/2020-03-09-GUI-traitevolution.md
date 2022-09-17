@@ -24,19 +24,19 @@ I use `tkinter` to develop the GUI. It has an exhaustive [document](https://docs
 
 The whole model and nearly all its functions are wrapped into this interface.  
 
-<img src="2020-03-09-GUI-traitevolution/p1.png" width="100%" height="100%">
+<img src="p1.png" width="100%" height="100%">
 
 In the page of Parameter Inference, users can specify their own phylogenies with observed traits data and also assign a folder to store the output. The structure of the algorithm (ABC) can be set by giving the number of iterations and particles for each iteration. The larger the values are, the accurate the inference is. But it also takes longer time for computation. Parallel computation has been implemented with threads being indicating how many threads you want to exploit. We have three summary statistics to compare the similarity between the simulated traits and the empirical traits. Details can be found in the paper. 
 
-As usually we don't know how many iterations are sufficient to get a good enough result, we may start with a small number of iterations to check if the results converge. If not, we can continue with this Continue Parameter Inference page.   <img src="2020-03-09-GUI-traitevolution/p2.png" width="100%" height="100%">
+As usually we don't know how many iterations are sufficient to get a good enough result, we may start with a small number of iterations to check if the results converge. If not, we can continue with this Continue Parameter Inference page.   <img src="p2.png" width="100%" height="100%">
 
 In this page, one additional setting appears. You can specify the previous result on which you want to continue. Then, set a continue number of the iterations while the number of the particles inherits from the previous result. This page offers a choice of cutting jobs into pieces and running them at different time. 
 
-Although ABC approach is a nice likelihood-free method for parameter inference, high computational demanding limits its applicability. Normally, I need to work with a cluster to free my desktop for other works. So in the page of Generate Cluster Scripts, one can set all parameters aforementioned and click one button to generate a script to submit jobs on the cluster. This is one example of the peregrine cluster of the University of Groningen. You can modify it accordingly.   <img src="2020-03-09-GUI-traitevolution/p3.png" width="100%" height="100%">
+Although ABC approach is a nice likelihood-free method for parameter inference, high computational demanding limits its applicability. Normally, I need to work with a cluster to free my desktop for other works. So in the page of Generate Cluster Scripts, one can set all parameters aforementioned and click one button to generate a script to submit jobs on the cluster. This is one example of the peregrine cluster of the University of Groningen. You can modify it accordingly.   <img src="p3.png" width="100%" height="100%">
 
 Furthermore, one can even do data analysis on the results by using GUI. Here, I set a plotting function to investigate the distributions of the estimated parameters. 
 
-  <img src="2020-03-09-GUI-traitevolution/p4.png" width="100%" height="100%">
+  <img src="p4.png" width="100%" height="100%">
 
 More functions can be developed. With GUI, empiricists would love to try theoritian's models. One may argue that it is convenient but the model is hidden behind the interface so that it lost the model's plasticity. Well, when you succeed to attract empiricists' attention, GUI's job is done. Further model adjustification relies on collaboration. You have already sold your work!  
 

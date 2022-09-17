@@ -19,15 +19,15 @@ We have developed a spatial diversity-dependent diversification model to explore
 
 ## Generating trees
 The idea is simple. For simplicity, we build a two-location model and let species evolve (speciate: give birth to a new species/ extinction: one species goes extinct) in the regime. A pack of generated trees under different speciation rates and extinction rates and dispersal rates is like this (Scenario 2, see details in our paper):
-![Generating trees](2018-10-22-IntrotoPro1/Trees_S2.jpg)
+![Generating trees](Trees_S2.jpg)
 
 ## Applying the bootstrapping analysis
 We exploit the bootstrapping analysis to examine the power of the global approah to detect the signal of diversity-dependence on the spatial structered trees. The following tables show the power of the global tool for signal detection under different parameter combinations and scenarios.
-![Power of the method](2018-10-22-IntrotoPro1/Powertable.jpg)
+![Power of the method](Powertable.jpg)
 
 ## Parameter inference
 As due to the complexity of the model, an analytical likelihood function is not possible to achieve. Therefore, we test if the global likelihood approach can recover the parameters on the spatial model or show some patterns.
-![Parameter inference](2018-10-22-IntrotoPro1/Est_S2VS.jpg)
+![Parameter inference](Est_S2VS.jpg)
 
 ## Conclusion
 From the results above, the conclusion is clear. Please see our paper:-)

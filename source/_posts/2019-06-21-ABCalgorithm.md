@@ -31,8 +31,8 @@ In the video, three Monte Carlo chains are deployed. They are independent of eac
 Approximate Bayesian Computation-Sequential Monte Carlo algorithm is an parallelized extension to the standard ABC algorithm. The basic idea is to do many sample simulations at one generation. Then, the best fit parameters are chosen to gain higher weight to be sampled in the next generation. With the generation proceeds, the best fit parameters converge to the "true values". To do model selection, the models are simply treated as one parameter but at a sequential level advanced to the other parameters. That means you need to chose models first and then sample parameters to complete the sampling process.
 
 The following figure shows how the samples converges to the true value for parameter estimation. It started with a uniform prior information of &alpha;.
-![fig](2019-06-21-ABCalgorithm/Rplot2.png) 
+![fig](Rplot2.png) 
 
 The following figure shows how model selection works under ABC-SMC algorithm. The details are coming in the future.
-![fig](2019-06-21-ABCalgorithm/modelseleSMC.png) 
+![fig](modelseleSMC.png) 
 
