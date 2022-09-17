@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Draw the evolution of SMC | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="Finally, I have done visualizing the evolution of SMC in R instead of in Python. Here, two illustrations are given.">
+  
+
+  
+  
+  <meta name="keywords" content="R,ggplot,SMC,Data visualization">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Draw the evolution of SMC"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="../../../../index.html">Home</a></li>
+      
+        <li><a href="../../../../about">About</a></li>
+      
+        <li><a href="../../../../categories">Categories</a></li>
+      
+        <li><a href="../../../../tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Draw the evolution of SMC</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/11/30/2018-11-30-SMCplots/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-11-30T08:00:00.000Z">
+          2018-11-30
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Finally, I have done visualizing the evolution of SMC in R instead of in Python. Here, two illustrations are given. </p>
+<span id="more"></span>
+
+<h2 id="Generating-Data"><a href="#Generating-Data" class="headerlink" title="Generating Data"></a>Generating Data</h2><p>The data I used in the examples is generated under SMC applying on our trait-population coevolution model, a likelihood-free method for searching the true parameters when an analytic formulation of the model is not achievable. The data is consisting of 30 iterations samples. Each iteration contains 10K sampling. The algorithm starts by sampling from a uniform distribution in range (0,1). After each iteration, it computes the fitness of the samples and highly weights the samples with high fitness. Finally, it converges to the true value.  </p>
+<h2 id="Mountain-plot"><a href="#Mountain-plot" class="headerlink" title="Mountain plot"></a>Mountain plot</h2><p>Mountain plot is recently highly evaluated theme for comparing the distribution of data across groups. The idea is stem from <a target="_blank" rel="noopener" href="https://twitter.com/hnrklndbrg/status/883675698300420098">Henrik’s plot</a></p>
+<p><img src="2018-11-30-SMCplots/Rplot1.png" alt="plot 1"></p>
+<p>Forget to point out the true value is at 1.0, which is the peak of the distribution at 30th iteration. </p>
+<h2 id="Heatmap-plot"><a href="#Heatmap-plot" class="headerlink" title="Heatmap plot"></a>Heatmap plot</h2><p>Another nice presentation is realized by the heat map. The data was manipulated a bit. The density of the samples was converted to the frequency in tiny cells. Then it can be applied by the heat map plot.</p>
+<p><img src="2018-11-30-SMCplots/Rplot2.png" alt="plot 1"></p>
+<p>Which one do you prefer?</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Data-visualization/">Data visualization</a>, <a href="/categories/Research/Data-visualization/R/">R</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/R/">R</a><a href="/tags/ggplot/">ggplot</a><a href="/tags/SMC/">SMC</a><a href="/tags/Data-visualization/">Data visualization</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

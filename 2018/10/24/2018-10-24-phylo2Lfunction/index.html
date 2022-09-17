@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>phylo2L function | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="I guess this function is specially useful to our group in which we play with L table. 
+L table is an alternative way to a phylo class for phylogenetic information storage. The function L2phylo has been implemented in the DDD package that converts an L table to a phylo class. This function phylo2L does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you.">
+  
+
+  
+  
+  <meta name="keywords" content="phylogeny,phylo class,L table,DDD package,pruneL,phylo2L">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="phylo2L function"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="../../../../index.html">Home</a></li>
+      
+        <li><a href="../../../../about">About</a></li>
+      
+        <li><a href="../../../../categories">Categories</a></li>
+      
+        <li><a href="../../../../tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>phylo2L function</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/10/24/2018-10-24-phylo2Lfunction/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-10-24T07:00:00.000Z">
+          2018-10-24
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>I guess this function is specially useful to <a target="_blank" rel="noopener" href="https://www.rug.nl/staff/r.s.etienne/">our group</a> in which we play with L table. </p>
+<p>L table is an alternative way to a phylo class for phylogenetic information storage. The function <code>L2phylo</code> has been implemented in the <a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/DDD/index.html">DDD package</a> that converts an L table to a phylo class. This function <code>phylo2L</code> does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you.</p>
+<span id="more"></span>
+
+<p><code>phylo2L</code> function can be found <a target="_blank" rel="noopener" href="https://github.com/xl0418/Code/blob/99133e6e5744be7382c038edc5701cd494d8e76c/Pro2/R_p2/phylo2L.R">here</a> if you want to improve the function. I have verified it by examining if </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L<span class="operator">=</span>phylo2L<span class="punctuation">(</span>L2phylo<span class="punctuation">(</span>L<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>Notice that <code>phylo2L</code> doesn’t have the argument <code>dropextinct</code> as what <code>L2phylo</code> has. Because to my perspective L table should be consistent with the given phylo class. But if you have a full tree on hand and want to prune it, you can do it like this</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">prune_phylo <span class="operator">=</span> L2phylo<span class="punctuation">(</span>phylo2L<span class="punctuation">(</span>full tree<span class="punctuation">)</span><span class="punctuation">,</span> dropextinct <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">prune_L <span class="operator">=</span> phylo2L<span class="punctuation">(</span>prune_phylo<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>Or you can use <a target="_blank" rel="noopener" href="https://github.com/xl0418/Code/blob/f4dfd4acc15af6855572fb4659f396cea14bb83b/Pro2/R_p2/pruneL.R"><code>pruneL</code></a> function that I have developed to prune an L table. More details on <code>pruneL</code> function can be found in this <a href="https://xl0418.github.io/2018/10/24/2018-10-24-pruneLfunction/">post</a>.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/R/">R</a>, <a href="/categories/Research/R/phylogeny-function/">phylogeny function</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/phylogeny/">phylogeny</a><a href="/tags/phylo-class/">phylo class</a><a href="/tags/L-table/">L table</a><a href="/tags/DDD-package/">DDD package</a><a href="/tags/pruneL/">pruneL</a><a href="/tags/phylo2L/">phylo2L</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Machine learning on biology S1: model classification via ML | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="On my 2nd Phd project, I have constructed a complex trait-population model to describe how species evolve and assemble in a community under natural selection. However, people may naturally ask if such complexity is really needed. What is the discrepancy between the model with and without population dynamics and variable trait variance? To answer this question, a model selection&amp;#x2F;classification should be performed on the data generated under those candidate models. As what we used in parameter inference, an Approximate Bayesian Computation-Sequential Monte Carlo method is able to handle this work. However, a huge computational demanding is the bottle neck.  To avoid to waste time on fitting each empirical data set by ABC-SMC, a method that only uses the feature of data sets would be a better choice. This reminds me the existing and fast-developed took, i.e. machine learning. So, from this post on, I would like to share my experience of learning Machine Leaning, how to construct a neural network, how to derive backwards propagation algorithm for leaning parameters of a neural network and how to use tensorflow to simply use machine learning, or even deep learning (a multiple-layer neural network algorithm), to do model selection&amp;#x2F;classification on the topic I mentioned above.">
+  
+
+  
+  
+  <meta name="keywords" content="Python,GPU programming,Machine learning,neural networks">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Machine learning on biology S1: model classification via ML"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="../../../../index.html">Home</a></li>
+      
+        <li><a href="../../../../about">About</a></li>
+      
+        <li><a href="../../../../categories">Categories</a></li>
+      
+        <li><a href="../../../../tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Machine learning on biology S1: model classification via ML</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/02/01/2019-02-01-Machinelearningseries1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-02-01T08:00:00.000Z">
+          2019-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>On my 2nd Phd project, I have constructed a complex trait-population model to describe how species evolve and assemble in a community under natural selection. However, people may naturally ask if such complexity is really needed. What is the discrepancy between the model with and without population dynamics and variable trait variance? To answer this question, a model selection&#x2F;classification should be performed on the data generated under those candidate models. As what we used in parameter inference, an <a href="https://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/">Approximate Bayesian Computation-Sequential Monte Carlo method</a> is able to handle this work. However, a huge computational demanding is the bottle neck.  To avoid to waste time on fitting each empirical data set by ABC-SMC, a method that only uses the feature of data sets would be a better choice. This reminds me the existing and fast-developed took, i.e. machine learning. So, from this post on, I would like to share my experience of learning Machine Leaning, how to construct a neural network, how to derive backwards propagation algorithm for leaning parameters of a neural network and how to use tensorflow to simply use machine learning, or even deep learning (a multiple-layer neural network algorithm), to do model selection&#x2F;classification on the topic I mentioned above. </p>
+<span id="more"></span>
+<h1 id="A-fast-illustration"><a href="#A-fast-illustration" class="headerlink" title="A fast illustration"></a>A fast illustration</h1><p>Presenting application at first would be concrete for people understand what I am talking about. Here in this simple example, I generated 200K data sets for each of the four models, i.e. Brownian Motion model, Ornstein Uhlenbeck (OU) model, Trait-population model, anti-Ornstein Uhlenbeck model. As a preliminary test, I just adjusted the parameter values for \(\gamma\) and \(\alpha\) to stand for 4 models, i.e. when \(\gamma&#x3D;0,\alpha&#x3D;0\) it stands for a Brownian Motion model; when \(\gamma&gt;0,\alpha&#x3D;0\) it stands for an OU model; when \(\gamma&#x3D;0,\alpha&gt;0\) it stands for an anti-OU model; when \(\gamma&gt;0,\alpha&gt;0\) it stands for a trait-population evolution (TP) model. I didn’t remove population dynamics from the BM and OU model. Therefore, the data generated by those two processes would be more alike to TP model than by the standard BM and OU model. The logic behind is that if the learning neural network can distinguish TP from the other 3 models, it is able to pick TP out from model pile with standard BM and OU model. Note that the anti-OU model is similar to Drury et al. model in 2018. </p>
+<p>When the parameter is nonzero, I simply randomly chose values as I assume we don’t know any prior information from the empirical data. </p>
+<p>I used in total around 1000K data sets that are randomly generated under 4 models but labeled with correct model names to train a simply three-layer neural network. It is super fast to train such small network and can be done within few minutes. Note that fitting data via ABC-SMC may coat a few days with 30 iterations and 200K particles for each iteration. Then I generated 100 data sets to feed the trained neural network. The generating models are known in advance. The purpose of this test is to check if the trained network is able to recognize the generating models. </p>
+<h1 id="A-preliminary-result"><a href="#A-preliminary-result" class="headerlink" title="A preliminary result"></a>A preliminary result</h1><p>The result is shown below:</p>
+<p><img src="2019-02-01-Machinelearningseries1/modelselection1.png" alt="fig">   </p>
+<p>Each chart contains four bars indicating the probability of each model (B: BM; O: OU; T: TP; A: Anti-OU). Color red denotes that the prediction of the network is wrong. Otherwise, the highest bar correctly implies the generating model. The results reveal that BM and OU model are confusing to the trained neural network. This makes sense that because of the normalization of traits the output of these two models show no significant discrepancy, i.e. almost all traits are evenly distributed in the trait space. Only the range of the traits would provide some information, i.e. BM model has wider range for the traits than OU model. But the normalization neglects it. The other two models, TP and Anti-OU are nicely distinguishable from the model pile. This indicates that the trait-population model do have significant pattern to express itself. Thus our complexity plays a role in describing trait patterns. </p>
+<h1 id="Future-plan"><a href="#Future-plan" class="headerlink" title="Future plan"></a>Future plan</h1><p>Here in the example, I only exploited a 3-layer neural network but already got a nice result. The issues of confusing BM and OU model may be resolved if a deep neural network is applied. Anyway, the power of machine learning on biology is shown and there are more improvement space waiting for further study.</p>
+<p>I do believe that machine learning can be useful in biology. But so far as I know, few literature present this tech on biology field. In fact, data analysis and pattern recognition are also key component in biological research besides modeling. I hope machine learning could attract biologist’s attention and thrive here like what it develops in industry and computer science.</p>
+<h1 id="The-end"><a href="#The-end" class="headerlink" title="The end"></a>The end</h1><p>As planed at the beginning, the following posts would be on machine learning. Coming soon!</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Machine-learning/">Machine learning</a>, <a href="/categories/Research/Machine-learning/Deep-learning/">Deep learning</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Machine-learning/">Machine learning</a><a href="/tags/neural-networks/">neural networks</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

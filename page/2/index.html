@@ -1,0 +1,689 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 2 | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="../../index.html">Home</a></li>
+      
+        <li><a href="../../about">About</a></li>
+      
+        <li><a href="../../categories">Categories</a></li>
+      
+        <li><a href="../../tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2019/02/01/2019-02-01-Machinelearningseries1/"><span>Machine learning on biology S1: model classification via ML</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/02/01/2019-02-01-Machinelearningseries1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-02-01T08:00:00.000Z">
+          2019-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>On my 2nd Phd project, I have constructed a complex trait-population model to describe how species evolve and assemble in a community under natural selection. However, people may naturally ask if such complexity is really needed. What is the discrepancy between the model with and without population dynamics and variable trait variance? To answer this question, a model selection&#x2F;classification should be performed on the data generated under those candidate models. As what we used in parameter inference, an <a href="https://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/">Approximate Bayesian Computation-Sequential Monte Carlo method</a> is able to handle this work. However, a huge computational demanding is the bottle neck.  To avoid to waste time on fitting each empirical data set by ABC-SMC, a method that only uses the feature of data sets would be a better choice. This reminds me the existing and fast-developed took, i.e. machine learning. So, from this post on, I would like to share my experience of learning Machine Leaning, how to construct a neural network, how to derive backwards propagation algorithm for leaning parameters of a neural network and how to use tensorflow to simply use machine learning, or even deep learning (a multiple-layer neural network algorithm), to do model selection&#x2F;classification on the topic I mentioned above. </p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Machine-learning/">Machine learning</a>, <a href="/categories/Research/Machine-learning/Deep-learning/">Deep learning</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Machine-learning/">Machine learning</a><a href="/tags/neural-networks/">neural networks</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2019/01/21/2019-01-21-PyCUDAseries3/"><span>PyCUDA series 3: matrix multiplication using multiple blocks</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/21/2019-01-21-PyCUDAseries3/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-21T08:00:00.000Z">
+          2019-01-21
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>A simple practice on matrix multiplication is shown in this post. The matrix product function can use multiple blocks to calculate multiplications of two matrix. </p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/GPU-programming/">GPU programming</a>, <a href="/categories/Research/GPU-programming/pyCUDA/">pyCUDA</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a><a href="/tags/CUDA/">CUDA</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Parallel-computation/">Parallel computation</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2019/01/14/2019-01-14-PyCUDAseries2/"><span>PyCUDA series 2: a simple matrix algebra and speed test</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/14/2019-01-14-PyCUDAseries2/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-14T08:00:00.000Z">
+          2019-01-14
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>In this post, you will find a simple matrix algebra done by gpu parallelization and a straightforward result of the speed contest between cpu and gpu.</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/GPU-programming/">GPU programming</a>, <a href="/categories/Research/GPU-programming/pyCUDA/">pyCUDA</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a><a href="/tags/CUDA/">CUDA</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Parallel-computation/">Parallel computation</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2019/01/10/2019-01-10sed2/"><span>Sed again: run on Ubuntu to avoid weird behavior</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/10/2019-01-10sed2/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-10T08:00:00.000Z">
+          2019-01-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>As my 2nd project is close to an end, it is right the time to go back to the phylogenetic Janzen-Connell model. Simulations and plotting functions have been done during the gap time squeezed from the 2nd project. The last thing is to analyze the data, in which I bumped into a weird behavior of <code>sed</code>. </p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Bash/">Bash</a>, <a href="/categories/Research/Bash/sed/">sed</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/project-3/">project 3</a><a href="/tags/bash/">bash</a><a href="/tags/mega-data/">mega data</a><a href="/tags/extract-information/">extract information</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2019/01/04/2019-01-04-PyCUDAseries1/"><span>PyCUDA series 1: Build GPU programming environment </span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/04/2019-01-04-PyCUDAseries1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-04T08:00:00.000Z">
+          2019-01-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>As my research always involves a huge amount of computation, parallel technique is a super fancy way to save my time. But the resource of cluster at my university is limited. I recently received a warning that CIT has detected multiple-account usage under my IP. To avoid the risk of being fired, I have to figure out another way to parallelize my job instead of parallelizing accounts. Right on time, GPU programming came out as an ideal option. I hope the GPU resource of my university is not full loaded yet.</p>
+<p>Due to some incompatibilities of CUDA and Visual Studio 2017, I spent half a day to figure out the solutions and finally succeeded building up GPU programming environment on Windows 10 with Pycuda installed in Python. Here, I post the procedure of the build and some solutions to the incompatibilities.</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/GPU-programming/">GPU programming</a>, <a href="/categories/Research/GPU-programming/pyCUDA/">pyCUDA</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a><a href="/tags/CUDA/">CUDA</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Parallel-computation/">Parallel computation</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/12/07/2018-12-07-ggradar2helpdocument/"><span>ggradar2: Help document </span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/12/07/2018-12-07-ggradar2helpdocument/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-12-07T08:00:00.000Z">
+          2018-12-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>In this blog, the details of the arguments used in <a target="_blank" rel="noopener" href="https://github.com/xl0418/ggradar2">ggradar2</a> are provided.</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Data-visualization/">Data visualization</a>, <a href="/categories/Research/Data-visualization/R/">R</a>, <a href="/categories/Research/Data-visualization/R/ggradar2/">ggradar2</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/R/">R</a><a href="/tags/ggplot/">ggplot</a><a href="/tags/Data-visualization/">Data visualization</a><a href="/tags/ggradar2/">ggradar2</a><a href="/tags/help-document/">help document</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/12/05/2018-12-05-ggradar2/"><span>ggradar2: deploy a radar to your data </span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/12/05/2018-12-05-ggradar2/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-12-05T08:00:00.000Z">
+          2018-12-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><a target="_blank" rel="noopener" href="https://github.com/xl0418/ggradar2"><code>ggradar2</code></a> is  now available. A large amount of features have been added to make your radar chart powerful. See <a target="_blank" rel="noopener" href="https://github.com/xl0418/ggradar2"><code>ggradar2</code></a> on my <a target="_blank" rel="noopener" href="https://github.com/xl0418">Github</a></p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Data-visualization/">Data visualization</a>, <a href="/categories/Research/Data-visualization/R/">R</a>, <a href="/categories/Research/Data-visualization/R/ggradar2/">ggradar2</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/R/">R</a><a href="/tags/ggplot/">ggplot</a><a href="/tags/Data-visualization/">Data visualization</a><a href="/tags/ggradar2/">ggradar2</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/11/30/2018-11-30-SMCplots/"><span>Draw the evolution of SMC</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/11/30/2018-11-30-SMCplots/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-11-30T08:00:00.000Z">
+          2018-11-30
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Finally, I have done visualizing the evolution of SMC in R instead of in Python. Here, two illustrations are given. </p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Data-visualization/">Data visualization</a>, <a href="/categories/Research/Data-visualization/R/">R</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/R/">R</a><a href="/tags/ggplot/">ggplot</a><a href="/tags/SMC/">SMC</a><a href="/tags/Data-visualization/">Data visualization</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/11/29/2018-11-29-color/"><span>Color your plots</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/11/29/2018-11-29-color/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-11-29T08:00:00.000Z">
+          2018-11-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Share a fancy <a target="_blank" rel="noopener" href="https://www.webdesignrankings.com/resources/lolcolors/">website</a> that shows “Curated color palette”.</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Data-visualization/">Data visualization</a>, <a href="/categories/Research/Data-visualization/R/">R</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/R/">R</a><a href="/tags/color/">color</a><a href="/tags/python/">python</a><a href="/tags/plot/">plot</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/11/26/2018-11-26-Rupdateallpackages/"><span>R update all packages</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/11/26/2018-11-26-Rupdateallpackages/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-11-26T08:00:00.000Z">
+          2018-11-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>A convenient way to update all the packages.</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/R/">R</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/R/">R</a><a href="/tags/update/">update</a><a href="/tags/packages/">packages</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/" class="pagination-prev">Prev</a>
+  
+  
+  <a href="/page/3/" class="pagination-next">Next</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

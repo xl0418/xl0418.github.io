@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PyCUDA series 2: a simple matrix algebra and speed test | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="In this post, you will find a simple matrix algebra done by gpu parallelization and a straightforward result of the speed contest between cpu and gpu.">
+  
+
+  
+  
+  <meta name="keywords" content="Python,CUDA,GPU programming,Parallel computation">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="PyCUDA series 2: a simple matrix algebra and speed test"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="../../../../index.html">Home</a></li>
+      
+        <li><a href="../../../../about">About</a></li>
+      
+        <li><a href="../../../../categories">Categories</a></li>
+      
+        <li><a href="../../../../tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>PyCUDA series 2: a simple matrix algebra and speed test</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/14/2019-01-14-PyCUDAseries2/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-14T08:00:00.000Z">
+          2019-01-14
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>In this post, you will find a simple matrix algebra done by gpu parallelization and a straightforward result of the speed contest between cpu and gpu.</p>
+<span id="more"></span>
+<h1 id="A-simple-matrix-algebra-to-be-parallelized"><a href="#A-simple-matrix-algebra-to-be-parallelized" class="headerlink" title="A simple matrix algebra to be parallelized"></a>A simple matrix algebra to be parallelized</h1><p>As a first try, I intended to parallleize a simple matrix algebra in my Project 2 that can be computed as follows on Python:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c = a_cpu[:,np.newaxis]-a_cpu</span><br></pre></td></tr></table></figure>
+
+<p>This is a formula to compute the discrepancy of any pair of elements given by a vector. For example, input </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+<p>the formula should return </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c = array([[<span class="number">0</span>,-<span class="number">1</span>,-<span class="number">2</span>,],</span><br><span class="line">	[<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>],</span><br><span class="line">	[<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>]])</span><br></pre></td></tr></table></figure>
+
+<p>A standard python code like the formula above by using <code>numpy</code> package, every element in <code>c_cpu</code> is computed in a serial order. </p>
+<p>In terms of the power of current cpu, for a lower dimensional matrix, you can hardly feel the elapsed time to compute out the equation. However, if you have a huge matrix of 10000X10000 size and want to loop it 100 times, it costs half a minute on an i7 4790k cpu, although you may ignore the little time consumed. But it is not rare to have a large matrix bigger than 1 million by 1 million and loop it billion times at least in an evolutionary problem. In this case, you are saving your life if the compulation time can be reduced.</p>
+<h1 id="A-shortcut-to-understand-GPU-parallel-computation"><a href="#A-shortcut-to-understand-GPU-parallel-computation" class="headerlink" title="A shortcut to understand GPU parallel computation"></a>A shortcut to understand GPU parallel computation</h1><p>Now we have a good way to save our life instead of having a weird pill. CUDA is a parallel computing platform and application programming interface (API) model created by <a target="_blank" rel="noopener" href="https://developer.nvidia.com/nvidia-developer-zone">Nvidia</a>. <a target="_blank" rel="noopener" href="https://documen.tician.de/pycuda/index.html">PyCUDA</a> provides a python package to allow people to parallelize their computation on a Graphic Processing Unit (GPU) by Python. For sure, I didn’t say everything is parallelizable. Only the procedures that are consisting of independent calculation paths can be parallelized, which means you work on different paths at the same time instead of doing them one by one. Hence, the amount of time that can be saved relies on the percentage of work that is parallelizable in your work. In this sense, matrix algebra is a good representative. Other applications of parallelism involves rendering graphics to a screen, running a Monte Carlo Simulation, multiplying matrices for a machine learning algorithm, or powering a database. Google them yourself. </p>
+<p>Why does GPU possess such powerful ability? It owes to its design purpose. A graphic card is designed to process graphics and render them to a screen. What is a graphic? It is just like a matrix. So to process a matrix, the ability to compute multiple entries of the matrix is more important than the ability to deal with just one entry smartly. Hence, a gpu is designed to own a huge amount of threads that can process multiple calculations at one time although they are slow while a cpu only contains few (like an i7 4790k has 4 physical cores which means 4  physical threads, at most 8 threads if including hyperthreads tech) but are faster. A good analogy is that a gpu is like a cluster of students at primary school while a cpu is like a professor. When calculating a complex problem, the professor is definitely faster and smarter. But when computing lots of simple algebra, the cluster of primary students is faster. In summary, CPUs are designed for running a small number of potentially quite complex tasks. GPUs are designed for running a large number of quite<br>simple tasks.</p>
+<h1 id="Parallelize-the-matrix-algebra"><a href="#Parallelize-the-matrix-algebra" class="headerlink" title="Parallelize the matrix algebra"></a>Parallelize the matrix algebra</h1><p>After having a rough idea of parallelism, let’s do it on practice. For a matrix algebra like the above example, what are the independent calculation paths? Apparently, each entry of the output matrix <code>c</code> is computed out independently given the input <code>a</code>. Thus, we could assign each calculation path to a thread on GPU. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">kernel_code_template = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">__global__ void com_t(int matrixsize,float *a, float *c)</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 2D Thread ID </span></span><br><span class="line"><span class="string">    int tx = blockDim.x*blockIdx.x + threadIdx.x; // Compute column index</span></span><br><span class="line"><span class="string">    int ty = blockDim.y*blockIdx.y + threadIdx.y; // Compute row index</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // Pvalue is used to store the element of the matrix</span></span><br><span class="line"><span class="string">    // that is computed by the thread</span></span><br><span class="line"><span class="string">    float Pvalue = 0;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // Each thread loads one row of M and one column of N, </span></span><br><span class="line"><span class="string">    //   to produce one element of P.</span></span><br><span class="line"><span class="string">    if((ty &lt;matrixsize) &amp;&amp; (tx &lt; matrixsize))</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">    float Aelement = a[ty];</span></span><br><span class="line"><span class="string">    float Belement = a[tx];</span></span><br><span class="line"><span class="string">    Pvalue = Aelement - Belement;</span></span><br><span class="line"><span class="string">    // Write the matrix to device memory;</span></span><br><span class="line"><span class="string">    // each thread writes one element</span></span><br><span class="line"><span class="string">    c[ty * matrixsize + tx] = Pvalue;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>The most important part of parallelism on GPU is the kernel function which is coded for a single calculation path. The only difference among different calculation paths is the locality information of the entries of matrix <code>c</code> in the memory. Normally, we can envisage a memory on GPU as a cluster of grids of blocks of threads. But in fact, it is not this physical structure on the borad of the card. It involves streaming processors (SMs) dealing with wraps. However, here we better use the metaphor.</p>
+<p><img src="2019-01-14-PyCUDAseries2/gridblockthread.png" alt="default"></p>
+<p>Each entry in matrix <code>c</code> corresponds to a specific combination of <code>gridIdx.x,gridIdx.y,blockIdx.x,blockIdx.y,threadIdx.x,threadIdx.y</code>. The value of the indexes also depend on how we allocate the size of grid, block. A regular way for a matrix algebra is to fit the struture to the matrix. For example, if we want to compute a 5X5 matrix, we can allocate the size of block as 5X5 which means we will use a matrix of 5X5 threads for compuatation. But a block contains at most 1024 threads for the current card (GTX 970). Thus for a square matrix we can allocate at most a size of 32X32 threads for one block. If we want to work on a larger matrix, we need more blocks or even more grids. This then causes one issue that some threads may not be used if the matrix size is not a multiplier of the block size. Therefore, we need to constrain our computation within the matrix by using <code>if((ty &lt;matrixsize) &amp;&amp; (tx &lt; matrixsize))</code>. And make sure the evaluation of matrix <code>c</code> is put in the loop. Otherwise, the over requested threads (if the requested threads don’t fit the matrix size) will be invoked and replace the inner results in <code>c</code>.</p>
+<p>Once we have correctly allocated the memory and located the entry by these indexes, we can formulate your calculation. After that, the code will be uploaded to GPU and tranferred to the code of GPU (compile). Once all entries have been calculated, the results will be stored in the memory on GPU. Then cpu will pull back the result.  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># compile the kernel code</span></span><br><span class="line">mod = compiler.SourceModule(kernel_code_template)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the kernel function from the compiled module</span></span><br><span class="line">matrixmul = mod.get_function(<span class="string">&quot;com_t&quot;</span>)</span><br><span class="line"></span><br><span class="line">matrixsize = <span class="number">3</span></span><br><span class="line">BLOCK_SIZE = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># call the kernel on the card</span></span><br><span class="line">matrixmul(np.uint32(matrixsize),</span><br><span class="line">    <span class="comment"># inputs</span></span><br><span class="line">    a_gpu,</span><br><span class="line">    <span class="comment"># output</span></span><br><span class="line">    c_gpu,</span><br><span class="line">    <span class="comment"># 4 blocks of BLOCK_SIZE x BLOCK_SIZE threads</span></span><br><span class="line">    grid = (<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>),</span><br><span class="line">    block = (BLOCK_SIZE, BLOCK_SIZE, <span class="number">1</span>),</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<h1 id="Speed-comparison-between-CPU-and-GPU"><a href="#Speed-comparison-between-CPU-and-GPU" class="headerlink" title="Speed comparison between CPU and GPU"></a>Speed comparison between CPU and GPU</h1><p>At last, to show the power of GPU even on such simple matrix algebra, I run calculation for different dimensions and loop each calculation 100 times to enlarge the time consumption.</p>
+<p><img src="2019-01-14-PyCUDAseries2/speedtest.png" alt="default"></p>
+<p>As the figure shows, the time consumption for 100 times calculations starts to significantly split up when the dimension of matrix is over 2000. The time consumption on CPU grows almost exponentially along the dimension while on gpu it only grows a little. With the increase of dimension, you save a huge amount of your time and your life.</p>
+<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><p>This is a quite simplified introduction to a parallelism example. There is a bank of posts explaining parallelism better and more exhaustive than this one. However, my goal here is to use a simple example and a short length of words to have you get an idea of how it works instead of scaring you away from this field. Once you fall into the trap of “it looks as simple as the author said”, I believe you will learn more by yourself :-)</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[CUDA Programming] by Shane Cook is a good start book for learning both the hardware and the language. </p>
+<p>This <a target="_blank" rel="noopener" href="https://andreask.cs.illinois.edu/PyCuda">PyCUDA website</a> provides some examples on Python.</p>
+<h1 id="Full-code"><a href="#Full-code" class="headerlink" title="Full code"></a>Full code</h1><p>It contains the example code and the speed test. Clone it <a target="_blank" rel="noopener" href="https://github.com/xl0418/GPU_Python/blob/master/gpu_cpu_speedtest.py">here</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/GPU-programming/">GPU programming</a>, <a href="/categories/Research/GPU-programming/pyCUDA/">pyCUDA</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a><a href="/tags/CUDA/">CUDA</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Parallel-computation/">Parallel computation</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

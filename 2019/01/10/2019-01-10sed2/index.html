@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sed again: run on Ubuntu to avoid weird behavior | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="As my 2nd project is close to an end, it is right the time to go back to the phylogenetic Janzen-Connell model. Simulations and plotting functions have been done during the gap time squeezed from the 2nd project. The last thing is to analyze the data, in which I bumped into a weird behavior of sed.">
+  
+
+  
+  
+  <meta name="keywords" content="project 3,bash,mega data,extract information">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Sed again: run on Ubuntu to avoid weird behavior"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="../../../../index.html">Home</a></li>
+      
+        <li><a href="../../../../about">About</a></li>
+      
+        <li><a href="../../../../categories">Categories</a></li>
+      
+        <li><a href="../../../../tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Sed again: run on Ubuntu to avoid weird behavior</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/10/2019-01-10sed2/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-10T08:00:00.000Z">
+          2019-01-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>As my 2nd project is close to an end, it is right the time to go back to the phylogenetic Janzen-Connell model. Simulations and plotting functions have been done during the gap time squeezed from the 2nd project. The last thing is to analyze the data, in which I bumped into a weird behavior of <code>sed</code>. </p>
+<span id="more"></span>
+
+<h2 id="The-data-file"><a href="#The-data-file" class="headerlink" title="The data file"></a>The data file</h2><p>In this project, I have generated in total 108 data file in <code>.m</code> (Matlab) format. Each file contain several distance matrix, abundance vectors, an event table and turnover ticks that I want to extract and analyze exclusively. </p>
+<p><img src="2019-01-10sed2/mfiles.png" alt="Raw data files."></p>
+<h2 id="Extract-the-matrix"><a href="#Extract-the-matrix" class="headerlink" title="Extract the matrix"></a>Extract the matrix</h2><p>The procedure is simple. I modified the previous experimental bash scripts a bit to fit the file names of data. Then execute them sequentially on Windows prompt.</p>
+<ol>
+<li>Run <code>extractallDs.sh</code> and <code>extractallRs.sh</code> to extract all D matrix and R matrix from the raw files into <code>LRsij.Rdata,MRsij.Rdata,HRsij.Rdata,LDsij.Rdata,MDsij.Rdata,HDsij.Rdata</code>.</li>
+<li>Run <code>Dlast.sh</code> to extract the last D and R matrix into <code>LDij.Rdata,LRij.Rdata,MDij.Rdata,MRij.Rdata,HDij.Rdata,HRij.Rdata</code>.</li>
+<li>Do the same thing to extract event table and turnover ticks by running <code>loopextractEve_Turn.sh</code></li>
+</ol>
+<p>like </p>
+<p><img src="2019-01-10sed2/rdatafiles.png" alt="Raw data files."></p>
+<p>But I obtained nothing in the files. </p>
+<h2 id="Bug-shooting"><a href="#Bug-shooting" class="headerlink" title="Bug shooting"></a>Bug shooting</h2><p>Same simulation code generates the same data structure. But why couldn’t the same bash script extract information as before? At that moment, I kind of had a feeling that it must be that the script cannot recognize the newline sign. like the following, if the computer cannot match <code>\r</code>, which is the code for the newline under windows and DOS, the script extracts nothing. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;0..4&#125;;</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">sed -n <span class="string">&#x27;/D&#x27;</span>&#123;<span class="string">&#x27;length(D)+1&#x27;</span>&#125;<span class="string">&#x27; = \[\r/,/\];/p&#x27;</span> <span class="built_in">test</span><span class="string">&quot;$j<span class="variable">$i</span>&quot;</span>.m &gt; Ds<span class="string">&quot;$j<span class="variable">$i</span>&quot;</span>.Rdata</span><br><span class="line"><span class="built_in">echo</span> $j<span class="variable">$i</span><span class="string">&#x27; done&#x27;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>But after I changed it to <code>\n</code> that is the right code for a linux file, it didn’t work neither. Even after changing the file code via <code>unix2dos</code>, none of the means worked.</p>
+<p>\(\boldsymbol{Finally}\), after several hours of googling, thinking, patting the computer, I tried out the solution. The scripts need to be executed under the linux system. I launched them on Ubuntu again, the newline sign was recognized. </p>
+<p>But it is still a mystery to me that why on a windows prompt none of <code>\r</code> and <code>\n</code> can be recognized. If you know it, pls reply this post. Thanks!</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Bash/">Bash</a>, <a href="/categories/Research/Bash/sed/">sed</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/project-3/">project 3</a><a href="/tags/bash/">bash</a><a href="/tags/mega-data/">mega data</a><a href="/tags/extract-information/">extract information</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

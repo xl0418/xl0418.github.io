@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Deriving the Fokker-Planck equation from a stochastic differential equation | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="Writing a periodic progress report is a good way to record the process that you gain knowledge. Reviewing my progress reports in the last 3 years, it recovers my memory about the knowledge and technologies that I almost forgot as I rarely use them. From this post on, I would like to give them a review and share on the blog. Hope it can help people who are interest in and one can help me if I am wrong at somewhere.">
+  
+
+  
+  
+  <meta name="keywords" content="mathematical modeling,the Fokker-Planck equation,stochastic differential equation,math">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Deriving the Fokker-Planck equation from a stochastic differential equation"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="../../../../index.html">Home</a></li>
+      
+        <li><a href="../../../../about">About</a></li>
+      
+        <li><a href="../../../../categories">Categories</a></li>
+      
+        <li><a href="../../../../tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Deriving the Fokker-Planck equation from a stochastic differential equation</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/10/24/2018-10-24-derivingFPequ/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-10-24T07:00:00.000Z">
+          2018-10-24
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Writing a periodic progress report is a good way to record the process that you gain knowledge. Reviewing my progress reports in the last 3 years, it recovers my memory about the knowledge and technologies that I almost forgot as I rarely use them. From this post on, I would like to give them a review and share on the blog. Hope it can help people who are interest in and one can help me if I am wrong at somewhere. </p>
+<span id="more"></span>
+
+<h2 id="Derivation"><a href="#Derivation" class="headerlink" title="Derivation"></a>Derivation</h2><p>Here I briefly present the derivation for the Fokker-Planck equation from a stochastic differential equation.</p>
+<p>Given the stochastic process </p>
+<p>$$<br>dx&#x3D;a(x,t)dt+b(x,t)dW_{t}<br>$$</p>
+<p>where \(W_{t}\) is a Wiener process. By Ito lemma, for any twice-differentiable scalar function \(f(x)\) we have </p>
+<p>$$<br>df(x)&#x3D;\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right)dt+b(x,t)f’(x)dW_{t}<br>$$</p>
+<p>The expectation of \(f(x,t)\) yields</p>
+<p>$$<br>E(f(x))&#x3D;\int f(x)p(x,t)dx<br>$$</p>
+<p>and take the derivative</p>
+<p>$$<br>\frac{dE(f(x))}{dt}&#x3D;\frac{d\int f(x)p(x,t)dx}{dt}&#x3D;\int f(x)\frac{\partial p(x,t)}{\partial t}dx \tag{1}<br>$$</p>
+<p>Also, we could plug Eq.[1] in the expectation of \(f(x)\) and take the derivative yields</p>
+<p>$$<br>\frac{dE(f(x))}{dt}&#x3D;\frac{E(df(x))}{dt}&#x3D;E\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right) \tag{2}<br>$$</p>
+<p>From that Eq.[1] and Eq.[2] are identical, we have</p>
+<p>$$<br>\begin{align}<br>\int f(x)\frac{\partial p(x,t)}{\partial t}dx	&amp;&#x3D;\int\left(a(x,t)f’(x)+\frac{1}{2}b^{2}(x,t)f’’(x)\right)p(x,t)dx \\<br>    &amp; &#x3D;\int a(x,t)f’(x)p(x,t)dx+\frac{1}{2}\int b^{2}(x,t)f’’(x)p(x,t)dx  \\<br>    &amp; &#x3D;-\int f(x)\frac{\partial a(x,t)p(x,t)}{\partial x}dx+\frac{1}{2}\int f(x)\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}dx  \\<br>    &amp; &#x3D;\int f(x)\left(-\frac{\partial a(x,t)p(x,t)}{\partial x}+\frac{1}{2}\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}\right)dx<br>\end{align}<br>$$</p>
+<p>As \(f(x)\) is arbitrary, we obtain the Fokker-Planck equation in one dimension</p>
+<p>$$<br>\frac{\partial p(x,t)}{\partial t}&#x3D;-\frac{\partial a(x,t)p(x,t)}{\partial x}+\frac{1}{2}\frac{\partial^{2}b^{2}(x,t)p(x,t)}{\partial x^{2}}<br>$$</p>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Stochastic-differential-equations/">Stochastic differential equations</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/mathematical-modeling/">mathematical modeling</a><a href="/tags/the-Fokker-Planck-equation/">the Fokker-Planck equation</a><a href="/tags/stochastic-differential-equation/">stochastic differential equation</a><a href="/tags/math/">math</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
