@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Several numerical schemes for 1 D advection | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="The implemented code can be found here.">
+  
+
+  
+  
+  <meta name="keywords" content="Python">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Several numerical schemes for 1 D advection"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="/tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Several numerical schemes for 1 D advection</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2023/03/17/2023-03-17-numericscheme/" rel="bookmark">
+        <time class="entry-date published" datetime="2023-03-17T07:00:00.000Z">
+          2023-03-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>The implemented code can be found <a target="_blank" rel="noopener" href="https://github.com/GlobalMicroEco/SinkingSchemes"><strong>here</strong></a>.</p>
+<span id="more"></span>
+
+
+<h1 id="Several-numerical-schemes-for-interpolation-of-the-sinking-term-in-the-oceanic-models"><a href="#Several-numerical-schemes-for-interpolation-of-the-sinking-term-in-the-oceanic-models" class="headerlink" title="Several numerical schemes for interpolation of the sinking term in the oceanic models"></a>Several numerical schemes for interpolation of the sinking term in the oceanic models</h1><h2 id="Liang-Xu"><a href="#Liang-Xu" class="headerlink" title="Liang Xu"></a>Liang Xu</h2><h1 id="The-list-of-the-schemes-implemented-here"><a href="#The-list-of-the-schemes-implemented-here" class="headerlink" title="The list of the schemes implemented here"></a>The list of the schemes implemented here</h1><p><strong>1. The central difference scheme</strong>;</p>
+<p><strong>2. The first order upwind scheme</strong>;</p>
+<p><strong>3. The first order upwind Godunov scheme</strong>;</p>
+<p><strong>4. The second order upwind Godunov scheme</strong>;</p>
+<p><strong>5. The second order upwind Godunov scheme with Van Leer limiter</strong>.</p>
+<p>Schemes to be implemented:</p>
+<ol>
+<li><p>The third order (quadratic) upwind scheme (QUICK);</p>
+</li>
+<li><p>The third order (quadratic) upwind Godunov scheme;</p>
+</li>
+<li><p>The piecewise parabolic methods (PPM) scheme;</p>
+</li>
+</ol>
+<p>etc.</p>
+<h1 id="The-physical-model-used-as-the-example"><a href="#The-physical-model-used-as-the-example" class="headerlink" title="The physical model used as the example"></a>The physical model used as the example</h1><p>The Burgers equation is used to demonstrate the performance difference in the schemes</p>
+<p>$$<br>\frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} &#x3D; 0<br>$$</p>
+<p>where $u$ is the concentration of the tracer and the sinking rate is related to the concentration. </p>
+<p>The equation can be simplified as </p>
+<p>$$<br>\frac{\partial u}{\partial t} + \frac{\partial f(u)}{\partial x} &#x3D; 0<br>$$</p>
+<p>where $f(u)&#x3D;\frac{u^2}{2}$. This function can be customized to any function as you wish. For example, $f(u)&#x3D;cu$ where c is the constant sinking rate.</p>
+<p>The concentration along x-axis is initialized as a Sinc shape. As such, at the middle place, there is a shock wave generated due to the rightward moving wave colliding with the leftward moving wave. The performance of schemes differ significantly right here due to large curve gradients that ruin the smoothness of the curve.</p>
+<h1 id="The-integration-over-space"><a href="#The-integration-over-space" class="headerlink" title="The integration over space"></a>The integration over space</h1><p>The schemes implemented here are used to approximate the integration over space, i.e. the second term of the equation</p>
+<p>$$<br>\frac{\partial f(u)}{\partial x}<br>$$</p>
+<p>as it involves complex dynamics.</p>
+<p>The integration over time can be done via ODE45&#x2F;Rounge-Kutta methods directly.</p>
+<h1 id="The-initial-condition"><a href="#The-initial-condition" class="headerlink" title="The initial condition"></a>The initial condition</h1><p>The value of $u$ is initialized as a Sinc curve with both positives and negatives. Thus, the Burgers equation shows that the wave is moving rightward when $u&gt;0$ and leftward when $u&lt;0$. This is to illustrate the collision of the waves that produces the shock wave, i.e. the sharp slope at the collision point where normally low-order schemes easily failed.</p>
+<p>The color of the waves indicates the time progress. The far left wave in fresh red is the initial shape. With the darkening color, the wave proceeds as the equation models. The black curve indicates the final time step of the wave. </p>
+<p>The expected wave moving should be something like Fig. 5, a right Sinc-shape curve collapses to a Z shape due to physical dissipation. The amplitude of the curves should not decrease until moving to the shock point.  </p>
+<h1 id="The-central-difference-scheme"><a href="#The-central-difference-scheme" class="headerlink" title="The central difference scheme"></a>The central difference scheme</h1><p><img src="/2023-03-17-numericscheme/Central_difference.png" alt="Alt text"></p>
+<p>The oscillations are generated due to low accuracy of the scheme at the shock wave. </p>
+<h1 id="The-first-order-upwind-scheme"><a href="#The-first-order-upwind-scheme" class="headerlink" title="The first order upwind scheme"></a>The first order upwind scheme</h1><p><img src="/2023-03-17-numericscheme/First_order_upwind.png" alt="Alt text"></p>
+<p>The oscillations have been improved because the upwind scheme takes the information from the coming wave. But artificial dissipation has been generated by this scheme, i.e. the magnitude of the wave decreases before the abrupt collapse – the shock wave. </p>
+<h1 id="The-first-order-upwind-Godunov-scheme"><a href="#The-first-order-upwind-Godunov-scheme" class="headerlink" title="The first order upwind Godunov scheme;"></a>The first order upwind Godunov scheme;</h1><p><img src="/2023-03-17-numericscheme/First_order_upwind_Godunov.png" alt="Alt text"></p>
+<p>With Godunov scheme, it performs similarly to the first order upwind scheme.</p>
+<h1 id="The-second-order-upwind-Godunov-scheme"><a href="#The-second-order-upwind-Godunov-scheme" class="headerlink" title="The second order upwind Godunov scheme"></a>The second order upwind Godunov scheme</h1><p><img src="/2023-03-17-numericscheme/Second_order_upwind_Godunov.png" alt="Alt text"></p>
+<p>Using second order improves the dissipation. </p>
+<p>However, some slight oscillations are generated. So, we should go for a higher order scheme + Godunov. </p>
+<p>The second order upwind Godunov scheme with Van Leer limiter</p>
+<p><img src="/2023-03-17-numericscheme/Second_order_upwind_Godunov_vllimitor.png" alt="Alt text"></p>
+<p>This scheme with the Van Leer limiter has largely improved the dissipation and removed the oscillations.</p>
+<p>A higher order scheme + Godunov + limiter should improve further.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Modeling/">Modeling</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2023 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
