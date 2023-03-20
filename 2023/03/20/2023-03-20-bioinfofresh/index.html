@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>The first week of getting into the realm of bioinformatics | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+
+  
+  <meta name="author" content="Liang Xu">
+  
+
+  
+  <meta name="description" content="The simple workflow of the empirical part of my current project is:
+
+Compare the ASVs of the sampled bacteria with data bases to match and obtian possible species identification;
+
+From the matched genome ids, fetch the full genome data from GenBank and other sources;
+
+Annotate genome using “WHATEVER” programs. Sorry Xin, this word is so impressive to me;
+
+Feed the annotated genes to gRodon to estimate the maximum growth rates of these bacteria.
+
+
+Looks quite easy!
+CLICK THE TITLE TO SEE MORE PAIN!">
+  
+
+  
+  
+  <meta name="keywords" content="sh">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="The first week of getting into the realm of bioinformatics"/>
+
+  <meta property="og:site_name" content="Liang Xu"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Liang Xu</a>
+    </h1>
+    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="/tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>The first week of getting into the realm of bioinformatics</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2023/03/20/2023-03-20-bioinfofresh/" rel="bookmark">
+        <time class="entry-date published" datetime="2023-03-20T07:00:00.000Z">
+          2023-03-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>The simple workflow of the empirical part of my current project is:</p>
+<ol>
+<li><p>Compare the ASVs of the sampled bacteria with data bases to match and obtian possible species identification;</p>
+</li>
+<li><p>From the matched genome ids, fetch the full genome data from GenBank and other sources;</p>
+</li>
+<li><p>Annotate genome using “WHATEVER” programs. Sorry Xin, this word is so impressive to me;</p>
+</li>
+<li><p>Feed the annotated genes to <code>gRodon</code> to estimate the maximum growth rates of these bacteria.</p>
+</li>
+</ol>
+<p>Looks quite easy!</p>
+<p>CLICK THE TITLE TO SEE MORE PAIN!</p>
+<span id="more"></span>
+
+<p>For a newbie to bioinformatics, I summerized these information from the first meeting with <a target="_blank" rel="noopener" href="https://jcmcnch.github.io/">Jesse</a>. I was happy that this sounds straightforward if “easy” is not appropriate. OK, develop a pipeline and get things work through automatically. </p>
+<h1 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h1><p>The comparison has been done by Jesse (thanks!). A tsv file is generated, recording the species labels and the possible genome ids. So, I only need to download the full genome data by using this genome id. </p>
+<h1 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h1><p>It seems that there are many ways to do that. </p>
+<ul>
+<li><p>GTDB (Genome Taxonomy Database) has developed a tool <a target="_blank" rel="noopener" href="https://github.com/Ecogenomics/GTDBTk">GTDBtk</a> to make it feasible. <strong>Failed!</strong> Some third-party dependencies are not installable on MacOS M2 chip.  </p>
+</li>
+<li><p>Python pkg Entrez. <strong>Failed!</strong> For some reason, <code>esearch</code> doesn’t work! I even tried to invoke the terminal to run <code>esearch</code> from Python. It just got stuck there forever. Meanwhile, even it works in terminal, I’ve no idea the corresponding database name and <code>elink --name</code> for a given genome id. Without that, the file you downloaded is of size 0. </p>
+</li>
+<li><p>R pkg <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5408848/">Biomartr</a>. <strong>Failed!</strong> This is so close to get work done. I managed to download the full genome in Fasta format from the NCBI RefSeq data base. However, due to unkown reason, the summary txt for GenBank cannot be downloaded. Thus, all the matches in GenBank cannot be pulled down. </p>
+</li>
+<li><p><code>sh</code> script adapted from GTDB. <strong>Failed!</strong> The fetch command is like this</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!wget -q https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/947/435/GCF_003947435.1_ASM394743v1/GCF_003947435.1_ASM394743v1_genomic.fna.gz -O /tmp/gtdbtk/genomes/genome_a.fna.gz</span><br></pre></td></tr></table></figure>
+
+<p>However, I only know GCF_003947435.1 this id, not the assembly accession id, i.e. ASM394743v1. Where can I match these two? Give up after a few hours’ exploration.</p>
+<ul>
+<li><code>sh</code> using NCBI new tool <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/genomes/download-genome/">datasets</a>. Finally, I managed to incorporate this tool in <code>sh</code> script and automate the downloading process. Code can be found <a target="_blank" rel="noopener" href="https://github.com/xl0418/GetGenome"><strong>here</strong></a>.</li>
+</ul>
+<p>I was happy to see things move on before I realized that I need to download &gt;1 million genome data!</p>
+<p>One genome data has size around 400 kb BEFORE unziping. In total, 400 GB or more is needed on local without considering the time cost!</p>
+<p>So, in this step, parallelizing this process is a must-do thing. </p>
+<h1 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h1><p>When I asked Xin how to annotate genome, she told me that use “whatever” program, just getting a fna file. Emmm, sounds pretty easy. There must be many mature tools across a variety of platforms that allow you to just click-and-wait for annotations done. NOOOO! Do you know how to Docker images? Do you know what to do when installing packages from the default channels and got error message? Do you have &gt;200 GB spare space? Do you know whether the develped packages are compatible with your operation systems? In the end, annotating &gt;1 million genomes locally is the last feather. </p>
+<h1 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h1><p>Not get here yet. I only wish <code>gRodon</code> is more friendly to me. </p>
+<h1 id="In-the-end"><a href="#In-the-end" class="headerlink" title="In the end"></a>In the end</h1><p>This is just a post to remind me of these experience. In fact, it was a lot of fun to dive into data processing and analysis. It also implies that there is still lots of work to do in bioinformatics that make life easier. </p>
+<p>Great thanks to Jesse, Emily, Xin and Lee for their shared information and experience in this field! I apprieciate this oppotunity that enriches my skills and knowledge! </p>
+<h2 id="The-end-of-the-end"><a href="#The-end-of-the-end" class="headerlink" title="The end of the end"></a>The end of the end</h2><p>Anyone knows how to efficiently and conveniently fetch and annotate genome data? </p>
+<p>How about parallelize <code>sh</code> script for a <code>for</code> loop?</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/bioinformatics/">bioinformatics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/sh/">sh</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2023 Liang Xu
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
