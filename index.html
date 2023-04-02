@@ -67,7 +67,7 @@
 
   
     
-    <h3 class="article-title"><a href="/2023/04/01/2023-04-01-GetGenomeAnnotation/"><span>Get genomes from NCBI and annotating genomes using Prokka</span></a></h3>
+    <h3 class="article-title"><a href="/2023/04/01/2023-04-01-GetGenomeAnnotation/"><span>Get genomes, annotate genomes and analyze genomes </span></a></h3>
     
   
 
@@ -87,13 +87,13 @@
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="Fetching-and-annotating-genomes-pipeline"><a href="#Fetching-and-annotating-genomes-pipeline" class="headerlink" title="Fetching and annotating genomes pipeline"></a>Fetching and annotating genomes pipeline</h1><p>A pipeline is established to go through a couple of things:</p>
+        <p>A pipeline is created to estimate maximum growth rates of bacteria from a set of ASVs (fractions of genomes):</p>
 <ol>
-<li><p>Comparing ASVs with database to get the rough matches between genomes and ASVs; <strong>Not included in this pipeline.</strong> It is easy to feed ASVs fasta files to <a target="_blank" rel="noopener" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> to get the matches;   </p>
+<li><p>Comparing ASVs with database to get the rough matches between genomes and ASVs; <strong>BLAST ASVs with database</strong> It is easy to feed ASVs fasta files to <a target="_blank" rel="noopener" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> to get the matches;   </p>
 </li>
-<li><p>Fetch the full genome sequences from <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/">NCBI</a> by the genome ids;</p>
+<li><p>Fetch full genome sequences from <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/">NCBI</a> by the genome ids;</p>
 </li>
-<li><p>Annotate the genomes using <a target="_blank" rel="noopener" href="https://github.com/tseemann/prokka">Prokka</a>;</p>
+<li><p>Annotate genomes using <a target="_blank" rel="noopener" href="https://github.com/tseemann/prokka">Prokka</a>;</p>
 </li>
 <li><p>Using the annotated genomes to estimate the maximum growth rates of bacteria by <a target="_blank" rel="noopener" href="https://github.com/jlw-ecoevo/gRodon2">gRodon2</a>.</p>
 </li>
