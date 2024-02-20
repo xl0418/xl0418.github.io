@@ -16,7 +16,7 @@ The words above are more like a conclusion that I came up with in the last few m
 
   
   
-  <meta name="keywords" content="Animation,ABC,data analysis">
+  <meta name="keywords" content="data analysis,ABC,Animation">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -105,7 +105,7 @@ The `<video>` tag is not supported by your browser.
 
 <p>In the video, three Monte Carlo chains are deployed. They are independent of each other, exploring the parameter space from different initial conditions. Normally, it is hard to judge when the chain converges. So, you need to run a long time to check. One alternative way is to calculate the autocorrelation of the chain. You can google that if you want to know more details. </p>
 <h1 id="ABC-SMC-for-parameter-estimation-and-model-selection"><a href="#ABC-SMC-for-parameter-estimation-and-model-selection" class="headerlink" title="ABC-SMC for parameter estimation and model selection"></a>ABC-SMC for parameter estimation and model selection</h1><p>Approximate Bayesian Computation-Sequential Monte Carlo algorithm is an parallelized extension to the standard ABC algorithm. The basic idea is to do many sample simulations at one generation. Then, the best fit parameters are chosen to gain higher weight to be sampled in the next generation. With the generation proceeds, the best fit parameters converge to the “true values”. To do model selection, the models are simply treated as one parameter but at a sequential level advanced to the other parameters. That means you need to chose models first and then sample parameters to complete the sampling process.</p>
-<p>The following figure shows how the samples converges to the true value for parameter estimation. It started with a uniform prior information of &amp;alpha;.<br><img src="/Rplot2.png" alt="fig"> </p>
+<p>The following figure shows how the samples converges to the true value for parameter estimation. It started with a uniform prior information of &alpha;.<br><img src="/Rplot2.png" alt="fig"> </p>
 <p>The following figure shows how model selection works under ABC-SMC algorithm. The details are coming in the future.<br><img src="/modelseleSMC.png" alt="fig"> </p>
 
       
@@ -130,7 +130,7 @@ The `<video>` tag is not supported by your browser.
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Animation/">Animation</a><a href="/tags/ABC/">ABC</a><a href="/tags/data-analysis/">data analysis</a>
+        <a href="/tags/data-analysis/">data analysis</a><a href="/tags/ABC/">ABC</a><a href="/tags/Animation/">Animation</a>
     </span>
     
 
