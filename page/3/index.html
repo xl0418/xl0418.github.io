@@ -67,6 +67,67 @@
 
   
     
+    <h3 class="article-title"><a href="/2019/01/04/2019-01-04-PyCUDAseries1/"><span>PyCUDA series 1: Build GPU programming environment </span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/04/2019-01-04-PyCUDAseries1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-04T08:00:00.000Z">
+          2019-01-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>As my research always involves a huge amount of computation, parallel technique is a super fancy way to save my time. But the resource of cluster at my university is limited. I recently received a warning that CIT has detected multiple-account usage under my IP. To avoid the risk of being fired, I have to figure out another way to parallelize my job instead of parallelizing accounts. Right on time, GPU programming came out as an ideal option. I hope the GPU resource of my university is not full loaded yet.</p>
+<p>Due to some incompatibilities of CUDA and Visual Studio 2017, I spent half a day to figure out the solutions and finally succeeded building up GPU programming environment on Windows 10 with Pycuda installed in Python. Here, I post the procedure of the build and some solutions to the incompatibilities.</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/GPU-programming/">GPU programming</a>, <a href="/categories/Research/GPU-programming/pyCUDA/">pyCUDA</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Python/">Python</a><a href="/tags/CUDA/">CUDA</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Parallel-computation/">Parallel computation</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2018/12/07/2018-12-07-ggradar2helpdocument/"><span>ggradar2: Help document </span></a></h3>
     
   
@@ -573,67 +634,6 @@
       
         <p>I guess this function is specially useful to <a target="_blank" rel="noopener" href="https://www.rug.nl/staff/r.s.etienne/">our group</a> in which we play with L table. </p>
 <p>L table is an alternative way to a phylo class for phylogenetic information storage. The function <code>L2phylo</code> has been implemented in the <a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/DDD/index.html">DDD package</a> that converts an L table to a phylo class. This function <code>phylo2L</code> does the conversion the other way around. Thus, if you want to apply your model to an empirical data. This may be useful to you.</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/R/">R</a>, <a href="/categories/Research/R/phylogeny-function/">phylogeny function</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/phylogeny/">phylogeny</a><a href="/tags/phylo-class/">phylo class</a><a href="/tags/L-table/">L table</a><a href="/tags/DDD-package/">DDD package</a><a href="/tags/pruneL/">pruneL</a><a href="/tags/phylo2L/">phylo2L</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/10/24/2018-10-24-pruneLfunction/"><span>pruneL function</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/10/24/2018-10-24-pruneLfunction/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-10-24T07:00:00.000Z">
-          2018-10-24
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>I guess this function is specially useful to <a target="_blank" rel="noopener" href="https://www.rug.nl/staff/r.s.etienne/">our group</a> in which we play with L table. But might be less useful than <code>phylo2L</code> function :-)</p>
-<p>Following last post, this function <code>pruneL</code> prunes an L table by removing the extinct lineages.</p>
         
       
     </div>
