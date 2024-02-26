@@ -3,7 +3,13 @@ title: "Machine learning on biology S2: how does a neural network work mathemati
 categories: [Research,Machine learning,Deep learning]
 tags: [Python, Machine learning, neural networks, Backward propagation, gradient descent]
 date: 2019-02-08
-
+mathjax:
+  conversion:
+    em: 14
+  tex:
+    tags: 'ams'
+  svg:
+    exFactor: 0.03
 ---
 
 There are tons of documents out there to explain how neural network works in different angles. So I guess people don't mind me adding one more from my perspective. Hopefully, someone may get inspired from this post.
@@ -18,69 +24,67 @@ Without loss of generality, here I consider a simplest neural network which only
 
 The following four graphs illustrate how the data evolves along the neural network and the notations used in the derivation.
 
-![fig](step1.png)    
+<img src="step1.png" width="100%" height="100%">
 
-![fig](step2.png)    
+<img src="step2.png" width="100%" height="100%">
 
-![fig](step3.png)    
+<img src="step3.png" width="100%" height="100%">
 
-![fig](step4.png)   
+<img src="step4.png" width="100%" height="100%">
 
-![fig](step5.png) 
+<img src="step5.png" width="100%" height="100%">
 
-![fig](step8.png)         
+<img src="step8.png" width="100%" height="100%">
 
-![fig](step7.png)     
+<img src="step7.png" width="100%" height="100%">
 
-![fig](step6.png)     
-
-
+<img src="step6.png" width="100%" height="100%">
 
 # 1 Forward flow of the neural network
 
 Consider a neural network with \\(k+1\\) layers including the input layer and the output layer. The input data is consisting of \\(n\\) samples with \\(L_{1}\\) features
 
-![fig](1.png)   
+<img src="1.png" width="100%" height="100%"> 
 
 The output label is given accordingly
 
-![fig](2.png)   
+<img src="2.png" width="100%" height="100%">
 
 where the label on the top left denotes the index of the sample. Too abstract? Imagine that sample \\(^{1}\boldsymbol{x}\\) corresponds to model 1 while sample \\(^{2}\boldsymbol{x}\\) corresponds to model 2. Then the output can be either an array of two vectors indicating the probabilities of model 1 and model 2, for example, \\(\{(1,0),(0,1)\}\\), or a vector of two elements \\(\{0,1\}\\) where 0 indicates model 1 and 1 indicates model 2 or whatever you label them. The purpose is to use a huge amount of data sets to train the neural network, more precisely to compute the weight matrix among the adjacent pair of layers, to fit the output layer to the output vectors. Will see it later on.
 
 Now, let's feed one sample (the first one \\(^{1}\boldsymbol{x}\\)) to the neural network to see how to compute the output layer. Later, we will see how to train the network with multiple samples. Assume the second layer has \\(L_{2}\\) neurons
 
-![fig](3.png)   
+<img src="3.png" width="100%" height="100%">
 
 Note that the first layer is the input layer in which we feed one sample with \\(L_{1}\\) feature to the neural network at first. Then the weight matrix from the first layer to the second layer is defined as 
 
-![fig](4.png)   
+<img src="4.png" width="100%" height="100%">
 
 Thus, multiplying the weight matrix Eq.4 with the neurons of the upper layer Eq.3 yields
 
-![fig](5.png)   
+<img src="5.png" width="100%" height="100%">
 
 More generally, a bias term (constant term) is incorporated as follows
 
-![fig](6.png) 
+<img src="6.png" width="100%" height="100%">
 
 which can also be written in the form if we absorb the constant vector \\(\boldsymbol{b}_{1}\\) into the weight matrix  
 
-![fig](78.png) 
+<img src="78.png" width="100%" height="100%">
 
 After the transformation, an activation function is applied to \\(\boldsymbol{z}^{(2)}\\) elementwisely. For a model classification problem, the sigmoid function and the hyperbolic tangent function are widely used. Here we use the sigmoid function for instance
 
-![fig](9.png) 
+<img src="9.png" width="100%" height="100%">
 
 Till now, the transformation from the first layer (the input layer) to the second layer (the first hidden layer) is done. This process can be generalized as .
 
-![fig](9-1.png) 
+<img src="9-1.png" width="100%" height="100%">
 
 where \\(\boldsymbol{a}'\\) is the vector \\(\boldsymbol{a}\\) absorbing 1 at the end as what I did in Eq.8. Note that \\(\boldsymbol{a}^{(1)}=^{1}\boldsymbol{x}\\).
 
 Finally, the neural network will return \\(\boldsymbol{a}^{(k+1)}\\) with \\(L_{k+1}\\) elements from the output layer. Given the corresponding output label \\(\boldsymbol{y}^{(1)}\\), we can compute the error between the feedback \\(\boldsymbol{a}^{(k+1)}\\) and the output label \\(\boldsymbol{y}^{(1)}\\). This is normally called the loss of the result to the output. There are several candidate loss functions for model classification like the least square, the cross-entropy function. We take the least square function as the example
 
-![fig](10.png) 
+<img src="10.png" width="100%" height="100%">
 
 So far, we have computed out the loss of the neural network with a bunch of randomly initialized weight matrix. No doubt, the loss would be huge. Our aim is to minimized the loss \\(J\\) by tuning the weight matrix. How? Remember your advanced calculus in the high school or the university? \\(J\\) can be envisaged as a function of every entry in the weight matrix that we want to adjust. Thus, the derivative of \\(J\\) with respect to each entries of the weight matrix would tell us how to tune the weight matrix to minimize the loss. This method is called gradient descend. And the loss can also propagate backwards to determine the gradient of the entries of the weight matrix at each layer. The full process to tune the weight matrix is also called Backward Propagation. 
 
@@ -90,39 +94,39 @@ So far, we have computed out the loss of the neural network with a bunch of rand
 
 Let us start from the final layer (the \\(k+1\\)th layer) to the previous one (the \\(k\\)th layer). Note that the variable of our concern is the entry of the weight matrix from the \\(k\\)th layer to the \\(k+1\\)th layer, \\(\theta_{L_{k+1}\times L_{k}}^{(k)}\\). Here I only consider tuning \\(\theta\\) instead of \\(\theta'\\), meaning that the bias terms are not tuned. Updating the bias terms is similar and you can practice it afterward. The derivative of the loss function with respect to the matrix is defined as 
 
-![fig](11.png) 
+<img src="11.png" width="100%" height="100%">
 
 At the mean time, from the loss function Eq.10, we obtain the derivative according to the chain rule
 
-![fig](12.png) 
+<img src="12.png" width="100%" height="100%">
 
 where
 
-![fig](13-15.png) 
+<img src="13-15.png" width="100%" height="100%">
 
 and
 
-![fig](16.png) 
+<img src="16.png" width="100%" height="100%">
 
 where \\(\otimes\\) is the outer product. Simplifying the gradient Eq.12 yields
 
-![fig](17.png) 
+<img src="17.png" width="100%" height="100%">
 
 If we define
 
-![fig](18.png) 
+<img src="18.png" width="100%" height="100%">
 
 The gradient Eq.17 can be further simplified as
 
-![fig](19.png) 
+<img src="19.png" width="100%" height="100%">
 
 Note that we define the outer product of two column vectors is the element-wise produce of the corresponding elements
 
-![fig](19-1.png) 
+<img src="19-1.png" width="100%" height="100%">
 
 Now, as \\(\boldsymbol{z}^{(k+1)}\\), \\(\boldsymbol{a}^{(k+1)}\\) and \\(^{1}\boldsymbol{y}\\) are known, we can update the weight matrix \\(\theta^{(k)}\\) by
 
-![fig](20.png) 
+<img src="20.png" width="100%" height="100%">
 
 where \\(\lambda\\) is a constant called the learning rate given in advance. 
 
@@ -132,19 +136,19 @@ Let's do the calculation one more time from the \\(k\\)th layer to the \\(k-1\\)
 
 Now we consider one more previous weight matrix \\(\theta^{(k-1)}\\). The derivative of the loss function with respect to that matrix yields 
 
-![fig](21.png) 
+<img src="21.png" width="100%" height="100%">
 
 The first two terms on the right hand side are the same as Eq.12. The third term \\(\frac{\partial\boldsymbol{z}^{(k+1)}}{\partial\boldsymbol{a}^{(k)}}\\) produces the weight matrix from the \\(k+1\\)th layer to the \\(k\\)th layer
 
-![fig](22.png) 
+<img src="22.png" width="100%" height="100%">
 
 The last two terms on the right hand side are similar to what we have done above. Finally, we get
 
-![fig](23.png) 
+<img src="23.png" width="100%" height="100%">
 
 Comparing Eq.19 and Eq.23 tells us that we can update the error
 
-![fig](24.png) 
+<img src="24.png" width="100%" height="100%">
 
 for each transition among layers. This is how the error propagates backwards along the neural network and where the name comes from. Note that this expression is a slightly different from the formula in Chapter 9.2 of the [machine learning course](https://www.coursera.org/course/ml) by Andrew Ng of Standford. Do you see why is that? 
 
@@ -152,7 +156,7 @@ for each transition among layers. This is how the error propagates backwards alo
 
 We have derived mathematically how to train one sample on a neural network. How about multiple samples? Easy. Because all the weight matrix of the neural network are shared for all samples, we can update the weight matrix by a fraction of error of each sample. Normally this fraction is \\(\frac{1}{\text{sample size}}\\) where in our example the sample size is \\(n\\)
 
-![fig](25.png) 
+<img src="25.png" width="100%" height="100%">
 
 Then, the weight matrix is tuned to minimize the error of samples. 
 

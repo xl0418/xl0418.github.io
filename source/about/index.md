@@ -2,12 +2,11 @@
 title: About me
 date: 2018-10-22 17:08:14
 ---
-I am Liang Xu, a PhD student in theoretical biology in University of Groningen. I am focusing on modeling species interactions in macro eco-evolutionary science. I am interested in mathematical models as well as deep learning. You can find my CV [**HERE**](./Liang_CV.pdf). For the Chinese version, please see [**HERE**](./CV_Liang_Chinese.pdf)
 
-## Research Interest
- A major challenge in ecology is the need for a better theoretical framework for understanding how species assemblages (ecological communities) arise, why some are species-rich and others species-poor, and why some species are present or dominant whereas others are not. I am interested in how to construct theoretical models to mimic the evolutionary processes and invent efficient tools with explanatory power to the evolutionary issues. This field involves mathematical modeling, Eco-evolutionary science, 
+I am Liang Xu, currently a Postdoctoral Researcher collaborating with Prof. Emily Zakem at Carnegie Science. My expertise spans theoretical modeling, bioinformatics, and machine learning, with a keen interest in exploring diverse topics such as species interactions on macro eco-evolutionary scales, species coexistence theory, oceanic modeling, and trait-based modeling. I am particularly intrigued by the application of machine learning techniques in ecology and evolution. For further details, please refer to my CV [**HERE**](./Liang_CV.pdf), with a Chinese version available [**HERE**](./CV_Liang_Chinese.pdf).
 
 ## Education
+
 **2015 - 2020**  University of Groningen. PhD in Eco-evolution; 
                       **Dissertation thesis**: [Modelling species interactions in macroevolution and macroecology](https://doi.org/10.33612/diss.125954510).
 
@@ -25,11 +24,17 @@ I am Liang Xu, a PhD student in theoretical biology in University of Groningen. 
 
 
 ## Publication
-**Xu, L.**, & Etienne, R. S. (2018). Detecting local diversity-dependence in diversification. Evolution, 72(6), 1294-1305. DOI: 10.1111/evo.13482 
 
-**Xu, L.**, S. van Doorn, H. Hildenbrandt and R. S. Etienne (2020). Inferring the effect of species interactions on trait evolution. Systematic Biology. In press.
+Emily J Zakem, Jesse McNichol, J. L. Weissman, Yubin Raut, **Liang Xu**, Elisa R. Halewood, Craig A. Carlson, Stephanie Dutkiewicz, Jed A. Fuhrman, Naomi M. Levine. Predictable functional biogeography of marine microbial heterotrophs. bioRxiv 2024.02.14.580411; doi: https://doi.org/10.1101/2024.02.14.580411
+
+**Xu, L.**, A. Clark, M. Rees and L. Turnbull (2023). Estimating competition in metacommunities: accounting for biases caused by dispersal. Methods in Ecology and Evolution, 14, 291–301. https://doi.org/10.1111/2041-210X.14022
+
+**Xu, L.**, S. van Doorn, H. Hildenbrandt and R. S. Etienne (2021). Inferring the Effect of Species Interactions on Trait Evolution, Systematic Biology, Volume 70, Issue 3, May 2021, Pages 463–479, https://doi.org/10.1093/sysbio/syaa072
+
+**Xu, L.**, & Etienne, R. S. (2018). Detecting local diversity-dependence in diversification. Evolution, 72(6), 1294-1305. DOI: 10.1111/evo.13482 
 
 **Xu, L.**, H. Hildenbrandt and R. S. Etienne (2020). Incorporating eco-evolutionary interactions into a spatially explicit phylogenetic Janzen-Connell model predicts realistic macroecological and macroevolutionary patterns. To be submitted.
 
-**Xu, L.**, A. Clark, M. Rees and L. Turnbull. Dispersal causes bias in estimating the strength of competition in
-plant communities. Under review.
+**Xu, L.**. A Functional Analytic Approach to the Power Series Solutions of an Nonlinear Differential Equations, Asia-Pacific
+Power and Energy Engineering Conference, 2012, pp. 1-4, doi: 10.1109/APPEEC.2012.63 07563.
+

@@ -106,3 +106,8 @@ deploy:
   type: git
   repository: https://github.com/xl0418/xl0418.github.io.git
   branch: master
+
+
+math:
+  enable: true
+  engine: 'mathjax'
