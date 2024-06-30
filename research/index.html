@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Liang Xu">
+
+
+    <meta name="subtitle" content="This is Liang's blog for life and work.">
+
+
+
+
+<title>Research | Liang Xu</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Liang Xu</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Liang Xu</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title">Research</h2>
+        
+        <section class="post-content">
+            <p>We combine <strong>theoretical, computational, and machine learning approaches</strong> to understand <strong>complex systems</strong> in ecology and evolution. We study <strong>species interactions, the formation of morphological traits, and the mechanisms that sustain trait diversity and biodiversity</strong>, particularly among coexisting species.</p>
+<h2 id="Species-phenotype-formation-in-ecology-and-evolution"><a href="#Species-phenotype-formation-in-ecology-and-evolution" class="headerlink" title="Species phenotype formation in ecology and evolution"></a>Species phenotype formation in ecology and evolution</h2><p>The formation of species phenotypes results from biotic and abiotic interactions in both ecological and evolutionary contexts. On an ecological timescale, phenotype determine species fitness. Species with optimal phenotype dominate specific niches, and the number of available niches facilitates species coexistence by favoring different phenotype. </p>
+<p>On an evolutionary timescale, phenotype can change due to mutations and accumulated genetic variation, triggering an evolutionary arms race between species. Maintaining local biodiversity thus requires a balance between competitive exclusion and environmental adaptation. Migration helps maintain the diversity by supporting outcompeted species that may be favored in other locations and by introducing novel genotypes. As a result, these processes affect the characteristics of phylogenetic trees and in turn they may be inferred from phylogenetic patterns. </p>
+<p>To study how <strong>migration affects phylogenetic patterns</strong>, we built a spatil model that incorporated migration between two locations. We generated phylogenetic trees under different evolutionary rates and migration rates ($M$). We assessed whether the DDD model (<a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2011.1439?versioned=true">Etienne et al. 2012</a>) that only accounts for local evolutionary events can still predict the evolutionary rates (<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/full/10.1111/evo.13482">Xu &amp; Etienne 2018</a>).</p>
+<p align="center">
+<img src="figures/proj1_trees.png" alt="Xu2020" width="600"/>
+<em>Figure 1. Examples of phylogenetic trees under different extinction rates and migration rates. The branches are colored by the location of species. Sympatric speciation and allopatric speciation are also distinguishable by the color of the nodes and the daughter species.</em>
+</p>
+
+<p>Species morphological traits are shaped on ecological and evolutionary timescales. We established a trait evolution model incorporating population dynamics to describe trait evolution under environmental adaptation and competition. We applied three trait evolution models to mimic trait changes of baleen whale along phylogenetic trees (<a target="_blank" rel="noopener" href="https://academic.oup.com/sysbio/article/70/3/463/5910004">Xu et al. 2020</a>). </p>
+<p align="center">
+<img src="figures/proj2_baleenwhale.png" alt="Xu2020" width="800"/>
+<em>Figure 2. Prediction of the phylogenetic independent contrasts (PICs) of baleen whale log-transformed body length, simulated using the parameters estimated using three trait evolution models. The phylogeny is the reconstructed tree of the Mysticeti with the x-axis in units of million years (Slater et al. 2017). The box plots show the distributions of PICs. The bars on the right show the untransformed body length of the species.</em>
+</p>
+
+
+
+<img style="float: right;" src="figures/proj3-2.jpg" alt="Xu2022" width="400"/>
+
+
+<p>Competition plays a key role in shaping composition of local communities. Empiricists in plants often use <strong>space-for-time-substitution methods</strong> to estimate the strength of competition. However, in population models, dispersal is usually ignored. This generates <strong>bias in statistical estimation of competition</strong>. We built a spatial model accounting for dispersal among patches and provide analytical solutions (<a target="_blank" rel="noopener" href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.14022">Xu et al. 2022</a>).</p>
+<p><strong>Right figure:</strong> Behaviour of the Ricker model. (a) Trajectory (b) future population size ($N_{t+1}$) and per-capita population growth rate as a function of current density ($N_t$) for the deterministic Ricker model (a single well-mixed population). </p>
+<p><strong>Figure below:</strong> Schematic of the simulation model. Each cell hosts a number of adult plants (large symbols) which are censused each year.<br>Adults produce seeds (small symbols) following a local population model with competition occurring only within cells. Seeds then disperse to<br>other cells, following a dispersal kernel. Existing adults die and seeds grow into new adults that are censused at the following time step.</p>
+<p align="center">
+<img src="figures/proj3-1.jpg" alt="Xu2022" width="800"/>
+<em>Figure 4. Schematic of the simulation model.</em>
+</p>
+
+<h2 id="Learning-phenotype-from-genomics"><a href="#Learning-phenotype-from-genomics" class="headerlink" title="Learning phenotype from genomics"></a>Learning phenotype from genomics</h2><p>The advancement of <strong>machine learning</strong> provides powerful tools for recognizing and classifying highly abstract patterns within genomic data. I aim to apply these techniques to explore the predictive potential of viral genotypes. </p>
+<p>My current project on estimating the maximum growth rate of bacteria using <strong>convolutional neural networks (CNN) and transformer</strong> models has demonstrated the potential of these techniques. The two deep-learning models have distinct advantages: the CNN model excels at detecting dependencies in local patterns, while the transformer model captures global or long-range dependencies in long sequences. We found that the CNN model outperformed traditional phylogenetic methods (such as the nearest-neighbor or Brownian motion methods) in detecting phylogenetic signals.</p>
+<p align="center">
+<img src="figures/proj-phydon1.png" alt="phydon" width="800"/>
+<em>Figure 5. Phylogeny and trait of a clade of bacteria.</em>
+</p>
+
+<p>The American theoretical physicist Richard Feynman said, <strong>“What I cannot create, I do not understand.”</strong> The <strong>overarching goal</strong> of my research is to <strong>generate possible genomic configurations</strong> that express specific phenotypes given abiotic and biotic conditions using <strong>generative models</strong>. </p>
+<p align="center">
+<img src="figures/proj-phydon2.png" alt="phydon" width="600"/>
+<em>Figure 6. CNN predictions on gene fragments.</em>
+</p>
+
+
+
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Liang Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

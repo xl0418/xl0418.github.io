@@ -1,693 +1,230 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  
-  <title>Page 2 | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  
-  <meta name="author" content="Liang Xu">
-  
+    <meta name="author" content="Liang Xu">
 
-  
 
-  
+    <meta name="subtitle" content="This is Liang's blog for life and work.">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
 
-  <meta property="og:site_name" content="Liang Xu"/>
 
-  
-  <meta property="og:image" content="/favicon.ico"/>
-  
+<title>Liang Xu</title>
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
 
-
 <body>
-<div class="blog">
-  <div class="content">
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Liang Xu</a>
-    </h1>
-    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">Home</a></li>
-      
-        <li><a href="/about">About</a></li>
-      
-        <li><a href="/categories">Categories</a></li>
-      
-        <li><a href="/tags">Tags</a></li>
-      
-    </ul>
-  </nav>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Liang Xu</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Liang Xu</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-
-    <main class="site-main posts-loop">
-    
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2020/03/18/2020-03-18-generalABC/"><span>A user-friendly approximate Bayesian computation package in Python with an application on the coronavirus outbreak in the Netherlands</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2020/03/18/2020-03-18-generalABC/" rel="bookmark">
-        <time class="entry-date published" datetime="2020-03-18T07:00:00.000Z">
-          2020-03-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Approximate Bayesian computation (ABC) is a kind of likelihood-free method that utilizes computational power to generate a huge amount of simulations with randomly chosen parameters to hit the target - the observations. The generating parameters that produce the results that are most analogous to the observations are recognized as the best inference of the truth. This is analogous to the idea of neural networks of machine learning. The difference is that ABC requests process-based modeling, which bases on knowledge of the underlying mechanism behind the data. In contrast, neural networks neglect such process-based modeling but only needs to construct a neural net structure to train for fitting data. Thus, the advantage of neural networks is that it provides a general inference approach without need of knowing the mechanisms. Nevertheless, the disadvantage is also on it. The interpretation of the processes behind the data is lacking.  This is why it is widely used in pattern recognition but in biological processes interpretation. Both methods have limited structure types although the combination of them can be infinite. Therefore, coding a general framework to fit any type of models is feasible. While Tensorflow of Google and Pytoch of Facebook stand out in machine learning as the examples of such general frameworks, not many groups are focusing on ABC development. Only a recent <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1711.04694.pdf">package</a> by Dutta et al. in Python is released setting a good example. Here I would like to share a simple version with an application to the recent coronavirus outbreak in the Netherlands. Just for fun and keeping my coding skills warm in the period of quarantine regulation. </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Algorithm/">Algorithm</a>, <a href="/categories/Research/Algorithm/ABC/">ABC</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a><a href="/tags/ABC/">ABC</a><a href="/tags/algorithm/">algorithm</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2020/03/09/2020-03-09-GUI-traitevolution/"><span>GUI your model - a way to sell theoretical models to empiricists </span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2020/03/09/2020-03-09-GUI-traitevolution/" rel="bookmark">
-        <time class="entry-date published" datetime="2020-03-09T07:00:00.000Z">
-          2020-03-09
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Thesis submitted! Finally, I could have a bit of time to update this blog before getting feedback from reviewers of two submitted papers. So, I will dig several pits as what I did before and see if in the future I could fill them : - ) The first pit stems from my thinking of that how we, biological theoritians, are able to sell  our work to empiricists. Our work and interest are to stablish complex mathematical models to mimic biological processes to reveal the underlying mechanisms, which form the observed phenomenon. We could code the processes, do statistic analysis to select the most prominent mechanism, infer the likely generating parameters. However, empiricists may have problems even setting up an environment for a programming language in which we used to deploy our models as their focuses are on field or lab experiments which I have not a clue of what they are (exaggerated).  Therefore, to bridge the worlds of empiricists and theoritians, a concrete tool is imperative. GUI (Graphical User Interface) of an abstract model is the right way. (This is the way!  – Mandalorian).  In this blog, I introduce one GUI example of my model and show how it works within a few clicks. </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Python/">Python</a>, <a href="/categories/Research/Python/GUI/">GUI</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a><a href="/tags/GUI/">GUI</a><a href="/tags/models/">models</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/06/21/2019-06-21-ABCalgorithm/"><span>Approximate Bayesian Computation: standard version and its variant ABC-SMC</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/06/21/2019-06-21-ABCalgorithm/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-06-21T07:00:00.000Z">
-          2019-06-21
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>In the last few months of my PhD project, it is unimaginable that how busy it could be. You need to focus on the current work to finish them, analyzing data, writing paper, structuring the final thesis etc. whilst think about the future, going to industry or staying in academia. To me, I enjoy the process of researching, learning new techs, tackling with challenges. This is the essential need that I want. The outer environment is to support decorating the need to make the environment attractive. So it feels like clothes to human, no matter what kind of clothes they are their essential function is to cover the body that human wants, keeping warm and comfortable. But undoubtedly if available human is chasing after the most fancy clothes that meet human’s additional requirements besides the basic need. Think through this, when I know clearly what I want, what kind of job I want to do is clear, meeting my basic need and seeking the most luxury that I fit. </p>
-<p>The words above are more like a conclusion that I came up with in the last few months and an excuse&#x2F;explanation of no posting. Here, I would like to record some evolutionary algorithms that I used in the projects I have done and the animations of them. I still have no time to go into the details and cannot post at a normal frequency for a while (at least before my graduation). But I promise I will concretize them in the future.     </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Algorithm/">Algorithm</a>, <a href="/categories/Research/Algorithm/ABC/">ABC</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/data-analysis/">data analysis</a><a href="/tags/ABC/">ABC</a><a href="/tags/Animation/">Animation</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/06/21/2019-06-21-TPmodel/"><span>An animation to show how traits of species evolve with their abundance</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/06/21/2019-06-21-TPmodel/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-06-21T07:00:00.000Z">
-          2019-06-21
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Do you like comics? I am a comics fan, majorly favoring Japanese comics and some Chinese comics with the rise of Chinese comics industry in recent years. Why do I mention this? I mean to say drawings are usually the most straight way to express abstract ideas. This is why I want to show an animation of our model to explain such complex mechanism instead of using tons of papers filled with equations.   </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Phd-projects/">Phd projects</a>, <a href="/categories/Research/Phd-projects/trait-population-model/">trait-population model</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/evolution/">evolution</a><a href="/tags/Animation/">Animation</a><a href="/tags/ecology/">ecology</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/03/20/2019-03-20-readdatadon/"><span>Bash &amp; R: Dealing with big data; read it! don&#39;t source it!</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/03/20/2019-03-20-readdatadon/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-03-20T07:00:00.000Z">
-          2019-03-20
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Recently, I was focusing on my 3rd PhD project with mathematical modeling. It was about the extension to the <a target="_blank" rel="noopener" href="https://www.nature.com/scitable/knowledge/library/neutral-theory-of-species-diversity-13259703">neutral theory</a>. I am not gonna reveal it now but will bring back in the future.  So I was away from the blog for a while and have to put machine learning series aside, although the derivation of the recurrent neural network is done. It is coming soon as well. Finally, the mathematical model has been done. I have some time to talk something that I’ve been doing except the modeling when waiting for the simulation results. In this post, I am gonna record a silly issue about loading data in R after extracting the a subset of a big data by Bash.  </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Bash/">Bash</a>, <a href="/categories/Research/Bash/sed/">sed</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/bash/">bash</a><a href="/tags/R/">R</a><a href="/tags/data-analysis/">data analysis</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/02/08/2019-02-08-Machinelearningseries2/"><span>Machine learning on biology S2: how does a neural network work mathematically?</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/02/08/2019-02-08-Machinelearningseries2/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-02-08T08:00:00.000Z">
-          2019-02-08
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>There are tons of documents out there to explain how neural network works in different angles. So I guess people don’t mind me adding one more from my perspective. Hopefully, someone may get inspired from this post.</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Machine-learning/">Machine learning</a>, <a href="/categories/Research/Machine-learning/Deep-learning/">Deep learning</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a><a href="/tags/Machine-learning/">Machine learning</a><a href="/tags/neural-networks/">neural networks</a><a href="/tags/Backward-propagation/">Backward propagation</a><a href="/tags/gradient-descent/">gradient descent</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/02/01/2019-02-01-Machinelearningseries1/"><span>Machine learning on biology S1: model classification via ML</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/02/01/2019-02-01-Machinelearningseries1/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-02-01T08:00:00.000Z">
-          2019-02-01
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>On my 2nd Phd project, I have constructed a complex trait-population model to describe how species evolve and assemble in a community under natural selection. However, people may naturally ask if such complexity is really needed. What is the discrepancy between the model with and without population dynamics and variable trait variance? To answer this question, a model selection&#x2F;classification should be performed on the data generated under those candidate models. As what we used in parameter inference, an <a href="https://xl0418.github.io/2018/11/30/2018-11-30-SMCplots/">Approximate Bayesian Computation-Sequential Monte Carlo method</a> is able to handle this work. However, a huge computational demanding is the bottle neck.  To avoid to waste time on fitting each empirical data set by ABC-SMC, a method that only uses the feature of data sets would be a better choice. This reminds me the existing and fast-developed took, i.e. machine learning. So, from this post on, I would like to share my experience of learning Machine Leaning, how to construct a neural network, how to derive backwards propagation algorithm for leaning parameters of a neural network and how to use tensorflow to simply use machine learning, or even deep learning (a multiple-layer neural network algorithm), to do model selection&#x2F;classification on the topic I mentioned above. </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Machine-learning/">Machine learning</a>, <a href="/categories/Research/Machine-learning/Deep-learning/">Deep learning</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Machine-learning/">Machine learning</a><a href="/tags/neural-networks/">neural networks</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/01/21/2019-01-21-PyCUDAseries3/"><span>PyCUDA series 3: matrix multiplication using multiple blocks</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/01/21/2019-01-21-PyCUDAseries3/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-01-21T08:00:00.000Z">
-          2019-01-21
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>A simple practice on matrix multiplication is shown in this post. The matrix product function can use multiple blocks to calculate multiplications of two matrix. </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/GPU-programming/">GPU programming</a>, <a href="/categories/Research/GPU-programming/pyCUDA/">pyCUDA</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a><a href="/tags/CUDA/">CUDA</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Parallel-computation/">Parallel computation</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/01/14/2019-01-14-PyCUDAseries2/"><span>PyCUDA series 2: a simple matrix algebra and speed test</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/01/14/2019-01-14-PyCUDAseries2/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-01-14T08:00:00.000Z">
-          2019-01-14
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>In this post, you will find a simple matrix algebra done by gpu parallelization and a straightforward result of the speed contest between cpu and gpu.</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/GPU-programming/">GPU programming</a>, <a href="/categories/Research/GPU-programming/pyCUDA/">pyCUDA</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a><a href="/tags/CUDA/">CUDA</a><a href="/tags/GPU-programming/">GPU programming</a><a href="/tags/Parallel-computation/">Parallel computation</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2019/01/10/2019-01-10sed2/"><span>Sed again: run on Ubuntu to avoid weird behavior</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2019/01/10/2019-01-10sed2/" rel="bookmark">
-        <time class="entry-date published" datetime="2019-01-10T08:00:00.000Z">
-          2019-01-10
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>As my 2nd project is close to an end, it is right the time to go back to the phylogenetic Janzen-Connell model. Simulations and plotting functions have been done during the gap time squeezed from the 2nd project. The last thing is to analyze the data, in which I bumped into a weird behavior of <code>sed</code>. </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Bash/">Bash</a>, <a href="/categories/Research/Bash/sed/">sed</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/project-3/">project 3</a><a href="/tags/bash/">bash</a><a href="/tags/mega-data/">mega data</a><a href="/tags/extract-information/">extract information</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-
-<nav class="pagination">
-  
-  <a href="/" class="pagination-prev">Prev</a>
-  
-  
-  <a href="/page/3/" class="pagination-next">Next</a>
-  
-</nav>
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
-    
-    &copy; 2024 Liang Xu
-    
-  </p>
-</footer>
-    
-    
-  </div>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+    <div class="container profile-container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/"><img src="/image/4-4.jpg"></a>
+        </div>
+        <div class="nickname">Liang Xu</div>
+        <div class="description"><p>I specialize in understanding <strong>complex systems in ecology and evolution</strong>. <br>My research encompasses species interactions, the formation of morphological traits, <br>and the mechanisms that sustain trait diversity and biodiversity, particularly among coexisting species. <br>To address these questions, I develop and apply <strong>theoretical and simulation modeling</strong>, <br><strong>phylogenetic comparative methods</strong>, and <strong>statistical analysis</strong>. <br>Additionally, I have a strong interest in leveraging <strong>machine learning</strong> to explore biological <br>and genetic phenomena, particularly the associations between genotype and phenotype.</p>
 </div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Resume" href="/resume/Liang_CV.pdf">
+                        
+                        
+                            <i class="iconfont icon-resume"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/liangxuhuang">
+                        
+                        
+                            <i class="iconfont icon-linkedin"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" target="_blank" rel="noopener" href="https://github.com/xl0418">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
+        </div>
+    </div>
+</div>
+
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Liang Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
 </body>
+
 </html>

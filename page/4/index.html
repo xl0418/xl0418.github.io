@@ -1,337 +1,230 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  
-  <title>Page 4 | Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  
-  <meta name="author" content="Liang Xu">
-  
+    <meta name="author" content="Liang Xu">
 
-  
 
-  
+    <meta name="subtitle" content="This is Liang's blog for life and work.">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
 
-  <meta property="og:site_name" content="Liang Xu"/>
 
-  
-  <meta property="og:image" content="/favicon.ico"/>
-  
+<title>Liang Xu</title>
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
 
-
 <body>
-<div class="blog">
-  <div class="content">
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Liang Xu</a>
-    </h1>
-    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">Home</a></li>
-      
-        <li><a href="/about">About</a></li>
-      
-        <li><a href="/categories">Categories</a></li>
-      
-        <li><a href="/tags">Tags</a></li>
-      
-    </ul>
-  </nav>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Liang Xu</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Liang Xu</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-
-    <main class="site-main posts-loop">
-    
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/10/24/2018-10-24-pruneLfunction/"><span>pruneL function</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/10/24/2018-10-24-pruneLfunction/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-10-24T07:00:00.000Z">
-          2018-10-24
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>I guess this function is specially useful to <a target="_blank" rel="noopener" href="https://www.rug.nl/staff/r.s.etienne/">our group</a> in which we play with L table. But might be less useful than <code>phylo2L</code> function :-)</p>
-<p>Following last post, this function <code>pruneL</code> prunes an L table by removing the extinct lineages.</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/R/">R</a>, <a href="/categories/Research/R/phylogeny-function/">phylogeny function</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/phylogeny/">phylogeny</a><a href="/tags/phylo-class/">phylo class</a><a href="/tags/L-table/">L table</a><a href="/tags/DDD-package/">DDD package</a><a href="/tags/pruneL/">pruneL</a><a href="/tags/phylo2L/">phylo2L</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/10/23/2018-10-23-Blogging tech/"><span>Blogging tech</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/10/23/2018-10-23-Blogging tech/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-10-23T07:00:00.000Z">
-          2018-10-23
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>I am using <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">hexo</a> for blogging. The blog website is built on my personal <a href="https://xl0418.github.io/">Github Page</a>. The theme of the blog is <a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/">next</a> which is a powerful tool to customize the blog. Here I would like to share&#x2F;archive some useful tech for future use. </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Blogging/">Blogging</a>, <a href="/categories/Blogging/Blogging-tech/">Blogging tech</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Tech/">Tech</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/10/22/2018-10-22-IntrotoPro1/"><span>PhD Project 1-Detecting local diversity-dependence in diversification</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/10/22/2018-10-22-IntrotoPro1/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-10-22T07:00:00.000Z">
-          2018-10-22
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Welcome to <a href="https://xl0418.github.io/">Liang&apos;s blog</a>! This is my first PhD project since 2015 joining <a target="_blank" rel="noopener" href="https://www.rug.nl/staff/r.s.etienne/">Etienne&apos;s lab</a>. You will find a brief introduction to this project. The code for the model can be found on my <a target="_blank" rel="noopener" href="https://github.com/xl0418/code">GitHub</a>.</p>
-<p>This my first formal research project starting from December of 2015 to February 2018 when the paper gets published. It seems to take quite a long time. Because I spent some time to switch from mathematics to evolutionary science and writing paper costs time as well. Anyway, to commemorate the first paper. </p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Phd-projects/">Phd projects</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/evolution/">evolution</a><a href="/tags/mathematical-modeling/">mathematical modeling</a><a href="/tags/diversity-dependence/">diversity-dependence</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/10/20/hello-world/"><span>Hello World</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/10/20/hello-world/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-10-20T07:00:00.000Z">
-          2018-10-20
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Welcome to <a href="https://xl0418.github.io/">Liang&apos;s blog</a>! This site is my first blog for sharing my work experience plus a little bit life. </p>
-<h2 id="Categories"><a href="#Categories" class="headerlink" title="Categories"></a>Categories</h2><h3 id="Research"><a href="#Research" class="headerlink" title="Research"></a>Research</h3><p>This category mainly contains my PhD projects so far. More details can be found on my <a target="_blank" rel="noopener" href="https://www.researchgate.net/profile/Liang_Xu50"><strong>Research Gate</strong></a>. </p>
-<h3 id="BB-life"><a href="#BB-life" class="headerlink" title="BB life"></a>BB life</h3><p>Some interesting stuff about life. <strong>BB</strong>, in Chinese, means <strong>talk about</strong>, <strong>chat</strong>. </p>
-<h3 id="Work"><a href="#Work" class="headerlink" title="Work"></a>Work</h3><p>Not on work yet, although 3 years ago I was a lecturer in China. </p>
-<h3 id="Blogging"><a href="#Blogging" class="headerlink" title="Blogging"></a>Blogging</h3><p>Interesting technologies about blogging. </p>
-<p>At last, enjoy the blog. Hope you can find something useful. Or at least have fun :-)</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/BB-life/">BB life</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/info/">info</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-
-<nav class="pagination">
-  
-  <a href="/page/3/" class="pagination-prev">Prev</a>
-  
-  
-</nav>
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
-    
-    &copy; 2024 Liang Xu
-    
-  </p>
-</footer>
-    
-    
-  </div>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+    <div class="container profile-container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/"><img src="/image/4-4.jpg"></a>
+        </div>
+        <div class="nickname">Liang Xu</div>
+        <div class="description"><p>I specialize in understanding <strong>complex systems in ecology and evolution</strong>. <br>My research encompasses species interactions, the formation of morphological traits, <br>and the mechanisms that sustain trait diversity and biodiversity, particularly among coexisting species. <br>To address these questions, I develop and apply <strong>theoretical and simulation modeling</strong>, <br><strong>phylogenetic comparative methods</strong>, and <strong>statistical analysis</strong>. <br>Additionally, I have a strong interest in leveraging <strong>machine learning</strong> to explore biological <br>and genetic phenomena, particularly the associations between genotype and phenotype.</p>
 </div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Resume" href="/resume/Liang_CV.pdf">
+                        
+                        
+                            <i class="iconfont icon-resume"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/liangxuhuang">
+                        
+                        
+                            <i class="iconfont icon-linkedin"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" target="_blank" rel="noopener" href="https://github.com/xl0418">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
+        </div>
+    </div>
+</div>
+
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Liang Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
 </body>
+
 </html>

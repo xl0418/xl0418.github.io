@@ -1,728 +1,230 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  
-  <title>Liang Xu | This is Liang&#39;s blog for life and work archive.</title>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  
-  <meta name="author" content="Liang Xu">
-  
+    <meta name="author" content="Liang Xu">
 
-  
 
-  
+    <meta name="subtitle" content="This is Liang's blog for life and work.">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
 
-  <meta property="og:site_name" content="Liang Xu"/>
 
-  
-  <meta property="og:image" content="/favicon.ico"/>
-  
+<title>Liang Xu</title>
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
 
-
 <body>
-<div class="blog">
-  <div class="content">
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Liang Xu</a>
-    </h1>
-    <p class="site-description">This is Liang&#39;s blog for life and work archive.</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">Home</a></li>
-      
-        <li><a href="/about">About</a></li>
-      
-        <li><a href="/categories">Categories</a></li>
-      
-        <li><a href="/tags">Tags</a></li>
-      
-    </ul>
-  </nav>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Liang Xu</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Liang Xu</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/research">Research</a>
+                
+                    <a class="menu-item" href="/publication">Publications</a>
+                
+                    <a class="menu-item" href="/packages">Packages</a>
+                
+                    <a class="menu-item" href="/archives">Blog</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-
-    <main class="site-main posts-loop">
-    
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2024/02/26/2024-02-26-Resourcecompetitionseminar/"><span>Resource competition seminar 2024 Jan - April</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2024/02/26/2024-02-26-Resourcecompetitionseminar/" rel="bookmark">
-        <time class="entry-date published" datetime="2024-02-26T08:00:00.000Z">
-          2024-02-26
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>This seminar is organised by Christopher Klausmeier as the form of an online seminar on resource competition theory and related ecological theories from January 8th to April 15th 2024. The format is a mix of lectures and discussion of classic and recent papers. Some previous exposure to ecological theories and an intro grad level (e.g. population growth models &amp; competition theory) is desired.</p>
-<p>This blog is developed and maintained by Liang Xu, severing as an online lecture and providing an alternative to the programming illustration by Mathematica for those who cannot access Mathematica. The blog is developed using Quarto and hosted on GitHub. The interactive visulation of the model is implemented using R Shiny. If you have any questions or suggestions, or would like to help, make corrections, please feel free to contact me via Email.</p>
-<p>The link is <a href="https://xl0418.github.io/ResourceCompetitionSeminar/"><strong>HERE</strong></a>.</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Seminar/">Seminar</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Seminar/">Seminar</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2024/02/19/2024-02-19-bacdiversity/"><span>Supplementary material to the talk ME53A-01 -- Ocean Science Meeting 2024</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2024/02/19/2024-02-19-bacdiversity/" rel="bookmark">
-        <time class="entry-date published" datetime="2024-02-19T08:00:00.000Z">
-          2024-02-19
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Supplementary material following the presentation <a target="_blank" rel="noopener" href="https://agu.confex.com/agu/OSM24/meetingapp.cgi/Paper/1490335">“ME53A-01 A mechanistic species coexistence theory explains the observed increase in marine microbial biodiversity with”</a> at OSM 2024 is provided here:</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/OSM/">OSM</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/OSM/">OSM</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2023/04/01/2023-04-01-GetGenomeAnnotation/"><span>Get genomes, annotate genomes and analyze genomes </span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2023/04/01/2023-04-01-GetGenomeAnnotation/" rel="bookmark">
-        <time class="entry-date published" datetime="2023-04-01T07:00:00.000Z">
-          2023-04-01
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>A pipeline is created to estimate maximum growth rates of bacteria from a set of ASVs (fractions of genomes):</p>
-<ol>
-<li><p>Comparing ASVs with database to get the rough matches between genomes and ASVs; <strong>BLAST ASVs with database</strong> It is easy to feed ASVs fasta files to <a target="_blank" rel="noopener" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> to get the matches;   </p>
-</li>
-<li><p>Fetch full genome sequences from <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/">NCBI</a> by the genome ids;</p>
-</li>
-<li><p>Annotate genomes using <a target="_blank" rel="noopener" href="https://github.com/tseemann/prokka">Prokka</a>;</p>
-</li>
-<li><p>Using the annotated genomes to estimate the maximum growth rates of bacteria by <a target="_blank" rel="noopener" href="https://github.com/jlw-ecoevo/gRodon2">gRodon2</a>.</p>
-</li>
-</ol>
-<p>The pipeline is tested on <a target="_blank" rel="noopener" href="https://www.hpc.caltech.edu/"><strong>Caltech HPC</strong></a>.</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/bioinformatics/">bioinformatics</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/sh/">sh</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2023/03/20/2023-03-20-bioinfofresh/"><span>The first week of getting into the realm of bioinformatics</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2023/03/20/2023-03-20-bioinfofresh/" rel="bookmark">
-        <time class="entry-date published" datetime="2023-03-20T07:00:00.000Z">
-          2023-03-20
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>The simple workflow of the empirical part of my current project is:</p>
-<ol>
-<li><p>Compare the ASVs of the sampled bacteria with data bases to match and obtian possible species identification;</p>
-</li>
-<li><p>From the matched genome ids, fetch the full genome data from GenBank and other sources;</p>
-</li>
-<li><p>Annotate genome using “WHATEVER” programs. Sorry Xin, this word is so impressive to me;</p>
-</li>
-<li><p>Feed the annotated genes to <code>gRodon</code> to estimate the maximum growth rates of these bacteria.</p>
-</li>
-</ol>
-<p>Looks quite easy!</p>
-<p>CLICK THE TITLE TO SEE MORE PAIN!</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/bioinformatics/">bioinformatics</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/sh/">sh</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2023/03/17/2023-03-17-numericscheme/"><span>Several numerical schemes for 1 D advection</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2023/03/17/2023-03-17-numericscheme/" rel="bookmark">
-        <time class="entry-date published" datetime="2023-03-17T07:00:00.000Z">
-          2023-03-17
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Oceanic models often comprise two components. The biological part is to describe ecological interaction in food webs locally, often within a single water pacel. The other part makes use of physical modeling of fluid dynamics, simulating how the focal biotic and abiotic organisms move with water by diffusion and sinking.</p>
-<p>My project at Dept of Global Ecology of Carnegie Institute for Science at Stanford University is to use this type of oceanic models to look at the vertical profile of bacteria diversity formed by the ecological interaction and the vertical water transferring. </p>
-<p>One techniqe used in this research is to simulate the water advection by numerically integrating the fluid dynamics. Thus, the accuracy of the numerical integration is important to correctly capture the patterns of the focal tracers.</p>
-<p>Here in this post, I implemented several schemes to acheive the numerical integration. The code is adapted from the <a target="_blank" rel="noopener" href="https://learning-modules.mit.edu/materials/index.html?uuid=/course/16/fa16/16.920#materials"><strong>numerical methods for partial differential equations course</strong></a> from MIT. </p>
-<p>The implemented code can be found <a target="_blank" rel="noopener" href="https://github.com/GlobalMicroEco/SinkingSchemes"><strong>here</strong></a>.</p>
-<p>CLICK THE TITLE TO SEE MORE!</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Modeling/">Modeling</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2022/09/16/life/"><span>Back to life!</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2022/09/16/life/" rel="bookmark">
-        <time class="entry-date published" datetime="2022-09-17T05:53:36.000Z">
-          2022-09-16
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Back to life! </p>
-<p>Tough life in the past two years!</p>
-<p>My family – 3 humans and 1 cat – moved from the <strong>Netherlands</strong> to the <strong>UK</strong>, and from the <strong>UK</strong> to the <strong>US</strong>. </p>
-<p>Excited about the new life and new work in the new continent. </p>
-<p>Hope that I can update my blog regularly. </p>
-<p>Coming soon!</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/BB-life/">BB life</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Moving/">Moving</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2021/03/21/2021-03-21-Blender/"><span>Might be a good presentation for theoretical models?</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2021/03/21/2021-03-21-Blender/" rel="bookmark">
-        <time class="entry-date published" datetime="2021-03-21T07:00:00.000Z">
-          2021-03-21
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Moving from the Netherlands to the UK on 11th Jan 2021, just at the right time when brexit actually starts, when COVID-19 variant virues stopped down the UK, when everything is mess. However, we suceeded. Two grown-ups, one child and one cat. Anyway, I settled down now and started work in Oxford. Today, I’d like to share building a simple scene using <a target="_blank" rel="noopener" href="https://www.blender.org/">Blender</a> to present theoretical models.</p>
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Blender/">Blender</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2020/10/05/2020-10-05-update/"><span>Goodbye Groningen! Hello Oxford!</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2020/10/05/2020-10-05-update/" rel="bookmark">
-        <time class="entry-date published" datetime="2020-10-05T07:00:00.000Z">
-          2020-10-05
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>It’s been a while that I haven’t updated my work and life. On 5th of June, I finally defended my thesis and obtained PhD degree. My thesis can be found <a target="_blank" rel="noopener" href="https://www.rug.nl/about-ug/latest-news/events/promoties/promoties-2020?hfId=119206">HERE</a>. Thank my supervisor Prof. <a target="_blank" rel="noopener" href="https://www.rug.nl/staff/r.s.etienne/">Rampal S Etienne</a> and co-supervisor Dr. <a target="_blank" rel="noopener" href="https://www.rug.nl/staff/g.s.van.doorn/">Sander van Doorn</a> for their guidance in the last 5 years. Thank my  colleagues for their help on my work, thesis and the defense and the time we share together. Obtaining the degree was not the end of my acdemic life but a milestone and a new start for the next stage. </p>
-<p>Since March 2020 and even earlier, I have been looking for jobs, preferably postdoc positions. However, I don’t know whether it is due to the pandemic or not, instead of offers I got many rejections. It was a tough time period for me. Without boarding on a contract, I have no income but have a family to raise.  Luckly, my wife found a job, which seems to some extent to solve our finacial crisis. This allows me to focus on searching for opportunities. Eventually, I found some positions that have a good match for my background. I contacted the group leaders and job posters and tried to highlight myself to gain an interview chance. I got some nice replies but finally they rejected me. The worse part of these rejections is that I don’t even know why I got rejected and where I could improve myself. I started to have doubt on myself. Fortunately, I had one last chance in my first batch of applications.</p>
-<p>I encountered one job poster on LinkedIn in July when I was roaming on LinkedIn. Prof. <a target="_blank" rel="noopener" href="https://www.plants.ox.ac.uk/people/lindsay-turnbull">Lindsay Turnbull</a>‘s group at University of Oxford is looking for a postdoc to do simulation modeling on community plant assembly. This is exactly compatible with what I am doing on my third project, the best fit one of all the jobs I have ever applied. So, I saw a fair chance in the research. Immediately, I made the application and sent an email to Prof. Lindsay Turnbull. Very soon, I got reply from Lindsay and we had several back and forth communications. One month later, I got an interview invitation and we had a nice chat on my work and the plan of the work of this position. After one week, a formal offer is sent to me. </p>
-<p>Year 2020 is awful. However, we should never lose hope. By this post of an update of my recent situation and experience, I would like to encourage people who have currently been in trouble. Trace the rainbow in the rain. </p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/BB-life/">BB life</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Postdoc/">Postdoc</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2020/04/25/2020-04-25-Covid_19/"><span>Data visualization: develop a Shiny app to track COVID-19 spread.</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2020/04/25/2020-04-25-Covid_19/" rel="bookmark">
-        <time class="entry-date published" datetime="2020-04-25T07:00:00.000Z">
-          2020-04-25
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>The outbreak of the COVID-19 virus has given me a heavy punch. I have been isolated at home for almost two months with one trip to the nearest trash bin every week. What is even worse is that I cannot get any reply from job hunting. Being so stressed, I decided to develop a Shiny app to track the COVID-19 spread. Hope this may give me a sign of recovery of the world by examining daily data. More information can be found <a target="_blank" rel="noopener" href="https://liangxu-shinyapps.shinyapps.io/corona_shiny/"><strong>here</strong></a>. A differential equation model is still under construction. Coming soon. Enjoy!</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Modeling/">Modeling</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/R/">R</a><a href="/tags/simulation/">simulation</a><a href="/tags/coronavirus/">coronavirus</a><a href="/tags/pandemic/">pandemic</a><a href="/tags/data-visualization/">data visualization</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2020/04/02/2020-04-02-government&pandemic/"><span>The government should take a fast reaction to prevent COVID-19 development</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2020/04/02/2020-04-02-government&pandemic/" rel="bookmark">
-        <time class="entry-date published" datetime="2020-04-02T07:00:00.000Z">
-          2020-04-02
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>The outbreak of the COVID-19 virus has given the world a heavy punch in 2020. The growth infection over 30 countries in the world has seen the overwhelming power of the exponential spread of COVID-19 at the early stage. The White House Office of Science and Technology Policy (OSTP) pulled together a coalition research groups and companies (including Kaggle) to prepare the <a target="_blank" rel="noopener" href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge">COVID-19 Open Research Dataset (CORD-19)</a> to attempt to address <a target="_blank" rel="noopener" href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/tasks">key open scientific questions on COVID-19</a>. Those questions are drawn from <a target="_blank" rel="noopener" href="https://www.nationalacademies.org/event/03-11-2020/standing-committee-on-emerging-infectious-diseases-and-21st-century-health-threats-virtual-meeting-1">National Academies of Sciences, Engineering, and Medicine’s (NASEM)</a> and the <a target="_blank" rel="noopener" href="https://www.who.int/blueprint/priority-diseases/key-action/Global_Research_Forum_FINAL_VERSION_for_web_14_feb_2020.pdf?ua=1">World Health Organization (WHO)</a>. Flooded by the daily news of how serious the pandemic becomes, I am wondering whether and to what extent the government can stop the pandemic. Specifically, if the government takes a fast response to restrict social activities, will the pandemic be stopped at an early stage? Thus, I took part in one of the competition and built an individual-based virus spread model in which I considered how the speed of the government reaction affects pandemic development. It is an one-week competition that finished in this morning. I create this post by attaching my work <a href="https://xl0418.github.io/Kaggle_corona/"><strong>here</strong></a>. Enjoy!</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Research/">Research</a>, <a href="/categories/Research/Modeling/">Modeling</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Python/">Python</a><a href="/tags/simulation/">simulation</a><a href="/tags/coronavirus/">coronavirus</a><a href="/tags/pandemic/">pandemic</a><a href="/tags/government-measure/">government measure</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-
-<nav class="pagination">
-  
-  
-  <a href="/page/2/" class="pagination-next">Next</a>
-  
-</nav>
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
-    
-    &copy; 2024 Liang Xu
-    
-  </p>
-</footer>
-    
-    
-  </div>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+    <div class="container profile-container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/"><img src="/image/4-4.jpg"></a>
+        </div>
+        <div class="nickname">Liang Xu</div>
+        <div class="description"><p>I specialize in understanding <strong>complex systems in ecology and evolution</strong>. <br>My research encompasses species interactions, the formation of morphological traits, <br>and the mechanisms that sustain trait diversity and biodiversity, particularly among coexisting species. <br>To address these questions, I develop and apply <strong>theoretical and simulation modeling</strong>, <br><strong>phylogenetic comparative methods</strong>, and <strong>statistical analysis</strong>. <br>Additionally, I have a strong interest in leveraging <strong>machine learning</strong> to explore biological <br>and genetic phenomena, particularly the associations between genotype and phenotype.</p>
 </div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Resume" href="/resume/Liang_CV.pdf">
+                        
+                        
+                            <i class="iconfont icon-resume"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/liangxuhuang">
+                        
+                        
+                            <i class="iconfont icon-linkedin"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" target="_blank" rel="noopener" href="https://github.com/xl0418">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
+        </div>
+    </div>
+</div>
+
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Liang Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
 </body>
+
 </html>
